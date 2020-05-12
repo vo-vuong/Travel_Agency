@@ -10,8 +10,7 @@ namespace Model.EF
     public partial class ABOUT
     {
         [Key]
-        [StringLength(15)]
-        public string ma_About { get; set; }
+        public int ma_About { get; set; }
 
         [Required]
         [StringLength(255)]

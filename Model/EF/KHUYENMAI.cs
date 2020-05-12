@@ -16,8 +16,7 @@ namespace Model.EF
         }
 
         [Key]
-        [StringLength(15)]
-        public string ma_KhuyenMai { get; set; }
+        public int ma_KhuyenMai { get; set; }
 
         [Required]
         [StringLength(50)]

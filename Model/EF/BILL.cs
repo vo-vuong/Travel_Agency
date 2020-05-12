@@ -10,16 +10,13 @@ namespace Model.EF
     public partial class BILL
     {
         [Key]
-        [StringLength(15)]
-        public string ma_Bill { get; set; }
+        public int ma_Bill { get; set; }
 
         public int soLuong { get; set; }
 
-        [StringLength(15)]
-        public string ma_Tour { get; set; }
+        public int? ma_Tour { get; set; }
 
-        [StringLength(15)]
-        public string ma_TaiKhoan { get; set; }
+        public int? ma_TaiKhoan { get; set; }
 
         public DateTime? ngayTao { get; set; }
 

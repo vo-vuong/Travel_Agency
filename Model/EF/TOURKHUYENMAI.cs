@@ -9,11 +9,9 @@ namespace Model.EF
     [Table("TOURKHUYENMAI")]
     public partial class TOURKHUYENMAI
     {
-        [StringLength(15)]
-        public string ma_KhuyenMai { get; set; }
+        public int? ma_KhuyenMai { get; set; }
 
-        [StringLength(15)]
-        public string ma_Tour { get; set; }
+        public int? ma_Tour { get; set; }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

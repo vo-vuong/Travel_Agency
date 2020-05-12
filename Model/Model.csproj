@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\ABOUT.cs" />
     <Compile Include="EF\BAIVIET.cs" />
     <Compile Include="EF\BILL.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="EF\KHUYENMAI.cs" />
     <Compile Include="EF\LOAIBAIVIET.cs" />
     <Compile Include="EF\MESSAGE.cs" />
+    <Compile Include="EF\NHOMTAIKHOAN.cs" />
     <Compile Include="EF\SLIDE.cs" />
     <Compile Include="EF\TAIKHOAN.cs" />
     <Compile Include="EF\TOUR.cs" />
@@ -74,7 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAO\" />
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{243bb6e7-4e7a-4298-afe9-a6c473858d53}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -16,8 +16,7 @@ namespace Model.EF
         }
 
         [Key]
-        [StringLength(15)]
-        public string ma_DanhMuc { get; set; }
+        public int ma_DanhMuc { get; set; }
 
         [Required]
         [StringLength(50)]

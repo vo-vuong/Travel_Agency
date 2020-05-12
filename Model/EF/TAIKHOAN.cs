@@ -19,12 +19,13 @@ namespace Model.EF
         }
 
         [Key]
-        [StringLength(15)]
-        public string ma_TaiKhoan { get; set; }
+        public int ma_TaiKhoan { get; set; }
 
         [Required]
         [StringLength(50)]
         public string tenTaiKhoan { get; set; }
+
+        public int ma_Nhom { get; set; }
 
         [StringLength(50)]
         public string email { get; set; }
@@ -53,10 +54,6 @@ namespace Model.EF
         public DateTime? ngaySua { get; set; }
 
         public bool? status { get; set; }
-
-        [Required]
-        [StringLength(15)]
-        public string phanQuyen { get; set; }
 
         [StringLength(255)]
         public string hinhAnh { get; set; }

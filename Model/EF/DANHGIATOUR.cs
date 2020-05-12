@@ -10,8 +10,7 @@ namespace Model.EF
     public partial class DANHGIATOUR
     {
         [Key]
-        [StringLength(15)]
-        public string ma_DanhGia { get; set; }
+        public int ma_DanhGia { get; set; }
 
         public int diemDanhGia { get; set; }
 
@@ -22,8 +21,7 @@ namespace Model.EF
 
         public DateTime? ngaySua { get; set; }
 
-        [StringLength(15)]
-        public string ma_Tour { get; set; }
+        public int? ma_Tour { get; set; }
 
         public virtual TOUR TOUR { get; set; }
     }

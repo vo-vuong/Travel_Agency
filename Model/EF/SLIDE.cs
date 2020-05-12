@@ -17,8 +17,7 @@ namespace Model.EF
         }
 
         [Key]
-        [StringLength(15)]
-        public string ma_Slide { get; set; }
+        public int ma_Slide { get; set; }
 
         [StringLength(255)]
         public string urlSide { get; set; }

@@ -25,13 +25,10 @@ namespace Model.EF
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
         public virtual DbSet<TOUR> TOURs { get; set; }
         public virtual DbSet<TOURKHUYENMAI> TOURKHUYENMAIs { get; set; }
+        public virtual DbSet<NHOMTAIKHOAN> NHOMTAIKHOANs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DANHGIATOUR>()
-                .Property(e => e.ma_DanhGia)
-                .IsUnicode(false);
-
             modelBuilder.Entity<TAIKHOAN>()
                 .Property(e => e.dienThoai)
                 .IsUnicode(false);

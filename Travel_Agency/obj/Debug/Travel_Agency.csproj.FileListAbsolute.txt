@@ -57,3 +57,13 @@ E:\Web_MVC\Travel_Agency\Travel_Agency\obj\Debug\Travel_Agency.csprojAssemblyRef
 E:\Web_MVC\Travel_Agency\Travel_Agency\obj\Debug\Travel_Agency.csproj.CopyComplete
 E:\Web_MVC\Travel_Agency\Travel_Agency\obj\Debug\Travel_Agency.dll
 E:\Web_MVC\Travel_Agency\Travel_Agency\obj\Debug\Travel_Agency.pdb
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\Model.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\Model.pdb
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\Model.dll.config
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\Common.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\Common.pdb
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\BotDetect.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\BotDetect.Web.Mvc.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.xml
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.dll.config

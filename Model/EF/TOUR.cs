@@ -19,8 +19,7 @@ namespace Model.EF
         }
 
         [Key]
-        [StringLength(15)]
-        public string ma_Tour { get; set; }
+        public int ma_Tour { get; set; }
 
         [Required]
         [StringLength(255)]
@@ -49,14 +48,12 @@ namespace Model.EF
         [StringLength(255)]
         public string diaChiKhoiHanh { get; set; }
 
-        [StringLength(15)]
-        public string ma_Slide { get; set; }
+        public int? ma_Slide { get; set; }
 
         [StringLength(15)]
         public string ma_DoiTac { get; set; }
 
-        [StringLength(15)]
-        public string ma_DanhMuc { get; set; }
+        public int? ma_DanhMuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BILL> BILLs { get; set; }
