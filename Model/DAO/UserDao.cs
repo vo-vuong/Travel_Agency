@@ -17,6 +17,23 @@ namespace Model.DAO
             db = new Travel_AgencyDbContext();
         }
 
+        public bool CheckMail(string email)
+        {
+            return db.TAIKHOANs.Count(x => x.email == email) > 0;
+        }
+
+        public bool CheckUserName(string userName)
+        {
+            return db.TAIKHOANs.Count(x => x.tenTaiKhoan == userName) > 0;
+        }
+
+        public int Create(TAIKHOAN entity)
+        {
+            db.TAIKHOANs.Add(entity);
+            db.SaveChanges();
+            return entity.ma_TaiKhoan;
+        }
+
         public int Login(string userName, string password, bool isLoginAdmin = false)
         {
             var result = db.TAIKHOANs.SingleOrDefault(x => x.tenTaiKhoan == userName);

@@ -41,7 +41,6 @@ namespace Model.EF
         [StringLength(255)]
         public string diaChi { get; set; }
 
-        [Required]
         [StringLength(15)]
         public string dienThoai { get; set; }
 
