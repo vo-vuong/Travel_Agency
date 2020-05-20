@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Travel_Agency.Areas.Admin.Models
 {
-    public class RegisterForAdmin
+    public class RegisterForAdminModel
     {
         public string ID { get; set; }
 
@@ -45,12 +45,14 @@ namespace Travel_Agency.Areas.Admin.Models
 
         [DisplayName("Ngày sinh")]
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Yêu cầu nhập ngày sinh")]
         public string dateOfBirth { get; set; }
 
         [DisplayName("Giới tính")]
         public bool gender { get; set; }
 
         [DisplayName("Trạng thái")]
+        [Required(ErrorMessage = "Yêu cầu chọn trạng thái tài khoản")]
         public bool status { get; set; }
 
         [DisplayName("Ảnh đại diện")]

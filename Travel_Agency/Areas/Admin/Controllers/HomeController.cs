@@ -13,5 +13,6 @@ namespace Travel_Agency.Areas.Admin.Controllers
         {
             return View();
         }
+
     }
 }

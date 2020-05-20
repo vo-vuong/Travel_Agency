@@ -1,4 +1,4 @@
-﻿@model Travel_Agency.Areas.Admin.Models.RegisterForAdmin
+﻿@model Travel_Agency.Areas.Admin.Models.RegisterForAdminModel
 
 @{
     ViewBag.Title = "Đăng kí";
@@ -45,7 +45,7 @@
             <div class="col-md-3">
                 Admin
                 @Html.RadioButtonFor(model => model.idUserGroup, "1")
-                User
+                Client
                 @Html.RadioButtonFor(model => model.idUserGroup, "2",new {@checked="checked"})
                 @Html.ValidationMessageFor(model => model.idUserGroup, "", new { @class = "text-danger" })
             </div>
@@ -105,7 +105,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.CheckBoxFor(model => model.status, "True")
+                @Html.CheckBoxFor(model => model.status)
                 @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
             </div>
         </div>

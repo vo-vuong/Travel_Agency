@@ -67,3 +67,11 @@ E:\Web_MVC\Travel_Agency\Travel_Agency\bin\BotDetect.Web.Mvc.dll
 E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.dll
 E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.xml
 E:\Web_MVC\Travel_Agency\Travel_Agency\bin\System.Data.SQLite.dll.config
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\PagedList.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\PagedList.Mvc.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\PagedList.xml
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\PagedList.Mvc.xml
+E:\Web_MVC\Travel_Agency\Travel_Agency\obj\Debug\Travel_Agency.csproj.CoreCompileInputs.cache
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\CaptchaMvc.dll
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\CaptchaMvc.pdb
+E:\Web_MVC\Travel_Agency\Travel_Agency\bin\CaptchaMvc.xml

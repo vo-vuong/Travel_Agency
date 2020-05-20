@@ -44,7 +44,7 @@ namespace Model.EF
         [StringLength(15)]
         public string dienThoai { get; set; }
 
-        public DateTime? ngaySinh { get; set; }
+        public DateTime ngaySinh { get; set; }
 
         public bool? gioiTinh { get; set; }
 
@@ -52,7 +52,7 @@ namespace Model.EF
 
         public DateTime? ngaySua { get; set; }
 
-        public bool? status { get; set; }
+        public bool status { get; set; }
 
         [StringLength(255)]
         public string hinhAnh { get; set; }

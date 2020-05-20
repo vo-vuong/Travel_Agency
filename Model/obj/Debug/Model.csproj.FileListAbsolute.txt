@@ -11,3 +11,8 @@ E:\Web_MVC\Travel_Agency\Model\obj\Debug\Model.dll
 E:\Web_MVC\Travel_Agency\Model\obj\Debug\Model.pdb
 E:\Web_MVC\Travel_Agency\Model\bin\Debug\Common.dll
 E:\Web_MVC\Travel_Agency\Model\bin\Debug\Common.pdb
+E:\Web_MVC\Travel_Agency\Model\bin\Debug\PagedList.dll
+E:\Web_MVC\Travel_Agency\Model\bin\Debug\PagedList.Mvc.dll
+E:\Web_MVC\Travel_Agency\Model\bin\Debug\PagedList.xml
+E:\Web_MVC\Travel_Agency\Model\bin\Debug\PagedList.Mvc.xml
+E:\Web_MVC\Travel_Agency\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache

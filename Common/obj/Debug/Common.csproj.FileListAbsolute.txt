@@ -3,3 +3,9 @@ E:\Web_MVC\Travel_Agency\Common\bin\Debug\Common.pdb
 E:\Web_MVC\Travel_Agency\Common\obj\Debug\Common.csprojAssemblyReference.cache
 E:\Web_MVC\Travel_Agency\Common\obj\Debug\Common.dll
 E:\Web_MVC\Travel_Agency\Common\obj\Debug\Common.pdb
+E:\Web_MVC\Travel_Agency\Common\bin\Debug\PagedList.dll
+E:\Web_MVC\Travel_Agency\Common\bin\Debug\PagedList.Mvc.dll
+E:\Web_MVC\Travel_Agency\Common\bin\Debug\PagedList.xml
+E:\Web_MVC\Travel_Agency\Common\bin\Debug\PagedList.Mvc.xml
+E:\Web_MVC\Travel_Agency\Common\obj\Debug\Common.csproj.CopyComplete
+E:\Web_MVC\Travel_Agency\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache

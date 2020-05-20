@@ -21,7 +21,7 @@
     <!-- Custom Fonts -->
     <link href="/Assets/Admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    @RenderSection("Captcha",false)
+    @RenderSection("Captcha", false)
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,6 +48,12 @@
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
                  @RenderBody()
             </div>
             <!-- /.row -->
@@ -59,7 +65,7 @@
     <!-- /#wrapper -->
     <!-- jQuery -->
     <script src="/Assets/Admin/js/jquery.min.js"></script>
-
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/Assets/Admin/js/bootstrap.min.js"></script>
 
@@ -68,6 +74,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/Assets/Admin/js/startmin.js"></script>
+
+    <!-- Render js section-->
+    @RenderSection("footer", required: false)
 
 </body>
 </html>

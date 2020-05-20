@@ -11,21 +11,26 @@ using Travel_Agency.Common;
 
 namespace Travel_Agency.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         // GET: Admin/User
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 1)
         {
-            return View();
+            var dao = new UserDao();
+            var model = dao.ListAllPaging(searchString, pageStart,pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
 
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterForAdmin model)
+        public ActionResult Register(RegisterForAdminModel model)
         {
             if (ModelState.IsValid)
             {
@@ -48,20 +53,60 @@ namespace Travel_Agency.Areas.Admin.Controllers
                     user.hoTen = model.name;
                     user.diaChi = model.address;
                     user.dienThoai = model.phone;
-                    if (model.dateOfBirth != null)
-                    {
-                        user.ngaySinh = Convert.ToDateTime(model.dateOfBirth);
-                    }
-                    else
-                    {
-                        user.ngaySinh = null;
-                    }
+                    user.ngaySinh = Convert.ToDateTime(model.dateOfBirth);
                     user.gioiTinh = model.gender;
                     user.status = model.status;
                     user.hinhAnh = model.avatar;
                     dao.Create(user);
                 }
             }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var dao = new UserDao();
+            var model = dao.ViewDetail(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(TAIKHOAN model)
+        {
+            var dao = new UserDao();
+            if (ModelState.IsValid)
+            {
+                if(!string.IsNullOrEmpty(model.matKhau))
+                {
+                    var passMD5 = Encryptor.MD5Hash(model.matKhau);
+                    model.matKhau = passMD5;
+                }
+
+                bool result = dao.Edit(model);
+                if (result)
+                {
+                    SetAlert("Sửa thành công", "success");
+                    return RedirectToAction("Index", "User");
+                }
+                else
+                {
+                    SetAlert("Cập nhật không thành công", "error");
+                    ModelState.AddModelError("", "Cập nhật không thành công");
+                }
+            }
+            return View("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var dao = new UserDao().Delete(id);
+            return View("Index");
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var model = new UserDao().ViewDetail(id);
             return View(model);
         }
     }
