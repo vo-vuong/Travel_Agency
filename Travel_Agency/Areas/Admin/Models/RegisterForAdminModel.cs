@@ -9,6 +9,7 @@ namespace Travel_Agency.Areas.Admin.Models
 {
     public class RegisterForAdminModel
     {
+        [Key]
         public string ID { get; set; }
 
         [DisplayName("Tên đăng nhập")]
