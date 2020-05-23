@@ -1,0 +1,12 @@
+E:\Web_MVC\TravelAgency\Model\bin\Debug\Model.dll.config
+E:\Web_MVC\TravelAgency\Model\bin\Debug\Model.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\Model.pdb
+E:\Web_MVC\TravelAgency\Model\bin\Debug\EntityFramework.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\EntityFramework.xml
+E:\Web_MVC\TravelAgency\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.csproj.CopyComplete
+E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.dll
+E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.pdb
