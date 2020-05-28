@@ -43,7 +43,7 @@ namespace Model.EF
         [StringLength(15)]
         public string PhoneNumber { get; set; }
 
-        public DateTime? BirthDay { get; set; }
+        public DateTime BirthDay { get; set; }
 
         public bool? Grener { get; set; }
 
@@ -51,7 +51,7 @@ namespace Model.EF
 
         public DateTime? DateModified { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         [StringLength(255)]
         public string Image { get; set; }

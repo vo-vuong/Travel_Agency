@@ -10,3 +10,9 @@ E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.csproj.CopyComplete
 E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.dll
 E:\Web_MVC\TravelAgency\Model\obj\Debug\Model.pdb
+E:\Web_MVC\TravelAgency\Model\bin\Debug\CommonModel.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\CommonModel.pdb
+E:\Web_MVC\TravelAgency\Model\bin\Debug\PagedList.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\PagedList.Mvc.dll
+E:\Web_MVC\TravelAgency\Model\bin\Debug\PagedList.xml
+E:\Web_MVC\TravelAgency\Model\bin\Debug\PagedList.Mvc.xml
