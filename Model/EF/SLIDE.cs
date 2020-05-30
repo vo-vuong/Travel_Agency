@@ -13,7 +13,6 @@ namespace Model.EF
         public SLIDE()
         {
             CONTENTs = new HashSet<CONTENT>();
-            TOURs = new HashSet<TOUR>();
         }
 
         [Key]
@@ -28,8 +27,5 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONTENT> CONTENTs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TOUR> TOURs { get; set; }
     }
 }

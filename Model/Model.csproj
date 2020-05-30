@@ -59,7 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CategoryTourDao.cs" />
     <Compile Include="Dao\LoginDao.cs" />
+    <Compile Include="Dao\TourDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserGroupDao.cs" />
     <Compile Include="EF\ABOUT.cs" />

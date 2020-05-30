@@ -29,6 +29,9 @@ namespace Model.EF
         [Required]
         public string Description { get; set; }
 
+        [StringLength(255)]
+        public string Image { get; set; }
+
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
@@ -40,15 +43,13 @@ namespace Model.EF
 
         public DateTime? DateModified { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
-        public DateTime? DateStart { get; set; }
+        public DateTime DateStart { get; set; }
 
         [Required]
         [StringLength(255)]
         public string LocationStart { get; set; }
-
-        public int? IDSlide { get; set; }
 
         public int? IDCategory { get; set; }
 
@@ -60,7 +61,6 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMMENT> COMMENTs { get; set; }
 
-        public virtual SLIDE SLIDE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TOUREVALUATION> TOUREVALUATIONs { get; set; }
