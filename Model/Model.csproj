@@ -59,7 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CategoryContentDao.cs" />
     <Compile Include="Dao\CategoryTourDao.cs" />
+    <Compile Include="Dao\ContentDao.cs" />
     <Compile Include="Dao\LoginDao.cs" />
     <Compile Include="Dao\TourDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="EF\TravelAgencyDbContext.cs" />
     <Compile Include="EF\USERGROUP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ContentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

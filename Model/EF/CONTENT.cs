@@ -16,8 +16,6 @@ namespace Model.EF
         [StringLength(255)]
         public string ContentName { get; set; }
 
-        public int? IDSlide { get; set; }
-
         [Column(TypeName = "ntext")]
         public string body { get; set; }
 
@@ -25,9 +23,9 @@ namespace Model.EF
 
         public DateTime? DateModified { get; set; }
 
-        public bool? status { get; set; }
+        public bool status { get; set; }
 
-        public DateTime? dateShow { get; set; }
+        public DateTime dateShow { get; set; }
 
         public int? IDContentCategory { get; set; }
 
@@ -37,6 +35,5 @@ namespace Model.EF
 
         public virtual CONTENTCATEGORY CONTENTCATEGORY { get; set; }
 
-        public virtual SLIDE SLIDE { get; set; }
     }
 }
