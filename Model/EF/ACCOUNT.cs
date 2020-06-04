@@ -14,8 +14,8 @@ namespace Model.EF
         {
             BILLs = new HashSet<BILL>();
             COMMENTs = new HashSet<COMMENT>();
-            CONTENTs = new HashSet<CONTENT>();
             MESSAGEs = new HashSet<MESSAGE>();
+            CONTENTs = new HashSet<CONTENT>();
         }
 
         [Key]
@@ -56,6 +56,7 @@ namespace Model.EF
         [StringLength(255)]
         public string Image { get; set; }
 
+        [Required]
         [StringLength(20)]
         public string IDUserGroup { get; set; }
 
@@ -68,9 +69,9 @@ namespace Model.EF
         public virtual ICollection<COMMENT> COMMENTs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CONTENT> CONTENTs { get; set; }
+        public virtual ICollection<MESSAGE> MESSAGEs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MESSAGE> MESSAGEs { get; set; }
+        public virtual ICollection<CONTENT> CONTENTs { get; set; }
     }
 }

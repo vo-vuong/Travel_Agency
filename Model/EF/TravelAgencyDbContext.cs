@@ -19,12 +19,14 @@ namespace Model.EF
         public virtual DbSet<COMMENT> COMMENTs { get; set; }
         public virtual DbSet<CONTENT> CONTENTs { get; set; }
         public virtual DbSet<CONTENTCATEGORY> CONTENTCATEGORies { get; set; }
+        public virtual DbSet<MENUTYPE> MENUTYPEs { get; set; }
         public virtual DbSet<MESSAGE> MESSAGEs { get; set; }
         public virtual DbSet<SALE> SALEs { get; set; }
         public virtual DbSet<SLIDE> SLIDEs { get; set; }
         public virtual DbSet<TOUR> TOURs { get; set; }
         public virtual DbSet<TOUREVALUATION> TOUREVALUATIONs { get; set; }
         public virtual DbSet<USERGROUP> USERGROUPs { get; set; }
+        public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<TOURSALE> TOURSALEs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,9 +35,23 @@ namespace Model.EF
                 .Property(e => e.PhoneNumber)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<MENUTYPE>()
+                .HasMany(e => e.MENUs)
+                .WithOptional(e => e.MENUTYPE)
+                .HasForeignKey(e => e.TypeID);
+
             modelBuilder.Entity<TOUR>()
                 .Property(e => e.Price)
-                .HasPrecision(19, 4);
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<USERGROUP>()
+                .HasMany(e => e.ACCOUNTs)
+                .WithRequired(e => e.USERGROUP)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TOURSALE>()
+                .Property(e => e.SaleRate)
+                .HasPrecision(18, 0);
         }
     }
 }

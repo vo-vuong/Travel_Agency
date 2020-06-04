@@ -19,6 +19,12 @@ namespace Model.EF
         [Column(TypeName = "ntext")]
         public string body { get; set; }
 
+        [StringLength(500)]
+        public string shortBody { get; set; }
+
+        [StringLength(255)]
+        public string Image { get; set; }
+
         public DateTime? DateCreated { get; set; }
 
         public DateTime? DateModified { get; set; }
@@ -34,6 +40,5 @@ namespace Model.EF
         public virtual ACCOUNT ACCOUNT { get; set; }
 
         public virtual CONTENTCATEGORY CONTENTCATEGORY { get; set; }
-
     }
 }

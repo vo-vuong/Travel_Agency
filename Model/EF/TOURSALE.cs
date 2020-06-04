@@ -14,8 +14,12 @@ namespace Model.EF
         public int? IDTour { get; set; }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SaleRate { get; set; }
+        [Column(Order = 0)]
+        public decimal? SaleRate { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        public bool Status { get; set; }
 
         public virtual SALE SALE { get; set; }
 
