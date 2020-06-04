@@ -24,8 +24,6 @@ namespace Model.EF
 
         public bool? Status { get; set; }
 
-        public int? TypeID { get; set; }
-
-        public virtual MENUTYPE MENUTYPE { get; set; }
+        public int? ParentID { get; set; }
     }
 }

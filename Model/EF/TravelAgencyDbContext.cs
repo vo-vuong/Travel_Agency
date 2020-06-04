@@ -19,7 +19,6 @@ namespace Model.EF
         public virtual DbSet<COMMENT> COMMENTs { get; set; }
         public virtual DbSet<CONTENT> CONTENTs { get; set; }
         public virtual DbSet<CONTENTCATEGORY> CONTENTCATEGORies { get; set; }
-        public virtual DbSet<MENUTYPE> MENUTYPEs { get; set; }
         public virtual DbSet<MESSAGE> MESSAGEs { get; set; }
         public virtual DbSet<SALE> SALEs { get; set; }
         public virtual DbSet<SLIDE> SLIDEs { get; set; }
@@ -34,11 +33,6 @@ namespace Model.EF
             modelBuilder.Entity<ACCOUNT>()
                 .Property(e => e.PhoneNumber)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<MENUTYPE>()
-                .HasMany(e => e.MENUs)
-                .WithOptional(e => e.MENUTYPE)
-                .HasForeignKey(e => e.TypeID);
 
             modelBuilder.Entity<TOUR>()
                 .Property(e => e.Price)
