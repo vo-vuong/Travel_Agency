@@ -19,7 +19,7 @@ namespace TravelAgency.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 10)
         {
             var model = new UserDao().ListAllPaging(searchString, pageStart, pageSize);
             ViewBag.SearchString = searchString;

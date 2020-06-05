@@ -58,10 +58,11 @@ namespace Model.Dao
                 var content = db.CONTENTs.Find(entity.IDContent);
                 content.ContentName = entity.ContentName;
                 content.body = entity.body;
+                content.shortBody = entity.shortBody;
+                content.Image = entity.Image;
                 content.DateModified = DateTime.Now;
                 content.status = entity.status;
                 content.IDContent = entity.IDContent;
-                content.IDAccount = entity.IDAccount;
                 db.SaveChanges();
                 return true;
 
@@ -86,6 +87,22 @@ namespace Model.Dao
                 return false;
             }
         }
+
+
+        //Section Client
+        #region
+
+        public List<CONTENT> ListContentNew(int top)
+        {
+            return db.CONTENTs.Where(x => x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.dateShow).Take(top).ToList();
+        }
+
+        #endregion
+
+
+
+
+
 
     }
 }

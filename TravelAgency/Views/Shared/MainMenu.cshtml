@@ -1,0 +1,12 @@
+﻿@model List<Model.EF.MENU>
+
+<ul class="menu">
+    @foreach (var item in Model.Where(x => x.ParentID == null))
+    {
+        var child = Model.Where(x => x.ParentID == item.ID);
+
+        <li class="tourtrongnuoc">
+            <a href="@item.Link">@item.Text</a>
+        </li>
+    }
+</ul>

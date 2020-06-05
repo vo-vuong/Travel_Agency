@@ -46,6 +46,25 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.shortBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @{
+                var srcImg = Model.Image;
+            }
+            <img src="@srcImg" style="height:300px;width:300px;" />
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.DateCreated)
         </dt>
 

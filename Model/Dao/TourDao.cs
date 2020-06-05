@@ -58,6 +58,7 @@ namespace Model.Dao
                 tour.Quantity = entity.Quantity;
                 tour.Status = entity.Status;
                 tour.DateStart = entity.DateStart;
+                tour.Time = entity.Time;
                 tour.LocationStart = entity.LocationStart;
                 tour.IDCategory = entity.IDCategory;
                 tour.DateModified = DateTime.Now;
@@ -99,6 +100,32 @@ namespace Model.Dao
                 return false;
             }
         }
+
+
+        //Section Client
+        #region
+
+        public List<TOUR> ListNewTour(int top)
+        {
+            return db.TOURs.Where(x => x.Status == true).OrderByDescending(x => x.DateCreated).ToList();
+        }
+
+        public List<TOUR> ListTourAbroad(int top)
+        {
+            return db.TOURs.Where(x => x.IDCategory == 2 && x.Status == true).OrderByDescending(x => x.DateCreated).Take(top).ToList();
+        }
+
+        public List<TOUR> ListTourDomestic(int top)
+        {
+            return db.TOURs.Where(x => x.IDCategory == 1 && x.Status == true).OrderByDescending(x => x.DateCreated).Take(top).ToList();
+        }
+
+        public List<TOUR> ListTourHot(int top)
+        {
+            return db.TOURs.Where(x => x.Status == true).OrderBy(x => x.DateStart).Take(top).ToList();
+        }
+
+        #endregion
 
     }
 }
