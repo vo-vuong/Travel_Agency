@@ -67,3 +67,8 @@ E:\Web_MVC\TravelAgency\TravelAgency\bin\PagedList.dll
 E:\Web_MVC\TravelAgency\TravelAgency\bin\PagedList.Mvc.dll
 E:\Web_MVC\TravelAgency\TravelAgency\bin\PagedList.xml
 E:\Web_MVC\TravelAgency\TravelAgency\bin\PagedList.Mvc.xml
+E:\Web_MVC\TravelAgency\TravelAgency\bin\BotDetect.dll
+E:\Web_MVC\TravelAgency\TravelAgency\bin\BotDetect.Web.Mvc.dll
+E:\Web_MVC\TravelAgency\TravelAgency\bin\System.Data.SQLite.dll
+E:\Web_MVC\TravelAgency\TravelAgency\bin\System.Data.SQLite.xml
+E:\Web_MVC\TravelAgency\TravelAgency\bin\System.Data.SQLite.dll.config

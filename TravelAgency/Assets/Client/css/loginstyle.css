@@ -1,126 +1,69 @@
-.wrapper .header .logo{
-	width: 130px;
-	height: 70px;
-	position: absolute;
-	left: 220px;
-
+.wrapper .header .logo {
+    width: 130px;
+    height: 70px;
+    position: absolute;
+    left: 220px;
 }
-.wrapper .header input{
-	position: absolute;
+
+.wrapper .header input {
+    position: absolute;
     top: 25px;
     left: 489px;
     width: 410px;
     height: 30px;
     border: 1px solid #1BA0E2;
 }
-.wrapper .header button{
+
+.wrapper .header button {
     position: absolute;
     top: 25px;
     left: 901px;
     width: 90px;
-	height: 34px;
-	color: #FFFFFF;
+    height: 34px;
+    color: #FFFFFF;
     background-color: #1BA0E2;
     border: 1px solid #1BA0E2;
 }
-.wrapper .title{
-	width: 100%;
-	height: 40px;
-	background-color: #F3F5F7;
-	position: relative;
-	top: 80px;
+
+.wrapper .title {
+    width: 100%;
+    height: 40px;
+    background-color: #F3F5F7;
+    position: relative;
+    top: 80px;
 }
-.wrapper .title a{
-	text-decoration: none;
-	color: #848484;
-	position: relative;
-	top: 10px;
-	left: 200px;
-	font-size: 19px;
-}
-.wrapper .title span{
-	color: #848484;
-	position: relative;
-	top: 10px;
-	left: 200px;
-}
-.wrapper .title a:hover{
-	color: #1BA0E2;
-}
-.wrapper .title .dangnhap{
-	text-decoration: none;
-	color: #1BA0E2;
-	position: relative;
-	top: 10px;
-	left: 200px;
-	font-size: 19px;
-	border: none;
-}
-.wrapper .content{
-	position: relative;
-	top: 100px;
-}
-.wrapper .content .form{
-	position: relative;
-	top: 90px;
-	left: 580px;
-	border: 2px solid #0033FF;
-	width: 350px;
-	height: 270px;
-}
-.wrapper .content .form label{
-	color: #0000FF;
-	font-size: 16px;
-	font-weight: bold;
-	position: relative;
-	left: 25px;
-}
-.wrapper .content .form input{
-	width: 300px;
-	height: 30px;
-	position: relative;
-	left: 25px;
-	border-radius: 5px;
-	border: 2px solid #33FF66;
-}
-.wrapper .content .form button{
-	width: 300px;
-	height: 40px;
-	color: #FFFFFF;
-	background-color: #1BA0E2;
-	border: 1px solid #1BA0E2;
-	border-radius: 5px;
-	position: relative;
-	left: 26px;
-}
-.wrapper .content .form button:hover{
-	background-color: #6633CC;
-}
-.wrapper .content .form .memorize{
-	position: relative;
-	top: -5px;
-	left: 0px;
-	width: 175px;
-}
-.wrapper .content .form .memorize input{
-	float: left;
-	width: 15px;
-	height: 15px
-}
-.wrapper .content .form .memorize p{
-	float: right;
-	font-weight: bold;
-	color: #0000FF;
-	font-size: 16px;
-}
-.wrapper .content .form a{
-	position: relative;
-	left: 203px;
-	top: 10px;
-	text-decoration: none;
-	color: #0000FF;
-	font-size: 17px;
-}
-.wrapper .content .form a:hover{
-	color: #DD0000;
+
+    .wrapper .title a {
+        text-decoration: none;
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+    }
+
+    .wrapper .title span {
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+    }
+
+    .wrapper .title a:hover {
+        color: #1BA0E2;
+    }
+
+    .wrapper .title .dangnhap {
+        text-decoration: none;
+        color: #1BA0E2;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+        border: none;
+    }
+
+.wrapper .content {
+    position: relative;
+    top: 150px;
 }

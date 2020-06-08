@@ -13,6 +13,31 @@ namespace TravelAgency
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}",
+              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
+            routes.MapRoute(
+                name: "Home",
+                url: "trang-chu",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Signup",
+                url: "dang-ki",
+                defaults: new { controller = "Signup", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

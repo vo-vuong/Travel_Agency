@@ -5,9 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Travel_Agency.Common;
-using TravelAgency.Areas.Admin.Models;
 using TravelAgency.Common;
+using TravelAgency.Areas.Admin.Models;
 
 namespace TravelAgency.Areas.Admin.Controllers
 {

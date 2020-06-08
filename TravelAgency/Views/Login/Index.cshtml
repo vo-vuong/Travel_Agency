@@ -1,0 +1,79 @@
+﻿@model TravelAgency.Models.LoginModel
+@using BotDetect.Web.Mvc;
+@{
+    MvcCaptcha LoginCaptcha = new MvcCaptcha("LoginCaptcha");
+    
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng nhập tài khoản</title>
+    <meta charset="utf-8">
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
+    <link href="~/Assets/Client/css/loginstyle.css" rel="stylesheet" />
+
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+          rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
+            <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
+            <button>Tìm kiếm</button>
+        </div>
+        <div class="title">
+            <a href="/trang-chu">Trang chủ</a>
+            <span>/</span>
+            <a class="dangnhap">Đăng nhập tài khoản</a>
+        </div>
+        <div class="content">
+            <div class="col-md-3 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-body">
+                        @using (Html.BeginForm("index", "Login", FormMethod.Post, new { @class = "form" }))
+                        {
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "col-md-5" })
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(model => model.userName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "col-md-5" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                @Html.Captcha(LoginCaptcha)
+                                @Html.TextBox("CaptchaCode")
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.CheckBoxFor(model => model.Remember) Ghi nhớ mật khẩu
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-lg  btn-block">Đăng nhập</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

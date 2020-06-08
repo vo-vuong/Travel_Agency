@@ -4,7 +4,7 @@
     <title>Quản lý tour du lịch</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/Assets/Client/css/homestyle.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/css/home.css">
     <script type="text/javascript">
         window.onload = function () {
             setTimeout("switch_Image()", 6000);
@@ -24,17 +24,46 @@
     </script>
 </head>
 <body>
+    @{
+        var session = (TravelAgency.Common.UserLogin)Session[TravelAgency.Common.CommonConstant.USER_SESSION];
+    }
     <div class="wrapper">
         <div class="header">
             <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
             <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
             <button>Tìm kiếm</button>
-            <a href="signup.html">
-                <h3 class="signup">Đăng ký</h3>
-            </a><span>/</span>
-            <a href="login.html">
-                <h3 class="login">Đăng nhập</h3>
-            </a>
+            @if (session == null)
+            {
+                <a href="/dang-ki">
+                    <h3 class="signup">Đăng ký</h3>
+                </a><span>/</span>
+                <a href="/dang-nhap">
+                    <h3 class="login">Đăng nhập</h3>
+                </a>
+            }
+            <div class="avatar-user">
+                @if (session != null)
+                {
+                    <h4 class="avatar-drop">@session.userName</h4><br><br>
+                }
+                <ul class="drop">
+                    <li class="dropson">
+                        @if (session != null)
+                        {
+                            <img class="avatar" src="@session.Image">
+                        }
+                        <ul class="subbtn">
+                            @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                            {
+                                <li><button>Đăng xuất</button></li>
+                            }
+                            <li><button>Xem thông tin tài khoản</button></li>
+                            <li><button>Lịch sử giao dịch</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
         </div>
         <div>
             @{ Html.RenderAction("MainMenu", "Home");}
@@ -68,27 +97,7 @@
 
         @RenderBody()
 
-        <div class="footer">
-            <div class="fbtwis">
-                <a href="#">
-                    <img src="/Assets/Client/images/fb.jpg" title="facebook">
-                </a>
-                <a href="#">
-                    <img src="/Assets/Client/images/tw.jpg" title="twitter">
-                </a>
-                <a href="#">
-                    <img src="/Assets/Client/images/is.jpg" title="instagram">
-                </a>
-            </div>
-            <div class="goiy">
-                <h3>ĐĂNG KÝ NHẬN TIN</h3>
-                <p>Các deal du lịch giảm giá đến 60% sẽ được gửi đến bạn</p>
-            </div>
-            <div class="email">
-                <input type="text" name="email" placeholder=" Email của bạn là ...">
-                <button>Đăng ký</button>
-            </div>
-        </div>
+        @RenderPage("Footer.cshtml")
     </div>
 </body>
 </html>
