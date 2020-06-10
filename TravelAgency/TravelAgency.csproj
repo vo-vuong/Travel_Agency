@@ -158,6 +158,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
@@ -1212,6 +1213,7 @@
     <Content Include="Assets\Admin\js\Plugins\ckfinder\_samples\standalone_v1.html" />
     <Content Include="Assets\Admin\js\raphael.min.js" />
     <Content Include="Assets\Admin\js\startmin.js" />
+    <Content Include="Assets\Client\css\ccc.css" />
     <Content Include="Assets\Client\css\home.css" />
     <Content Include="Assets\Client\css\loginstyle.css" />
     <Content Include="Assets\Client\css\reset.css" />
@@ -1445,6 +1447,11 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Signup\Index.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\Shared\ContentHot.cshtml" />
+    <Content Include="Views\Content\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

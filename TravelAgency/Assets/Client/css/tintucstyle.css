@@ -1,277 +1,514 @@
-.wrapper .header .logo{
-	width: 130px;
-	height: 70px;
-	position: absolute;
-	left: 220px;
-
+.wrapper .header .logo {
+    width: 130px;
+    height: 70px;
+    position: absolute;
+    left: 220px;
 }
-.wrapper .header input{
-	position: absolute;
+
+.wrapper .header input {
+    position: absolute;
     top: 25px;
     left: 489px;
     width: 410px;
     height: 30px;
     border: 1px solid #1BA0E2;
 }
-.wrapper .header button{
+
+.wrapper .header button {
     position: absolute;
     top: 25px;
     left: 901px;
     width: 90px;
-	height: 34px;
-	color: #FFFFFF;
+    height: 34px;
+    color: #FFFFFF;
     background-color: #1BA0E2;
     border: 1px solid #1BA0E2;
 }
-.wrapper .title{
-	width: 100%;
-	height: 40px;
-	background-color: #F3F5F7;
-	position: relative;
-	top: 80px;
-}
-.wrapper .title a{
-	text-decoration: none;
-	color: #848484;
-	position: relative;
-	top: 10px;
-	left: 200px;
-	font-size: 19px;
-}
-.wrapper .title span{
-	color: #848484;
-	position: relative;
-	top: 10px;
-	left: 200px;
-}
-.wrapper .title a:hover{
-	color: #1BA0E2;
-}
-.wrapper .title .tintuc{
-	text-decoration: none;
-	color: #1BA0E2;
-	position: relative;
-	top: 10px;
-	left: 200px;
-	font-size: 19px;
-	border: none;
-}
-.wrapper .content{
-	margin-top: 90px;
-}
-.wrapper .content .left{
-	float: left;
-	position: relative;
-	left: 200px;
-}
-.wrapper .content .left img{
-	width: 550px;
-	height: 350px;
-}
-.wrapper .content .left h2{
-	width: 550px;
-	color: #003366;
-}
-.wrapper .content .left a{
-	text-decoration: none;
-}
-.wrapper .content .left p{
-	width: 550px;
-}
-.wrapper .content .left p:hover{
-	color: #1BA0E2;
-}
-.wrapper .content .centertop{
-	float: left;
-	margin-left: 220px;
-	margin-top: -10px;
-}
-.wrapper .content .centertop ul li{
-	margin: 10px 0px;
-	border-bottom: 1px dotted #AAAAAA;
-	padding-bottom: 8px;
-}
-.wrapper .content .centertop ul li a{
-	text-decoration: none;
-}
-.wrapper .content .centertop ul li a img{
-	width: 300px;
-	height: 210px;
-}
-.wrapper .content .centertop ul li a p{
-	width: 290px;
-	color: #000000;
-	font-size: 16px;
-}
-.wrapper .content .centertop ul li a p:hover{
-	color: #1BA0E2;
-}
-.wrapper .content .favourite{
-	float: right;
-	position: relative;
-	right: 100px;
-}
-.wrapper .content .favourite h2{
-	font-size: 20px;
-	width: 330px;
-}
-.wrapper .content .favourite ul li{
-	margin: 10px 0px;
-}
-.wrapper .content .favourite ul li a{
-	text-decoration: none;
-}
-.wrapper .content .favourite ul li a img{
-	width: 140px;
-	height: 100px;
-	float: left;
-}
-.wrapper .content .favourite ul li a p{
-	width: 180px;
-	float: right;
-	color: #000000;
-	font-size: 17px;
-}
-.wrapper .content .favourite ul li a p:hover{
-	color: #1BA0E2;
-}
-.wrapper .content .grid{
-	margin-left: 145px;
-	position: absolute;
-	top: 570px;
-	left: 45px; 
-}
-.wrapper .content .grid .top{
-	display: flex;
-}
-.wrapper .content .grid .top li{
-	margin: 0px 10px;
-}
-.wrapper .content .grid .top li a{
-	text-decoration: none;
-}
-.wrapper .content .grid .top li img{
-	width: 280px;
-	height: 200px;
-}
-.wrapper .content .grid .top li h3{
-	width: 280px;
-	padding-top: 5px;
-}
-.wrapper .content .grid .top li p{
-	width: 280px;
-	line-height: 20px;
-	color: #000000;
-	padding-top: 5px;
-}
-.wrapper .content .grid .top li p:hover{
-	color: #1BA0E2;
-}
-.wrapper .content .grid .mid{
-	display: flex;
-}
-.wrapper .content .grid .mid li{
-	margin: 0px 10px;
-}
-.wrapper .content .grid .mid li a{
-	text-decoration: none;
-}
-.wrapper .content .grid .mid li img{
-	width: 280px;
-	height: 200px;
-}
-.wrapper .content .grid .mid li h3{
-	width: 280px;
-	padding-top: 5px;
-}
-.wrapper .content .grid .mid li p{
-	width: 280px;
-	line-height: 20px;
-	color: #000000;
-	padding-top: 5px;
-}
-.wrapper .content .grid .mid li p:hover{
-	color: #1BA0E2;
-}
-.wrapper .content .grid .bottom{
-	display: flex;
-}
-.wrapper .content .grid .bottom li{
-	margin: 0px 10px;
-}
-.wrapper .content .grid .bottom li a{
-	text-decoration: none;
-}
-.wrapper .content .grid .bottom li img{
-	width: 280px;
-	height: 200px;
-}
-.wrapper .content .grid .bottom li h3{
-	width: 280px;
-	padding-top: 5px;
-}
-.wrapper .content .grid .bottom li p{
-	width: 280px;
-	line-height: 20px;
-	color: #000000;
-	padding-top: 5px;
-}
-.wrapper .content .grid .bottom li p:hover{
-	color: #1BA0E2;
-}
-.wrapper .footer{
-	background-color: #333333;
-	padding: 1px;
-	position: relative;
-	top: 883px;
-}
-.wrapper .footer .fbtwis{
-	margin-left: 200px;
-	margin-top: 20px;
-}
-.wrapper .footer .fbtwis a{
-	color: #333333;
-	margin-right: 10px;
-}
-.wrapper .footer .fbtwis a img{
-	width: 30px;
-	height: 30px;
-	
-}
-.wrapper .footer .goiy{
-	margin-left: 500px;
-}
-.wrapper .footer .goiy h3{
-	margin-top: -30px;
-	color: #848484;
-	font-family: Arial;
-	font-size: 18px;
-}
-.wrapper .footer .goiy p{
-	color: #848484;
-	line-height: 20px;
-	font-family: Arial;
-}
-.wrapper .footer .email{
 
+.wrapper .title {
+    width: 100%;
+    height: 40px;
+    background-color: #F3F5F7;
+    position: relative;
+    top: 80px;
 }
-.wrapper .footer .email input{
-	width: 200px;
-	height: 25px;
-	position: relative;
-	left: 950px;
-	bottom: 30px;
+
+    .wrapper .title a {
+        text-decoration: none;
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+    }
+
+    .wrapper .title span {
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+    }
+
+    .wrapper .title a:hover {
+        color: #1BA0E2;
+    }
+
+    .wrapper .title .subtitle {
+        text-decoration: none;
+        color: #1BA0E2;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+        border: none;
+    }
+
+.wrapper .content {
+    margin-top: 90px;
 }
-.wrapper .footer .email button{
-	color: #FFFFFF;
-	background-color: #1BA0E2;
-	border: 1px solid #1BA0E2;
-	width: 80px;
-	height: 30px;
-	position: relative;
-	left: 946px;
-	bottom: 30px;
+
+    .wrapper .content .left {
+        float: left;
+        position: relative;
+        left: 200px;
+    }
+
+        .wrapper .content .left img {
+            width: 550px;
+            height: 350px;
+        }
+
+        .wrapper .content .left h2 {
+            width: 550px;
+            color: #0033CC;
+        }
+
+            .wrapper .content .left h2:hover {
+                color: #DD0000;
+            }
+
+        .wrapper .content .left a {
+            text-decoration: none;
+        }
+
+        .wrapper .content .left p {
+            width: 550px;
+        }
+
+    .wrapper .content .centertop {
+        float: left;
+        margin-left: 220px;
+        margin-top: -10px;
+    }
+
+        .wrapper .content .centertop ul li {
+            margin: 10px 0px;
+            border-bottom: 1px dotted #AAAAAA;
+            padding-bottom: 8px;
+        }
+
+            .wrapper .content .centertop ul li a {
+                text-decoration: none;
+            }
+
+                .wrapper .content .centertop ul li a img {
+                    width: 300px;
+                    height: 210px;
+                }
+
+                .wrapper .content .centertop ul li a p {
+                    width: 290px;
+                    color: #0033CC;
+                    font-size: 16px;
+                }
+
+                    .wrapper .content .centertop ul li a p:hover {
+                        color: #DD0000;
+                    }
+
+    .wrapper .content .favourite {
+        float: right;
+        position: relative;
+        right: 100px;
+    }
+
+        .wrapper .content .favourite h2 {
+            font-size: 20px;
+            width: 330px;
+        }
+
+        .wrapper .content .favourite ul li {
+            margin: 10px 0px;
+        }
+
+            .wrapper .content .favourite ul li a {
+                text-decoration: none;
+            }
+
+                .wrapper .content .favourite ul li a img {
+                    width: 140px;
+                    height: 100px;
+                    float: left;
+                }
+
+                .wrapper .content .favourite ul li a p {
+                    width: 180px;
+                    float: right;
+                    color: #0033CC;
+                    font-size: 17px;
+                }
+
+                    .wrapper .content .favourite ul li a p:hover {
+                        color: #DD0000;
+                    }
+
+    .wrapper .content .grid {
+        margin-left: 145px;
+        position: absolute;
+        top: 570px;
+        left: 45px;
+    }
+
+        .wrapper .content .grid .top {
+            display: flex;
+        }
+
+            .wrapper .content .grid .top li {
+                margin: 0px 10px;
+            }
+
+                .wrapper .content .grid .top li a {
+                    text-decoration: none;
+                }
+
+                .wrapper .content .grid .top li img {
+                    width: 280px;
+                    height: 200px;
+                }
+
+                .wrapper .content .grid .top li h3 {
+                    width: 280px;
+                    padding-top: 5px;
+                    color: #0033CC;
+                }
+
+                    .wrapper .content .grid .top li h3:hover {
+                        color: #DD0000;
+                    }
+
+                .wrapper .content .grid .top li p {
+                    width: 280px;
+                    line-height: 20px;
+                    color: #000000;
+                    padding-top: 5px;
+                }
+
+        .wrapper .content .grid .mid {
+            display: flex;
+        }
+
+            .wrapper .content .grid .mid li {
+                margin: 0px 10px;
+            }
+
+                .wrapper .content .grid .mid li a {
+                    text-decoration: none;
+                }
+
+                .wrapper .content .grid .mid li img {
+                    width: 280px;
+                    height: 200px;
+                }
+
+                .wrapper .content .grid .mid li h3 {
+                    width: 280px;
+                    padding-top: 5px;
+                    color: #0033CC;
+                }
+
+                    .wrapper .content .grid .mid li h3:hover {
+                        color: #DD0000;
+                    }
+
+                .wrapper .content .grid .mid li p {
+                    width: 280px;
+                    line-height: 20px;
+                    color: #000000;
+                    padding-top: 5px;
+                }
+
+        .wrapper .content .grid .bottom {
+            display: flex;
+        }
+
+            .wrapper .content .grid .bottom li {
+                margin: 0px 10px;
+            }
+
+                .wrapper .content .grid .bottom li a {
+                    text-decoration: none;
+                }
+
+                .wrapper .content .grid .bottom li img {
+                    width: 280px;
+                    height: 200px;
+                }
+
+                .wrapper .content .grid .bottom li h3 {
+                    width: 280px;
+                    padding-top: 5px;
+                    color: #0033CC;
+                }
+
+                    .wrapper .content .grid .bottom li h3:hover {
+                        color: #DD0000;
+                    }
+
+                .wrapper .content .grid .bottom li p {
+                    width: 280px;
+                    line-height: 20px;
+                    color: #000000;
+                    padding-top: 5px;
+                }
+
+.wrapper .footer {
+    background-color: #333333;
+    padding: 1px;
+    position: relative;
+    top: 883px;
 }
-.clr{
-	clear: both;
+
+    .wrapper .footer .fbtwis {
+        margin-left: 200px;
+        margin-top: 20px;
+    }
+
+        .wrapper .footer .fbtwis a {
+            color: #333333;
+            margin-right: 10px;
+        }
+
+            .wrapper .footer .fbtwis a img {
+                width: 30px;
+                height: 30px;
+            }
+
+    .wrapper .footer .goiy {
+        margin-left: 500px;
+    }
+
+        .wrapper .footer .goiy h3 {
+            margin-top: -30px;
+            color: #848484;
+            font-family: Arial;
+            font-size: 18px;
+        }
+
+        .wrapper .footer .goiy p {
+            color: #848484;
+            line-height: 20px;
+            font-family: Arial;
+        }
+
+    .wrapper .footer .email input {
+        width: 200px;
+        height: 25px;
+        position: relative;
+        left: 950px;
+        bottom: 30px;
+    }
+
+    .wrapper .footer .email button {
+        color: #FFFFFF;
+        background-color: #1BA0E2;
+        border: 1px solid #1BA0E2;
+        width: 80px;
+        height: 30px;
+        position: relative;
+        left: 946px;
+        bottom: 30px;
+    }
+
+    .wrapper .footer .footerson {
+        display: flex;
+        height: 150px;
+    }
+
+        .wrapper .footer .footerson .footersonleft img {
+            width: 150px;
+            height: 80px;
+            position: relative;
+            left: 150px;
+            bottom: 20px;
+        }
+
+        .wrapper .footer .footerson .footersonleft p {
+            width: 400px;
+            position: relative;
+            left: 150px;
+            color: #848484;
+            line-height: 20px;
+        }
+
+        .wrapper .footer .footerson .footersonright {
+            float: right;
+            position: relative;
+            left: 200px;
+            display: flex;
+        }
+
+            .wrapper .footer .footerson .footersonright .information {
+                padding: 20px 30px;
+                position: relative;
+                bottom: 30px;
+            }
+
+                .wrapper .footer .footerson .footersonright .information h3 {
+                    color: #FFFFFF;
+                    margin-bottom: 10px;
+                }
+
+                .wrapper .footer .footerson .footersonright .information ul a {
+                    text-decoration: none;
+                }
+
+                    .wrapper .footer .footerson .footersonright .information ul a li {
+                        color: #848484;
+                        line-height: 25px;
+                    }
+
+                        .wrapper .footer .footerson .footersonright .information ul a li:hover {
+                            color: #FFFFFF;
+                        }
+
+.clr {
+    clear: both;
+}
+
+.wrapper .header a .signup {
+    position: absolute;
+    right: 350px;
+    top: 27px;
+    color: black;
+    font-size: 17px;
+}
+
+    .wrapper .header a .signup:hover {
+        color: #FF0000;
+    }
+
+.wrapper .header a .login {
+    position: absolute;
+    right: 250px;
+    top: 27px;
+    color: black;
+    font-size: 17px;
+}
+
+    .wrapper .header a .login:hover {
+        color: #FF0000;
+    }
+
+.wrapper .header .avatar-user {
+    position: absolute;
+    left: 1280px;
+    top: 10px;
+}
+
+    .wrapper .header .avatar-user .avatar {
+        width: 44px;
+        height: 44px;
+        margin-left: 25px;
+        float: left;
+        border-radius: 20px;
+    }
+
+    .wrapper .header .avatar-user .drop .dropson .avatar {
+        position: relative;
+        right: -850px;
+        top: -12px;
+    }
+
+    .wrapper .header .avatar-user h4 {
+        color: black;
+        width: 150px;
+        float: right;
+        position: relative;
+        top: 17px;
+        right: -50px;
+        margin-left: 10px;
+        font-size: 17px;
+        line-height: 18px;
+    }
+
+    .wrapper .header .avatar-user .drop {
+        position: relative;
+        right: 860px;
+        top: -12px;
+    }
+
+        .wrapper .header .avatar-user .drop .subbtn {
+            position: relative;
+            right: -874px;
+            top: -12px;
+            height: 41px;
+            width: 41px;
+        }
+
+            .wrapper .header .avatar-user .drop .subbtn li button {
+                height: 35px;
+                width: 170px;
+                margin: 12px 0px;
+                border: 1px solid #990000;
+                position: relative;
+                top: -20px;
+                left: 25px;
+                border-radius: 4px;
+                background-color: #333333;
+                font-weight: bold;
+                display: none;
+                z-index: 1;
+            }
+
+            .wrapper .header .avatar-user .drop .subbtn:hover li button {
+                display: inline-block;
+            }
+
+        .wrapper .header .avatar-user .drop li {
+            width: 150px;
+            height: 25px;
+            display: inline-block;
+            position: relative;
+        }
+
+.header span {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 342px;
+    top: 27px;
+}
+
+.pagination {
+}
+
+.pagination-container .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination-container .pagination li.active a {
+    background-color: #0066cc;
+    color: white;
+    border: 1px solid #0066cc;
+}
+
+.pagination-container .pagination li a:hover:not(.active) {
+    background-color: #0066cc;
 }

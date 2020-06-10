@@ -1,0 +1,38 @@
+﻿@{
+    var userSession = (TravelAgency.Common.UserLogin)Session[TravelAgency.Common.CommonConstant.USER_SESSION];
+}
+
+<div class="header">
+    <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
+    <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
+    <button>Tìm kiếm</button>
+    @if (userSession == null)
+    {
+        <a href="/dang-ki">
+            <h3 class="signup">Đăng ký</h3>
+        </a><span>/</span>
+        <a href="/dang-nhap">
+            <h3 class="login">Đăng nhập</h3>
+        </a>
+    }
+    @if (userSession != null)
+    {
+        <div class="avatar-user">
+
+            <h4 class="avatar-drop">@userSession.userName</h4><br><br>
+            <ul class="drop">
+                <li class="dropson">
+                    <img class="avatar" src="@userSession.Image">
+                    <ul class="subbtn">
+                        <li><button>Xem thông tin tài khoản</button></li>
+                        <li><button>Lịch sử giao dịch</button></li>
+                        <li><button>Đăng xuất</button></li>
+                        <br>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    }
+</div>
+

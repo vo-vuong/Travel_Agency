@@ -31,6 +31,8 @@ namespace Model.EF
 
         public bool status { get; set; }
 
+        public int views { get; set; }
+
         public DateTime dateShow { get; set; }
 
         public int? IDContentCategory { get; set; }

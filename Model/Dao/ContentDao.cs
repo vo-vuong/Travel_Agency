@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,10 +33,16 @@ namespace Model.Dao
             return model.OrderByDescending(x => x.DateCreated).ToPagedList(pageNumber,pageSize);
         }
 
+        public IEnumerable<CONTENT> ListAll(int pageNumber, int pageSize)
+        {
+            return db.CONTENTs.Where(x => x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.dateShow).ToPagedList(pageNumber, pageSize);
+        }
+
         public CONTENT ViewDetail(int id)
         {
             return db.CONTENTs.Find(id);
         }
+
 
         public bool Create(CONTENT entity)
         {
@@ -63,6 +70,7 @@ namespace Model.Dao
                 content.DateModified = DateTime.Now;
                 content.status = entity.status;
                 content.IDContent = entity.IDContent;
+                content.dateShow = entity.dateShow;
                 db.SaveChanges();
                 return true;
 
@@ -95,6 +103,24 @@ namespace Model.Dao
         public List<CONTENT> ListContentNew(int top)
         {
             return db.CONTENTs.Where(x => x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.dateShow).Take(top).ToList();
+        }
+
+        public CONTENT ViewDetailClient(int id)
+        {
+            var entity = db.CONTENTs.Find(id);
+            entity.views += 1;
+            db.SaveChanges();
+            return entity;
+        }
+
+        public List<CONTENT> ListContentHot(int top)
+        {
+            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow, DateTime.Now) <= 30 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x =>x.views).Take(top).ToList();
+        }
+
+        public List<CONTENT> ListContentHotWeek(int top)
+        {
+            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow,DateTime.Now) <= 7 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.views).Take(top).ToList();
         }
 
         #endregion
