@@ -32,6 +32,10 @@ namespace Model.EF
         [StringLength(255)]
         public string Image { get; set; }
 
+        public string policy { get; set; }
+
+        public string termsProvisions {get; set; }
+
         public decimal? Price { get; set; }
 
         public int Quantity { get; set; }

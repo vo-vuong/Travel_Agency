@@ -162,6 +162,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1213,6 +1214,7 @@
     <Content Include="Assets\Admin\js\Plugins\ckfinder\_samples\standalone_v1.html" />
     <Content Include="Assets\Admin\js\raphael.min.js" />
     <Content Include="Assets\Admin\js\startmin.js" />
+    <Content Include="Assets\Client\css\dd.css" />
     <Content Include="Assets\Client\css\ccc.css" />
     <Content Include="Assets\Client\css\home.css" />
     <Content Include="Assets\Client\css\loginstyle.css" />
@@ -1220,11 +1222,12 @@
     <Content Include="Assets\Client\css\signupsty.css" />
     <Content Include="Assets\Client\css\style.css" />
     <Content Include="Assets\Client\css\tintucstyle.css" />
-    <Content Include="Assets\Client\css\travelitalia.css" />
+    <Content Include="Assets\Client\css\TourDetail.css" />
     <Content Include="Assets\Client\images\baibien.jpeg" />
     <Content Include="Assets\Client\images\baibien.jpg" />
     <Content Include="Assets\Client\images\banner1.jpg" />
     <Content Include="Assets\Client\images\banner2.jpg" />
+    <Content Include="Assets\Client\images\bannertourtrongnuoc.jpg" />
     <Content Include="Assets\Client\images\bannervungtau.jpg" />
     <Content Include="Assets\Client\images\camnangdalat.jpg" />
     <Content Include="Assets\Client\images\camnangdanang.jpg" />
@@ -1452,6 +1455,9 @@
     <Content Include="Views\Content\Index.cshtml" />
     <Content Include="Views\Shared\ContentHot.cshtml" />
     <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\Tour\Detail.cshtml" />
+    <Content Include="Views\Tour\Abroad.cshtml" />
+    <Content Include="Views\Tour\Domestic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

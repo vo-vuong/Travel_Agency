@@ -1,0 +1,126 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Model.EF.TOUR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@section css{
+    <link href="/Assets/Client/css/reset.css" rel="stylesheet" />
+    <link href="/Assets/Client/css/dd.css" rel="stylesheet" />
+}
+
+
+
+
+
+<div class="title">
+    <a href="/trang-chu">Trang chủ</a>
+    <span>/</span>
+    <a class="tintuc">Tour trong nước</a>
+</div>
+<div class="banner">
+    <img src="/Assets/Client/images/bannertourtrongnuoc.jpg">
+</div>
+
+<div class="sapxep">
+
+    @using (Html.BeginForm("Abroad", "Tour", FormMethod.Get))
+    {
+        <label>Sắp xếp theo : </label>
+        @Html.RadioButton("sort", "", new { @checked = true }); <p>Ngày đăng mới nhất</p>
+
+        @Html.RadioButton("sort", "tang-dan"); <p>Giá tăng dần</p>
+
+        @Html.RadioButton("sort", "giam-dan"); <p>Giá giảm dần</p>
+
+    }
+</div>
+<div class="contentgiatot">
+    <div class="content">
+        @foreach (var item in Model.Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="travelitalia.html" target="_blank">@item.TourName</a></h4>
+                <div class="lich">
+                    <img src="/Assets/Client/images/lich.svg">
+                    <p>Lịch khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content">
+        @foreach (var item in Model.Skip(4).Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="travelitalia.html" target="_blank">@item.TourName</a></h4>
+                <div class="lich">
+                    <img src="/Assets/Client/images/lich.svg">
+                    <p>Lịch khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content">
+        @foreach (var item in Model.Skip(8).Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="travelitalia.html" target="_blank">@item.TourName</a></h4>
+                <div class="lich">
+                    <img src="/Assets/Client/images/lich.svg">
+                    <p>Lịch khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@Html.PagedListPager(Model, pageNumber => Url.Action("Abroad", new { pageNumber, @sort = ViewBag.sort }))
+
+@section jsFooter{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('input[name=sort]').change(function () {
+                $('form').submit();
+            });
+        });
+    </script>
+}

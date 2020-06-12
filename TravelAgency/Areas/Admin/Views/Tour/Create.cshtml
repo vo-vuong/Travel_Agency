@@ -60,6 +60,22 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.policy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.policy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.policy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.termsProvisions, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.termsProvisions, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.termsProvisions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })

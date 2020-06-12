@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Model.EF;
 using PagedList;
 
+
 namespace Model.Dao
 {
     public class TourDao
@@ -54,6 +55,8 @@ namespace Model.Dao
                 tour.TourName = entity.TourName;
                 tour.Description = entity.Description;
                 tour.Image = entity.Image;
+                tour.policy = entity.policy;
+                tour.termsProvisions = entity.termsProvisions;
                 tour.Price = entity.Price;
                 tour.Quantity = entity.Quantity;
                 tour.Status = entity.Status;
@@ -62,21 +65,6 @@ namespace Model.Dao
                 tour.LocationStart = entity.LocationStart;
                 tour.IDCategory = entity.IDCategory;
                 tour.DateModified = DateTime.Now;
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public bool Edit2(TOUR entity)
-        {
-            try
-            {
-                var user = db.TOURs.Find(entity.IDTour);
-                user.TourName = entity.TourName;
                 db.SaveChanges();
                 return true;
             }
@@ -125,6 +113,35 @@ namespace Model.Dao
             return db.TOURs.Where(x => x.Status == true).OrderBy(x => x.DateStart).Take(top).ToList();
         }
 
+        public IEnumerable<TOUR> ListTourAbroadPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 2).OrderByDescending(x => x.DateCreated).ToPagedList(pageNumber, pageSize);
+        }
+
+        public IEnumerable<TOUR> ListTourAbroadPriceASCPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 2).OrderBy(x => x.Price).ToPagedList(pageNumber, pageSize);
+        }
+
+        public IEnumerable<TOUR> ListTourAbroadPriceDESCPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 2).OrderByDescending(x => x.Price).ToPagedList(pageNumber, pageSize);
+        }
+
+        public IEnumerable<TOUR> ListTourDomesticPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 1).OrderByDescending(x => x.DateCreated).ToPagedList(pageNumber, pageSize);
+        }
+
+        public IEnumerable<TOUR> ListTourDomesticPriceASCPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 1).OrderBy(x => x.Price).ToPagedList(pageNumber, pageSize);
+        }
+
+        public IEnumerable<TOUR> ListTourDomesticPriceDESCPadding(int pageNumber, int pageSize)
+        {
+            return db.TOURs.Where(x => x.Status == true && x.IDCategory == 1).OrderByDescending(x => x.Price).ToPagedList(pageNumber, pageSize);
+        }
         #endregion
 
     }

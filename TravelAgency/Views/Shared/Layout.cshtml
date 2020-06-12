@@ -52,14 +52,14 @@
                         {
                             <img class="avatar" src="@session.Image">
                         }
-                        <ul class="subbtn">
-                            @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
-                            {
-                                <li><button>Đăng xuất</button></li>
-                            }
-                            <li><button>Xem thông tin tài khoản</button></li>
-                            <li><button>Lịch sử giao dịch</button></li>
-                        </ul>
+                            <ul class="subbtn">
+                                <li><button>Xem thông tin tài khoản</button></li>
+                                <li><button>Lịch sử giao dịch</button></li>
+                                @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                                {
+                                    <li><button>Đăng xuất</button></li>
+                                }
+                            </ul>
                     </li>
                 </ul>
             </div>

@@ -18,6 +18,20 @@ namespace TravelAgency
               new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.MapRoute(
+                name: "Tour Domestic",
+                url: "tour-trong-nuoc",
+                defaults: new { controller = "Tour", action = "Domestic", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Tour Abroad",
+                url: "tour-ngoai-nuoc",
+                defaults: new { controller = "Tour", action = "Abroad", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
                 name: "Content Detail",
                 url: "tin-tuc/chi-tiet/{id}",
                 defaults: new { controller = "Content", action = "Detail", id = UrlParameter.Optional },
