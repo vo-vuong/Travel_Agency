@@ -395,3 +395,13 @@ form{
 .sapxep p {
     display:inline;
 }
+
+.content1 span {
+    color: #000000;
+    position: relative;
+    top: -2px;
+    left: 40px;
+    font-size: 17px;
+    text-decoration: line-through;
+    font-weight: normal;
+}

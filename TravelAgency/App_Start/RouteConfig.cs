@@ -18,6 +18,13 @@ namespace TravelAgency
               new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.MapRoute(
+                name: "Tour Sale",
+                url: "tour-khuyen-mai",
+                defaults: new { controller = "Tour", action = "Sale", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
                 name: "Tour Domestic",
                 url: "tour-trong-nuoc",
                 defaults: new { controller = "Tour", action = "Domestic", id = UrlParameter.Optional },

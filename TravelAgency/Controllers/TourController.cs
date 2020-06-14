@@ -57,5 +57,21 @@ namespace TravelAgency.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Sale(string sort, int pageNumber = 1, int pageSize = 12)
+        {
+            ViewBag.sort = sort;
+            var dao = new TourSaleDao();
+            var model = dao.ListTourSalePadding(pageNumber, pageSize);
+            
+            if(sort == "tang-dan")
+            {
+                model = dao.ListTSalePriceASCPadding(pageNumber, pageSize);
+            }else if(sort == "giam-dan")
+            {
+                model = dao.ListTSalePriceDESCPadding(pageNumber, pageSize);
+            }
+            return View(model);
+        }
     }
 }
