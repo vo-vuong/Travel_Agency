@@ -1,0 +1,69 @@
+.wrapper .header .logo {
+    width: 130px;
+    height: 70px;
+    position: absolute;
+    left: 220px;
+}
+
+.wrapper .header input {
+    position: absolute;
+    top: 25px;
+    left: 489px;
+    width: 410px;
+    height: 30px;
+    border: 1px solid #1BA0E2;
+}
+
+.wrapper .header button {
+    position: absolute;
+    top: 25px;
+    left: 901px;
+    width: 90px;
+    height: 34px;
+    color: #FFFFFF;
+    background-color: #1BA0E2;
+    border: 1px solid #1BA0E2;
+}
+
+.wrapper .title {
+    width: 100%;
+    height: 40px;
+    background-color: #F3F5F7;
+    position: relative;
+    top: 80px;
+}
+
+    .wrapper .title a {
+        text-decoration: none;
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+    }
+
+    .wrapper .title span {
+        color: #848484;
+        position: relative;
+        top: 10px;
+        left: 200px;
+    }
+
+    .wrapper .title a:hover {
+        color: #1BA0E2;
+    }
+
+    .wrapper .title .dangnhap {
+        text-decoration: none;
+        color: #1BA0E2;
+        position: relative;
+        top: 10px;
+        left: 200px;
+        font-size: 19px;
+        border: none;
+    }
+
+.wrapper .content {
+    position: relative;
+    top: 150px;
+}

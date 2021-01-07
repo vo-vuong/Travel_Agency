@@ -18,7 +18,7 @@ namespace TravelAgency.Areas.Admin.Controllers
         }
 
         // GET: Admin/Content
-        public ActionResult Index(string searchContentName, int pageStart = 1, int pageSize = 2)
+        public ActionResult Index(string searchContentName, int pageStart = 1, int pageSize = 10)
         {
             var model = new ContentDao().ListAllPading(searchContentName, pageStart, pageSize);
             ViewBag.SearchContentName = searchContentName;
@@ -88,7 +88,7 @@ namespace TravelAgency.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Sửa bài viết không thành công");
                 }
             }
-            return View(model);
+            return View("Index");
         }
 
         [HttpDelete]

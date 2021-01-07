@@ -1,31 +1,198 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    var listTourAbroad = (List<Model.EF.TOUR>)ViewBag.ListTourAbroad;
+    var listTourDomestic = (List<Model.EF.TOUR>)ViewBag.ListTourDomestic;
+    var listTourHot = (List<Model.EF.TOUR>)ViewBag.ListTourHot;
+    var listTourSale = (List<Model.EF.TOURSALE>)ViewBag.ListTourSale;
+    var listContentNew = (List<Model.EF.CONTENT>)ViewBag.ListContentNew;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="contentgiatot">
+    <div class="title">
+        <h2 class="giachot">TOUR GIỜ CHÓT GIÁ TỐT</h2>
+        <img src="/Assets/Client/images/iconfire.png" width="30px" height="40px" style="position: absolute;left: 940px;top: 810px">
+        <p class="gioithieugiachot">Cùng chúng tôi xem qua một vài địa điểm du lịch trong nước thu hút khách nhất nhé!</p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="content">
+        @foreach (var item in listTourHot)
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="travelitalia.html" target="_blank">@item.TourName</a></h4>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</div>
+<div class="contentkhuyenmai">
+    <div class="title">
+        <h2 class="giachot">TOUR KHUYẾN MÃI</h2>
+        <img src="/Assets/Client/images/iconbigsale.jpg" width="150px" height="70px" style="position: absolute;left: 850px;top: 1230px">
+        <p class="gioithieugiachot">Cùng chúng tôi xem qua một vài địa điểm du lịch trong nước thu hút khách nhất nhé!</p>
+    </div>
+    <div class="content">
+        @foreach (var item in listTourSale)
+        {
+            <div class="content1">
+                <img src="@item.TOUR.Image">
+                <h4><a href="travelitalia.html" target="_blank">@item.TOUR.TourName</a></h4>
+                <div class="xebuytmaybay">
+                    <span>@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</span>
+                </div>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.TOUR.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.TOUR.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="banner">
+    <a href="#"><img class="banner1" src="/Assets/Client/images/banner1.jpg"></a>
+    <a href="#"><img class="banner1" src="/Assets/Client/images/banner2.jpg"></a>
+</div>
+<div class="contentgiatot">
+    <div class="title">
+        <h2>TOUR TRONG NƯỚC</h2>
+        <p>Tour du lịch trong nước của chúng tôi - Tận hưởng bản sắc hương Việt</p>
+    </div>
+    <div class="content">
+        @foreach (var item in listTourDomestic.Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="#">@item.TourName</a></h4>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button class="trongnuoc">ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content">
+        @foreach (var item in listTourDomestic.Skip(4).Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="#">@item.TourName</a></h4>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button class="trongnuoc">ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="fulltour">
+        <a href="/tour-trong-nuoc">Xem tất cả tour</a>
+    </div>
+</div>
+<div class="contentgiatot">
+    <div class="title">
+        <h2>TOUR NƯỚC NGOÀI</h2>
+        <p class="nuocngoai">Tour du lịch ngoài nước - Tận hưởng sắc xuân thế giới</p>
+    </div>
+    <div class="content">
+        @foreach (var item in listTourAbroad.Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="#">@item.TourName</a></h4>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="content">
+        @foreach (var item in listTourAbroad.Skip(4).Take(4))
+        {
+            <div class="content1">
+                <img src="@item.Image">
+                <h4><a href="#">@item.TourName</a></h4>
+                <div class="lich">
+                    <p>Khởi hành: <strong>@item.DateStart</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="thoigian">
+                    <img src="/Assets/Client/images/thoigian.svg">
+                    <p>Thời gian: <strong>@item.Time</strong></p>
+                    <div class="clr"></div>
+                </div>
+                <div class="giadattour">
+                    <p><strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
+                    <button>ĐẶT TOUR</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="fulltour">
+        <a href="/tour-ngoai-nuoc">Xem tất cả tour</a>
+    </div>
+</div>
+<div class="camnang">
+    <h2>CẨM NANG DU LỊCH</h2>
+    <p>Thông tin về du lịch, văn hóa, ẩm thực các sự kiện và lễ hội tại các điểm đến </p>
+    <div class="camnangdulich">
+        @foreach (var item in listContentNew)
+        {
+            <div class="camnangdulich1">
+                <img src="@item.Image">
+                <a href="/tin-tuc/chi-tiet/@item.IDContent"><h3>@item.ContentName</h3></a>
+                <p>@item.shortBody</p>
+            </div>
+        }
+        <div class="clr"></div>
     </div>
 </div>

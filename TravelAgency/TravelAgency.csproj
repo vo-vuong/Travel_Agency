@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="CKFinder, Version=2.5.0.2791, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\Admin\js\Plugins\ckfinder\bin\Release\CKFinder.dll</HintPath>
@@ -65,6 +71,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.113.1\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -149,10 +158,16 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SignupController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1199,11 +1214,163 @@
     <Content Include="Assets\Admin\js\Plugins\ckfinder\_samples\standalone_v1.html" />
     <Content Include="Assets\Admin\js\raphael.min.js" />
     <Content Include="Assets\Admin\js\startmin.js" />
+    <Content Include="Assets\Client\css\dd.css" />
+    <Content Include="Assets\Client\css\ccc.css" />
+    <Content Include="Assets\Client\css\home.css" />
+    <Content Include="Assets\Client\css\loginstyle.css" />
+    <Content Include="Assets\Client\css\reset.css" />
+    <Content Include="Assets\Client\css\signupsty.css" />
+    <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\css\tintucstyle.css" />
+    <Content Include="Assets\Client\css\TourDetail.css" />
+    <Content Include="Assets\Client\images\baibien.jpeg" />
+    <Content Include="Assets\Client\images\baibien.jpg" />
+    <Content Include="Assets\Client\images\banner1.jpg" />
+    <Content Include="Assets\Client\images\banner2.jpg" />
+    <Content Include="Assets\Client\images\bannertourtrongnuoc.jpg" />
+    <Content Include="Assets\Client\images\bannervungtau.jpg" />
+    <Content Include="Assets\Client\images\camnangdalat.jpg" />
+    <Content Include="Assets\Client\images\camnangdanang.jpg" />
+    <Content Include="Assets\Client\images\camnangphanthiet.jpg" />
+    <Content Include="Assets\Client\images\campuchia.jpg" />
+    <Content Include="Assets\Client\images\dalat.jpg" />
+    <Content Include="Assets\Client\images\danang.jpg" />
+    <Content Include="Assets\Client\images\dropdown.png" />
+    <Content Include="Assets\Client\images\duongsat.jpg" />
+    <Content Include="Assets\Client\images\duthuyen.jpg" />
+    <Content Include="Assets\Client\images\fb.JPG" />
+    <Content Include="Assets\Client\images\hanoi.jpg" />
+    <Content Include="Assets\Client\images\hoian.jpg" />
+    <Content Include="Assets\Client\images\hophuninh.jpg" />
+    <Content Include="Assets\Client\images\hue.jpg" />
+    <Content Include="Assets\Client\images\iconbigsale.jpg" />
+    <Content Include="Assets\Client\images\iconbigsale.png" />
+    <Content Include="Assets\Client\images\iconfire.png" />
+    <Content Include="Assets\Client\images\imgtouritalia.jpg" />
+    <Content Include="Assets\Client\images\imgtouritalia1.jpg" />
+    <Content Include="Assets\Client\images\is.JPG" />
+    <Content Include="Assets\Client\images\italia.jpg" />
+    <Content Include="Assets\Client\images\kimcuong.jpg" />
+    <Content Include="Assets\Client\images\lich.svg" />
+    <Content Include="Assets\Client\images\logo.png" />
+    <Content Include="Assets\Client\images\matbiec.jpg" />
+    <Content Include="Assets\Client\images\maybay.svg" />
+    <Content Include="Assets\Client\images\money.png" />
+    <Content Include="Assets\Client\images\monngon.jpg" />
+    <Content Include="Assets\Client\images\muine.jpg" />
+    <Content Include="Assets\Client\images\mykhe.jpg" />
+    <Content Include="Assets\Client\images\mytho.jpg" />
+    <Content Include="Assets\Client\images\namphi.jpg" />
+    <Content Include="Assets\Client\images\narita.png" />
+    <Content Include="Assets\Client\images\nhatban.jpg" />
+    <Content Include="Assets\Client\images\nhatho.jpg" />
+    <Content Include="Assets\Client\images\nhatrang.jpg" />
+    <Content Include="Assets\Client\images\ninhchu.jpg" />
+    <Content Include="Assets\Client\images\phap.jpg" />
+    <Content Include="Assets\Client\images\phiabac.jpg" />
+    <Content Include="Assets\Client\images\philippin.jpg" />
+    <Content Include="Assets\Client\images\phuquoc.jpg" />
+    <Content Include="Assets\Client\images\quality.png" />
+    <Content Include="Assets\Client\images\scotland.jpg" />
+    <Content Include="Assets\Client\images\seoul.jpg" />
+    <Content Include="Assets\Client\images\service.png" />
+    <Content Include="Assets\Client\images\singapore.jpg" />
+    <Content Include="Assets\Client\images\slide-1.jpg" />
+    <Content Include="Assets\Client\images\slide-2.jpg" />
+    <Content Include="Assets\Client\images\slide-3.jpg" />
+    <Content Include="Assets\Client\images\slide-4.jpg" />
+    <Content Include="Assets\Client\images\slide-5.jpg" />
+    <Content Include="Assets\Client\images\slide-6.jpg" />
+    <Content Include="Assets\Client\images\slide-7.jpg" />
+    <Content Include="Assets\Client\images\slide-8.jpg" />
+    <Content Include="Assets\Client\images\tau.svg" />
+    <Content Include="Assets\Client\images\thoigian.svg" />
+    <Content Include="Assets\Client\images\thuysi.jpg" />
+    <Content Include="Assets\Client\images\tick.png" />
+    <Content Include="Assets\Client\images\trip.png" />
+    <Content Include="Assets\Client\images\trungquoc.jpg" />
+    <Content Include="Assets\Client\images\tw.JPG" />
+    <Content Include="Assets\Client\images\utweb_installer.exe" />
+    <Content Include="Assets\Client\images\xebuyt.svg" />
+    <Content Include="Assets\Client\jquery\jqueryminjs.js" />
+    <Content Include="Assets\Client\jquery\jqueryvalidatemin.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Data\images\Admin\96510472_158050295736026_2859395075975151616_n.jpg" />
+    <Content Include="Data\images\Admin\ales-krivec-Uszp5Gkg0AI-unsplash.jpg" />
+    <Content Include="Data\images\Tour\baibien.jpeg" />
+    <Content Include="Data\images\Tour\baibien.jpg" />
+    <Content Include="Data\images\Tour\banner1.jpg" />
+    <Content Include="Data\images\Tour\banner2.jpg" />
+    <Content Include="Data\images\Tour\bannervungtau.jpg" />
+    <Content Include="Data\images\Tour\camnangdalat.jpg" />
+    <Content Include="Data\images\Tour\camnangdanang.jpg" />
+    <Content Include="Data\images\Tour\camnangphanthiet.jpg" />
+    <Content Include="Data\images\Tour\campuchia.jpg" />
+    <Content Include="Data\images\Tour\dalat.jpg" />
+    <Content Include="Data\images\Tour\danang.jpg" />
+    <Content Include="Data\images\Tour\dropdown.png" />
+    <Content Include="Data\images\Tour\duongsat.jpg" />
+    <Content Include="Data\images\Tour\duthuyen.jpg" />
+    <Content Include="Data\images\Tour\fb.JPG" />
+    <Content Include="Data\images\Tour\hanoi.jpg" />
+    <Content Include="Data\images\Tour\hoian.jpg" />
+    <Content Include="Data\images\Tour\hophuninh.jpg" />
+    <Content Include="Data\images\Tour\hue.jpg" />
+    <Content Include="Data\images\Tour\iconbigsale.jpg" />
+    <Content Include="Data\images\Tour\iconbigsale.png" />
+    <Content Include="Data\images\Tour\iconfire.png" />
+    <Content Include="Data\images\Tour\imgtouritalia.jpg" />
+    <Content Include="Data\images\Tour\imgtouritalia1.jpg" />
+    <Content Include="Data\images\Tour\is.JPG" />
+    <Content Include="Data\images\Tour\italia.jpg" />
+    <Content Include="Data\images\Tour\kimcuong.jpg" />
+    <Content Include="Data\images\Tour\lich.svg" />
+    <Content Include="Data\images\Tour\logo.png" />
+    <Content Include="Data\images\Tour\matbiec.jpg" />
+    <Content Include="Data\images\Tour\maybay.svg" />
+    <Content Include="Data\images\Tour\money.png" />
+    <Content Include="Data\images\Tour\monngon.jpg" />
+    <Content Include="Data\images\Tour\muine.jpg" />
+    <Content Include="Data\images\Tour\mykhe.jpg" />
+    <Content Include="Data\images\Tour\mytho.jpg" />
+    <Content Include="Data\images\Tour\namphi.jpg" />
+    <Content Include="Data\images\Tour\narita.png" />
+    <Content Include="Data\images\Tour\nhatban.jpg" />
+    <Content Include="Data\images\Tour\nhatho.jpg" />
+    <Content Include="Data\images\Tour\nhatrang.jpg" />
+    <Content Include="Data\images\Tour\ninhchu.jpg" />
+    <Content Include="Data\images\Tour\phap.jpg" />
+    <Content Include="Data\images\Tour\phiabac.jpg" />
+    <Content Include="Data\images\Tour\philippin.jpg" />
+    <Content Include="Data\images\Tour\phuquoc.jpg" />
+    <Content Include="Data\images\Tour\quality.png" />
+    <Content Include="Data\images\Tour\scotland.jpg" />
+    <Content Include="Data\images\Tour\seoul.jpg" />
+    <Content Include="Data\images\Tour\service.png" />
+    <Content Include="Data\images\Tour\singapore.jpg" />
+    <Content Include="Data\images\Tour\slide-1.jpg" />
+    <Content Include="Data\images\Tour\slide-2.jpg" />
+    <Content Include="Data\images\Tour\slide-3.jpg" />
+    <Content Include="Data\images\Tour\slide-4.jpg" />
+    <Content Include="Data\images\Tour\slide-5.jpg" />
+    <Content Include="Data\images\Tour\slide-6.jpg" />
+    <Content Include="Data\images\Tour\slide-7.jpg" />
+    <Content Include="Data\images\Tour\slide-8.jpg" />
+    <Content Include="Data\images\Tour\tau.svg" />
+    <Content Include="Data\images\Tour\test1.jpg" />
+    <Content Include="Data\images\Tour\thoigian.svg" />
+    <Content Include="Data\images\Tour\thuysi.jpg" />
+    <Content Include="Data\images\Tour\tick.png" />
+    <Content Include="Data\images\Tour\trip.png" />
+    <Content Include="Data\images\Tour\trungquoc.jpg" />
+    <Content Include="Data\images\Tour\tw.JPG" />
+    <Content Include="Data\images\Tour\xebuyt.svg" />
+    <Content Include="Data\_thumbs\Images\Admin\96510472_158050295736026_2859395075975151616_n.jpg" />
+    <Content Include="Data\_thumbs\Images\Admin\ales-krivec-Uszp5Gkg0AI-unsplash.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1277,19 +1444,27 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Shared\MainMenu.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Signup\Index.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Views\Shared\ContentHot.cshtml" />
+    <Content Include="Views\Content\Detail.cshtml" />
+    <Content Include="Views\Tour\Detail.cshtml" />
+    <Content Include="Views\Tour\Abroad.cshtml" />
+    <Content Include="Views\Tour\Domestic.cshtml" />
+    <Content Include="Views\Tour\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Assets\Client\" />
-    <Folder Include="Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Data\files\" />
+    <Folder Include="Data\flash\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1305,6 +1480,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonModel\CommonModel.csproj">
+      <Project>{7656108e-24eb-48f0-a824-e03ef1e6a587}</Project>
+      <Name>CommonModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{c410cf41-9291-4438-b9bb-e0f24cf72b36}</Project>
       <Name>Model</Name>
@@ -1345,8 +1524,10 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net45\System.Data.SQLite.Core.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

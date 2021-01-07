@@ -18,7 +18,7 @@ namespace TravelAgency.Areas.Admin.Controllers
 
         // GET: Admin/Tour
         [HttpGet]
-        public ActionResult Index(string searchString, int pageNumber = 1, int pageSize = 3)
+        public ActionResult Index(string searchString, int pageNumber = 1, int pageSize = 10)
         {
             var model = new TourDao().ListPading(searchString, pageNumber, pageSize);
             ViewBag.SearchString = searchString;
@@ -59,6 +59,7 @@ namespace TravelAgency.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(TOUR model)
         {
+            SetViewBag();
             TourDao dao = new TourDao();
             if (ModelState.IsValid)
             {

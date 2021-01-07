@@ -1,0 +1,783 @@
+html, body {
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.clr {
+    clear: both;
+}
+
+.wrapper {
+}
+
+    .wrapper .bg img {
+        width: 1518px;
+        height: 700px;
+    }
+
+    .wrapper .header {
+        color: #6633FF;
+    }
+
+        .wrapper .header .logo {
+            width: 130px;
+            height: 70px;
+            position: absolute;
+            left: 220px;
+        }
+
+        .wrapper .header input {
+            position: absolute;
+            top: 25px;
+            left: 489px;
+            width: 410px;
+            height: 30px;
+            border: 1px solid #1BA0E2;
+        }
+
+        .wrapper .header button {
+            position: absolute;
+            top: 25px;
+            left: 901px;
+            width: 90px;
+            height: 34px;
+            color: #FFFFFF;
+            background-color: #1BA0E2;
+            border: 1px solid #1BA0E2;
+        }
+
+        .wrapper .header a {
+        }
+
+            .wrapper .header a .signup {
+                position: absolute;
+                right: 350px;
+                top: 27px;
+                color: #FFFFFF;
+                font-size: 17px;
+            }
+
+                .wrapper .header a .signup:hover {
+                    color: #FF0000;
+                }
+
+            .wrapper .header a .login {
+                position: absolute;
+                right: 250px;
+                top: 27px;
+                color: #FFFFFF;
+                font-size: 17px;
+            }
+
+                .wrapper .header a .login:hover {
+                    color: #FF0000;
+                }
+
+        .wrapper .header .avatar-user {
+            position: absolute;
+            left: 1280px;
+            top: 10px;
+        }
+
+            .wrapper .header .avatar-user .avatar {
+                width: 40px;
+                height: 40px;
+                margin-left: 25px;
+                float: left;
+                border-radius: 20px;
+            }
+
+            .wrapper .header .avatar-user .drop .dropson .avatar {
+                position: relative;
+                right: -850px;
+                top: -12px;
+            }
+
+            .wrapper .header .avatar-user h4 {
+                color: #FFFFFF;
+                width: 150px;
+                float: right;
+                position: relative;
+                top: 15px;
+                right: -50px;
+                margin-left: 10px;
+                font-size: 17px;
+                line-height: 18px;
+            }
+
+            .wrapper .header .avatar-user .drop {
+                position: relative;
+                right: 860px;
+                top: -12px;
+            }
+
+                .wrapper .header .avatar-user .drop .subbtn li button {
+                    height: 27px;
+                    width: 160px;
+                    border: 1px solid #FFFFFF;
+                    position: relative;
+                    top: -20px;
+                    display: none;
+                }
+
+                .wrapper .header .avatar-user .drop:hover .subbtn li button {
+                    display: inline-block;
+                }
+
+                .wrapper .header .avatar-user .drop li {
+                    width: 150px;
+                    height: 25px;
+                    display: inline-block;
+                    position: relative;
+                }
+
+span {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 342px;
+    top: 27px;
+}
+
+.wrapper .menu {
+    display: flex;
+    background-color: #003399;
+    position: absolute;
+    top: 85px;
+    left: 200px;
+}
+
+    .wrapper .menu li {
+        padding: 10px 40px;
+        list-style: none;
+        height: 20px;
+    }
+
+    .wrapper .menu .trangchu {
+    }
+
+    .wrapper .menu li:hover {
+        background-color: #6633CC;
+    }
+
+    .wrapper .menu li a {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    .wrapper .menu .tourtrongnuoc .submenu {
+        display: none;
+    }
+
+    .wrapper .menu .tourtrongnuoc:hover .submenu {
+        display: block;
+        background-color: #6633CC;
+    }
+
+    .wrapper .menu .tourtrongnuoc .submenu li {
+        width: 100px;
+        border-top: 1px solid #FFFFFF;
+    }
+
+        .wrapper .menu .tourtrongnuoc .submenu li a {
+        }
+
+    .wrapper .menu .tourngoainuoc .submenu {
+        display: none;
+    }
+
+    .wrapper .menu .tourngoainuoc:hover .submenu {
+        display: block;
+        background-color: #6633CC;
+    }
+
+    .wrapper .menu .tourngoainuoc .submenu li {
+        width: 100px;
+        border-top: 1px solid #FFFFFF;
+    }
+
+        .wrapper .menu .tourngoainuoc .submenu li a {
+        }
+
+.wrapper .review {
+    display: flex;
+    margin-top: 10px;
+    border-bottom: 1px solid #DEE2E6;
+    padding-bottom: 10px;
+    width: 1518px;
+}
+
+    .wrapper .review .reviewleft {
+        padding: 0px 10px;
+        width: 500px;
+    }
+
+        .wrapper .review .reviewleft img {
+            background-color: #1BA0E2;
+            float: left;
+        }
+
+        .wrapper .review .reviewleft .right {
+            width: 350px;
+            float: left;
+            padding-left: 20px;
+            line-height: 20px;
+        }
+
+    .wrapper .review .reviewcenter {
+        border-right: 1px solid #DEE2E6;
+        border-left: 1px solid #DEE2E6;
+        padding: 0px 10px;
+        width: 500px;
+    }
+
+        .wrapper .review .reviewcenter img {
+            background-color: #1BA0E2;
+            float: left;
+        }
+
+        .wrapper .review .reviewcenter .right {
+            width: 350px;
+            float: left;
+            padding-left: 20px;
+            line-height: 20px;
+        }
+
+    .wrapper .review .reviewright {
+        padding: 0px 10px;
+    }
+
+        .wrapper .review .reviewright img {
+            background-color: #1BA0E2;
+            float: left;
+        }
+
+        .wrapper .review .reviewright .right {
+            width: 350px;
+            float: left;
+            padding-left: 20px;
+            line-height: 20px;
+        }
+
+.wrapper .contentgiatot {
+    margin-top: 20px;
+}
+
+    .wrapper .contentgiatot .title .giachot {
+        margin-left: 200px;
+        color: #333366;
+    }
+
+    .wrapper .contentgiatot .title .gioithieugiachot {
+        margin-top: 10px;
+        margin-left: -30px;
+        color: #880000;
+        font-size: 20px;
+    }
+
+    .wrapper .contentgiatot .title {
+        margin-left: 425px;
+    }
+
+        .wrapper .contentgiatot .title h2 {
+            margin-left: 220px;
+            color: #333366;
+        }
+
+        .wrapper .contentgiatot .title p {
+            margin-top: 10px;
+            margin-left: 30px;
+            color: #880000;
+            font-size: 20px;
+        }
+
+        .wrapper .contentgiatot .title .nuocngoai {
+            margin-top: 10px;
+            margin-left: 95px;
+            color: #880000;
+            font-size: 20px;
+        }
+
+.contentgiatot .content {
+    display: flex;
+    margin-left: 230px;
+    padding: 20px 0px;
+}
+
+.contentgiatot .content1 {
+    width: 235px;
+    height: 325px;
+    border: 1px solid #EBEDEF;
+    border-radius: 8px;
+    margin: 0px 15px;
+}
+
+    .contentgiatot .content1 img {
+        width: 235px;
+        height: 155px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .contentgiatot .content1 h4 {
+        width: 200px;
+        line-height: 18px;
+        margin-left: 5px;
+    }
+
+        .contentgiatot .content1 h4 a {
+            text-decoration: none;
+            color: #0000CC;
+            font-size: 14px;
+        }
+
+            .contentgiatot .content1 h4 a:hover {
+                color: red;
+            }
+
+    .contentgiatot .content1 .xebuytmaybay {
+        margin: 8px 0px 8px 5px;
+    }
+
+        .contentgiatot .content1 .xebuytmaybay img {
+            width: 20px;
+            height: 20px;
+        }
+
+    .contentgiatot .content1 .lich {
+        width: 231px;
+        margin: 8px 0px 8px 3px;
+    }
+
+        .contentgiatot .content1 .lich img {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+
+        .contentgiatot .content1 .lich p {
+            font-size: 14px;
+            float: right;
+            margin-top: 2px;
+        }
+
+        .contentgiatot .content1 .lich strong {
+            color: #FF6633;
+            font-size: 14px;
+        }
+
+    .contentgiatot .content1 .thoigian {
+        width: 230px;
+        margin: 8px 0px 8px 3px;
+    }
+
+        .contentgiatot .content1 .thoigian img {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+
+        .contentgiatot .content1 .thoigian p {
+            font-size: 15px;
+            float: right;
+            margin: 3px 40px 0px 0px;
+        }
+
+        .contentgiatot .content1 .thoigian strong {
+            color: #FF6633;
+            font-size: 15px;
+        }
+
+    .contentgiatot .content1 .giadattour {
+        margin: 0px 0px 5px 0px;
+    }
+
+        .contentgiatot .content1 .giadattour p {
+            color: #FF6633;
+            font-size: 17px;
+            float: left;
+            margin: 7px 0px 80px 3px;
+        }
+
+        .contentgiatot .content1 .giadattour button {
+            color: #FFFFFF;
+            background-color: #FF6633;
+            width: 95px;
+            height: 30px;
+            margin-left: 5px;
+            border: 1px solid #FF6633;
+        }
+
+            .contentgiatot .content1 .giadattour button:hover {
+                background-color: #6633FF;
+                border: none;
+            }
+
+        .contentgiatot .content1 .giadattour .trongnuoc {
+            margin-left: 14px;
+        }
+
+.wrapper .contentkhuyenmai {
+    margin-top: 20px;
+}
+
+    .wrapper .contentkhuyenmai .title .giachot {
+        margin-left: 200px;
+        color: #333366;
+    }
+
+    .wrapper .contentkhuyenmai .title .gioithieugiachot {
+        margin-top: 10px;
+        margin-left: -30px;
+        color: #880000;
+        font-size: 20px;
+    }
+
+    .wrapper .contentkhuyenmai .title {
+        margin-left: 425px;
+    }
+
+        .wrapper .contentkhuyenmai .title h2 {
+            margin-left: 220px;
+            color: #333366;
+        }
+
+        .wrapper .contentkhuyenmai .title p {
+            margin-top: 10px;
+            margin-left: 30px;
+            color: #880000;
+            font-size: 20px;
+        }
+
+        .wrapper .contentkhuyenmai .title .nuocngoai {
+            margin-top: 10px;
+            margin-left: 95px;
+            color: #880000;
+            font-size: 20px;
+        }
+
+.contentkhuyenmai .content {
+    display: flex;
+    margin-left: 230px;
+    padding: 20px 0px;
+}
+
+.contentkhuyenmai .content1 {
+    width: 235px;
+    height: 325px;
+    border: 1px solid #EBEDEF;
+    border-radius: 8px;
+    margin: 0px 15px;
+}
+
+    .contentkhuyenmai .content1 img {
+        width: 235px;
+        height: 155px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .contentkhuyenmai .content1 h4 {
+        width: 200px;
+        line-height: 18px;
+        margin-left: 5px;
+    }
+
+        .contentkhuyenmai .content1 h4 a {
+            text-decoration: none;
+            color: #0000CC;
+            font-size: 14px;
+        }
+
+            .contentkhuyenmai .content1 h4 a:hover {
+                color: red;
+            }
+
+    .contentkhuyenmai .content1 .xebuytmaybay {
+        margin: 8px 0px 8px 5px;
+    }
+
+        .contentkhuyenmai .content1 .xebuytmaybay img {
+            width: 20px;
+            height: 20px;
+        }
+
+    .contentkhuyenmai .content1 span {
+        color: #000000;
+        position: relative;
+        top: -2px;
+        left: 40px;
+        font-size: 17px;
+        text-decoration: line-through;
+        font-weight: normal;
+    }
+
+.contentkhuyenmait .content1 .lich {
+    width: 231px;
+    margin: 8px 0px 8px 3px;
+}
+
+.contentkhuyenmai .content1 .lich img {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.contentkhuyenmai .content1 .lich p {
+    font-size: 14px;
+    float: right;
+    margin-top: 2px;
+}
+
+.contentkhuyenmai .content1 .lich strong {
+    color: #FF6633;
+    font-size: 14px;
+}
+
+.contentkhuyenmai .content1 .thoigian {
+    width: 230px;
+    margin: 8px 0px 8px 3px;
+}
+
+    .contentkhuyenmai .content1 .thoigian img {
+        width: 20px;
+        height: 20px;
+        float: left;
+    }
+
+    .contentkhuyenmai .content1 .thoigian p {
+        font-size: 15px;
+        float: right;
+        margin: 3px 40px 0px 0px;
+    }
+
+    .contentkhuyenmai .content1 .thoigian strong {
+        color: #FF6633;
+        font-size: 15px;
+    }
+
+.contentkhuyenmai .content1 .giadattour {
+    margin: 0px 0px 5px 0px;
+}
+
+    .contentkhuyenmai .content1 .giadattour p {
+        color: #FF6633;
+        font-size: 17px;
+        float: left;
+        margin: 7px 0px 80px 3px;
+    }
+
+    .contentkhuyenmai .content1 .giadattour button {
+        color: #FFFFFF;
+        background-color: #FF6633;
+        width: 95px;
+        height: 30px;
+        margin-left: 5px;
+        border: 1px solid #FF6633;
+    }
+
+        .contentkhuyenmai .content1 .giadattour button:hover {
+            background-color: #6633FF;
+            border: none;
+        }
+
+    .contentkhuyenmai .content1 .giadattour .trongnuoc {
+        margin-left: 14px;
+    }
+
+.wrapper .banner {
+    margin-left: 246px;
+}
+
+    .wrapper .banner .banner1 {
+        width: 516px;
+        height: 200px;
+    }
+
+.wrapper .contentgiatot .fulltour {
+    margin: 10px 0px 30px 0px;
+}
+
+    .wrapper .contentgiatot .fulltour a {
+        color: #FF5722;
+        border: 1px solid #FF5722;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0px 0px 0px 690px;
+    }
+
+        .wrapper .contentgiatot .fulltour a:hover {
+            background-color: #FF5722;
+            color: #FFFFFF;
+        }
+
+.wrapper .camnang h2 {
+    color: #333366;
+    margin-left: 635px;
+}
+
+.wrapper .camnang p {
+    color: #880000;
+    margin-left: 490px;
+    margin-top: 10px;
+}
+
+.wrapper .camnang h2 {
+}
+
+.wrapper .camnang .camnangdulich {
+    margin-left: 130px;
+}
+
+    .wrapper .camnang .camnangdulich .camnangdulich1 {
+        float: left;
+        margin: 15px 20px;
+    }
+
+        .wrapper .camnang .camnangdulich .camnangdulich1 img {
+            width: 380px;
+            height: 250px;
+            border-radius: 7px;
+        }
+
+        .wrapper .camnang .camnangdulich .camnangdulich1 a {
+            text-decoration: none;
+        }
+
+            .wrapper .camnang .camnangdulich .camnangdulich1 a h3 {
+                width: 350px;
+                color: #0000CC;
+                margin: 5px 0px;
+            }
+
+                .wrapper .camnang .camnangdulich .camnangdulich1 a h3:hover {
+                    color: #FF6633;
+                }
+
+        .wrapper .camnang .camnangdulich .camnangdulich1 p {
+            width: 350px;
+            color: #000000;
+            line-height: 20px;
+            margin-left: 0px;
+        }
+
+.wrapper .footer {
+    background-color: #333333;
+    padding: 1px;
+}
+
+    .wrapper .footer .fbtwis {
+        margin-left: 200px;
+        margin-top: 20px;
+    }
+
+        .wrapper .footer .fbtwis a {
+            color: #333333;
+            margin-right: 10px;
+        }
+
+            .wrapper .footer .fbtwis a img {
+                width: 30px;
+                height: 30px;
+            }
+
+    .wrapper .footer .goiy {
+        margin-left: 500px;
+    }
+
+        .wrapper .footer .goiy h3 {
+            margin-top: -30px;
+            color: #848484;
+            font-size: 18px;
+        }
+
+        .wrapper .footer .goiy p {
+            color: #848484;
+            line-height: 20px;
+        }
+
+    .wrapper .footer .email {
+    }
+
+        .wrapper .footer .email input {
+            width: 200px;
+            height: 25px;
+            position: relative;
+            left: 950px;
+            bottom: 30px;
+        }
+
+        .wrapper .footer .email button {
+            color: #FFFFFF;
+            background-color: #1BA0E2;
+            border: 1px solid #1BA0E2;
+            width: 80px;
+            height: 30px;
+            position: relative;
+            left: 946px;
+            bottom: 30px;
+        }
+
+    .wrapper .footer .footerson {
+        display: flex;
+        height: 150px;
+    }
+
+        .wrapper .footer .footerson .footersonleft {
+        }
+
+            .wrapper .footer .footerson .footersonleft img {
+                width: 150px;
+                height: 80px;
+                position: relative;
+                left: 150px;
+                bottom: 20px;
+            }
+
+            .wrapper .footer .footerson .footersonleft p {
+                width: 400px;
+                position: relative;
+                left: 150px;
+                color: #848484;
+                line-height: 20px;
+            }
+
+        .wrapper .footer .footerson .footersonright {
+            float: right;
+            position: relative;
+            left: 200px;
+            display: flex;
+        }
+
+            .wrapper .footer .footerson .footersonright .information {
+                padding: 20px 30px;
+                position: relative;
+                bottom: 30px;
+            }
+
+                .wrapper .footer .footerson .footersonright .information h3 {
+                    color: #FFFFFF;
+                    margin-bottom: 10px;
+                }
+
+                .wrapper .footer .footerson .footersonright .information ul {
+                }
+
+                    .wrapper .footer .footerson .footersonright .information ul a {
+                        text-decoration: none;
+                    }
+
+                        .wrapper .footer .footerson .footersonright .information ul a li {
+                            color: #848484;
+                            line-height: 25px;
+                        }
+
+                            .wrapper .footer .footerson .footersonright .information ul a li:hover {
+                                color: #FFFFFF;
+                            }
+
+.show {
+    display: inline-block;
+}

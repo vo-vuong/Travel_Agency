@@ -62,6 +62,22 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.policy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.policy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.policy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.termsProvisions, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextAreaFor(model => model.termsProvisions, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.termsProvisions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
                 @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
@@ -92,6 +108,14 @@
             <div class="col-md-3">
                 @Html.TextBoxFor(model => model.DateStart, new { @type = "datetime-local", @class = "form-control datepicker", @Value = Model.DateStart.ToString("yyyy-MM-ddThh:mm") })
                 @Html.ValidationMessageFor(model => model.DateStart, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Time, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
             </div>
         </div>
 

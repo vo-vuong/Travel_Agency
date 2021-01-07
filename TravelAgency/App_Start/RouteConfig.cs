@@ -13,10 +13,71 @@ namespace TravelAgency
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}",
+              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
+            routes.MapRoute(
+                name: "Tour Sale",
+                url: "tour-khuyen-mai",
+                defaults: new { controller = "Tour", action = "Sale", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Tour Domestic",
+                url: "tour-trong-nuoc",
+                defaults: new { controller = "Tour", action = "Domestic", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Tour Abroad",
+                url: "tour-ngoai-nuoc",
+                defaults: new { controller = "Tour", action = "Abroad", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Content Detail",
+                url: "tin-tuc/chi-tiet/{id}",
+                defaults: new { controller = "Content", action = "Detail", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Content",
+                url: "tin-tuc",
+                defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Home",
+                url: "trang-chu",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Signup",
+                url: "dang-ki",
+                defaults: new { controller = "Signup", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
             );
         }
     }

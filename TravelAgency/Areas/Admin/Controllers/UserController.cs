@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Travel_Agency.Common;
+using TravelAgency.Common;
 using TravelAgency.Areas.Admin.Models;
 
 namespace TravelAgency.Areas.Admin.Controllers
@@ -19,7 +19,7 @@ namespace TravelAgency.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 2)
+        public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 10)
         {
             var model = new UserDao().ListAllPaging(searchString, pageStart, pageSize);
             ViewBag.SearchString = searchString;

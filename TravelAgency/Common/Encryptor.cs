@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace Travel_Agency.Common
+namespace TravelAgency.Common
 {
     public class Encryptor
     {

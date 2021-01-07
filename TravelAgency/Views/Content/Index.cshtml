@@ -1,0 +1,113 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Model.EF.CONTENT>
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    var listContentWeek = (List<Model.EF.CONTENT>)ViewBag.ListContentHotWeek;
+}
+
+@section css {
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/Client/css/tintucstyle.css">
+
+
+}
+<div class="title">
+    <a href="/trang-chu">Trang chủ</a>
+    <span>/</span>
+    <a class="subtitle">Tin tức</a>
+</div>
+<div class="content">
+    @foreach (var item in Model.Take(1))
+    {
+        <div class="left">
+            <img src="@item.Image">
+            <a href="/tin-tuc/chi-tiet/@item.IDContent"><h2>@item.ContentName</h2></a>
+            <p>@item.shortBody</p>
+            <br />
+            <p>Lượt xem: @item.views</p>
+        </div>
+    }
+    <div class="centertop">
+        <ul>
+            @{
+                var count = 1;
+                foreach (var item in listContentWeek)
+                {
+                    <li>
+                        @if (count == 1)
+                        {
+                            <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                                <img src="@item.Image">
+                                <p>@item.ContentName</p>
+                            </a>
+                            count++;
+                        }
+                        else
+                        {
+                            <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                                <p>@item.ContentName</p>
+                            </a>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    @{
+        Html.RenderAction("ContentHot", "Content");
+    }
+
+    <div class="clr"></div>
+    <div class="grid">
+        <ul class="top">
+            @foreach (var item in Model.Skip(1).Take(3))
+            {
+                <li>
+                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                        <img src="@item.Image">
+                        <h3>@item.ContentName</h3>
+                    </a>
+                    <p>@item.shortBody</p>
+                    <br />
+                    <p>Lượt xem: @item.views</p>
+                </li>
+            }
+        </ul>
+        <ul class="mid">
+            @foreach (var item in Model.Skip(4).Take(3))
+            {
+                <li>
+                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                        <img src="@item.Image">
+                        <h3>@item.ContentName</h3>
+                    </a>
+                    <p>@item.shortBody</p>
+                    <br />
+                    <p>Lượt xem: @item.views</p>
+                </li>
+            }
+        </ul>
+        <ul class="bottom">
+            @foreach (var item in Model.Skip(7).Take(3))
+            {
+                <li>
+                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                        <img src="@item.Image">
+                        <h3>@item.ContentName</h3>
+                    </a>
+                    <p>@item.shortBody</p>
+                    <br />
+                    <p>Lượt xem: @item.views</p>
+                </li>
+            }
+        </ul>
+        @Html.PagedListPager(Model, pageStart => Url.Action("Index", new { pageStart }))
+    </div>
+
+</div>
+

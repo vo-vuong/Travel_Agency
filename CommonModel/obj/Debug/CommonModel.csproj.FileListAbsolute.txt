@@ -4,3 +4,9 @@ E:\Web_MVC\TravelAgency\CommonModel\obj\Debug\CommonModel.csprojAssemblyReferenc
 E:\Web_MVC\TravelAgency\CommonModel\obj\Debug\CommonModel.csproj.CoreCompileInputs.cache
 E:\Web_MVC\TravelAgency\CommonModel\obj\Debug\CommonModel.dll
 E:\Web_MVC\TravelAgency\CommonModel\obj\Debug\CommonModel.pdb
+D:\TravelAgency\CommonModel\bin\Debug\CommonModel.dll
+D:\TravelAgency\CommonModel\bin\Debug\CommonModel.pdb
+D:\TravelAgency\CommonModel\obj\Debug\CommonModel.csprojAssemblyReference.cache
+D:\TravelAgency\CommonModel\obj\Debug\CommonModel.csproj.CoreCompileInputs.cache
+D:\TravelAgency\CommonModel\obj\Debug\CommonModel.dll
+D:\TravelAgency\CommonModel\obj\Debug\CommonModel.pdb

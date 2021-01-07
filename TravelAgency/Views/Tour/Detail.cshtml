@@ -1,0 +1,54 @@
+﻿@model Model.EF.TOUR
+@{
+    ViewBag.Title = "Chi tiết Tour";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+@section css{
+    <link href="/Assets/Client/css/reset.css" rel="stylesheet" />
+    <link href="/Assets/Client/css/TourDetail.css" rel="stylesheet" />
+}
+
+<div class="title">
+    <a href="/trang-chu">Trang chủ</a>
+    <span>/</span>
+    <a class="tintuc">@Model.TourName</a>
+</div>
+<div class="content clearfix">
+    <!-- add -->
+    <div class="contentleft">
+        <img src="@Model.Image">
+        <div class="contentleftson">
+            <h3>CHƯƠNG TRÌNH TOUR</h3>
+            @Html.Raw(Model.Description)
+            <h3>CHÍNH SÁCH TOUR</h3>
+            <p>
+                @Model.policy
+            </p>
+        </div>
+        <div class="contentleftson">
+            <h3>ĐIỀU KHOẢN & QUY ĐỊNH</h3>
+            <p>
+                @Model.termsProvisions
+            </p>
+        </div>
+    </div>
+    <div class="contentright">
+        <h3>@Model.TourName</h3>
+        <p class="tien">Giá mới : @(Model.Price.HasValue ? Model.Price.Value.ToString("N0") + "VND" : "Liên hệ")</p>
+        <ul>
+            <li>Hành trình : @Model.LocationStart - @Model.TourName</li>
+            <li>
+                <img src="/Assets/Client/images/lich.svg"> Khởi hành : <span>@Model.DateStart</span>
+            </li>
+            <li>
+                <img src="/Assets/Client/images/thoigian.svg"> Di chuyển : <span> @Model.Time</span>
+            </li>
+        </ul>
+        <button>ĐẶT TOUR</button>
+    </div>
+    <div class="clr"></div>
+</div>
+<br />
+<br />
