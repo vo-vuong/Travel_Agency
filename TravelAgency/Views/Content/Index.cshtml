@@ -5,16 +5,15 @@
 
 @{
     ViewBag.Title = "Tin tức";
-    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    Layout = "~/Views/Shared/Layout.cshtml";
     var listContentWeek = (List<Model.EF.CONTENT>)ViewBag.ListContentHotWeek;
 }
 
-@section css {
+@*@section css {
     <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
     <link rel="stylesheet" type="text/css" href="~/Assets/Client/css/tintucstyle.css">
+}*@
 
-
-}
 <div class="title">
     <a href="/trang-chu">Trang chủ</a>
     <span>/</span>

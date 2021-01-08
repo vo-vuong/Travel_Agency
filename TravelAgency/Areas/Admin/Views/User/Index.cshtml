@@ -62,7 +62,7 @@
                                         new AjaxOptions
                                         {
                                             Confirm = "Bạn có muốn xóa bản ghi này?",
-                                            OnComplete = "$('row_" + item.IDAccount + "').remove()",
+                                            OnComplete = "$('#row_" + item.IDAccount + "').remove()",
                                             HttpMethod = "Delete"
                                         })
                                         <a href="/Admin/User/Detail/@item.IDAccount"> | Chi tiết</a>
