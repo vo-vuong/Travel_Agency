@@ -84,6 +84,15 @@
     <Compile Include="EF\TOURSALE.cs" />
     <Compile Include="EF\TravelAgencyDbContext.cs" />
     <Compile Include="EF\USERGROUP.cs" />
+    <Compile Include="Migrations\202101071748180_InitialCreate.cs" />
+    <Compile Include="Migrations\202101071748180_InitialCreate.designer.cs">
+      <DependentUpon>202101071748180_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101080628478_TravelAgency_V1.cs" />
+    <Compile Include="Migrations\202101080628478_TravelAgency_V1.designer.cs">
+      <DependentUpon>202101080628478_TravelAgency_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ContentViewModel.cs" />
   </ItemGroup>
@@ -102,7 +111,14 @@
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101071748180_InitialCreate.resx">
+      <DependentUpon>202101071748180_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101080628478_TravelAgency_V1.resx">
+      <DependentUpon>202101080628478_TravelAgency_V1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
