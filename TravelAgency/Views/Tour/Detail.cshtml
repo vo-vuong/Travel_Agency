@@ -1,0 +1,433 @@
+﻿@model Model.EF.TOUR
+@{
+    ViewBag.Title = "Chi tiết Tour";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@*@section css{
+            <link href="/Assets/Client/css/reset.css" rel="stylesheet" />
+            <link href="/Assets/Client/css/TourDetail.css" rel="stylesheet" />
+    }*@
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" style="margin-top: 20px;margin-bottom: 10px;padding: 15px 20px 25px 20px;background-color: antiquewhite;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 style="color: #0071BC;font-weight: bold;">Du Lịch Hồ Chí Minh - Đà Nẵng - Huế</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <img src="cauvang.jpg" class="img-thumbnail">
+                    <table class="col-xs-12">
+                        <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Loại vé</th>
+                        <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Giá vé</th>
+                        <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Khuyến mãi (%)</th>
+                        <tr>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Người lớn</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" name="adults" id="adultsMonney">3490000</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionAdults">12</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Em bé</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" class="children" id="childrenMonney">2990000</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionChildren">15</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Trẻ em</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" class="baby" id="babyMonney">1990000</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionBaby">17</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="glyphicon glyphicon-menu-right" style="margin-bottom: 10px;"></div>&nbsp;<span>Di chuyển bằng : </span><span>Di chuyển bằng ô tô</span><br>
+                    <div class="glyphicon glyphicon-menu-right" style="margin-bottom: 10px;"></div>&nbsp;<span>Ngày khởi hành : </span><span>Thứ 2 hằng tuần</span>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p style="line-height: 20px;"><div class="glyphicon glyphicon-leaf"></div>&nbsp;Với những ai chưa từng đặt chân đến đây, Phong Nha Kẻ Bàng với họ có lẽ dường như chỉ đơn thuần là một khu du lịch mà điểm nhấn chính là những hang động lớn có những tảng đá vôi. Ấy thế nhưng, chỉ khi thực sự đến với nơi này, được nhìn ngắm, chiêm nghiệm tất thảy cảnh đẹp hoang dã của một vùng rừng núi cùng với những hang động sâu thẳm...</p>
+                        </div>
+                    </div>
+                    <label class="col-xs-6">Còn 1 tour</label>
+                </div>
+                <div class="row">
+                    <form method="" action="" class="col-xs-12 col-sm-6">
+                        <table>
+                            <tr>
+                                <th class="col-xs-4 col-sm-2 col-md-3" style="text-align: center;color: #CC0000;">Loại khách</th>
+                                <th class="col-xs-5 col-sm-4 col-md-3" style="text-align: center;color: #CC0000;">Số lượng</th>
+                                <th class="col-xs-3 col-sm-3 col-md-3" style="text-align: center;color: #CC0000;">Tổng giá</th>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;">Người lớn</td>
+                                <td style="padding: 5px;">
+                                    <div class="input-group col-xs-12 col-sm-12 col-md-11" style="margin: 0 auto">
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number1" data-type="minus1" data-field1="quantity1">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quantity1" value="0" minAdults="0" maxAdults="10" class="form-control input-number-adults adultsValue" style="text-align: center;" readonly>
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number1" data-type="plus1" data-field1="quantity1">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalAdult">0</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;">Em bé</td>
+                                <td style="padding: 5px;">
+                                    <div class="input-group col-xs-12 col-sm-12 col-md-11" style="margin: 0 auto">
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number2" data-type="minus2" data-field2="quantity2">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quantity2" value="0" minChildren="0" maxChildren="10" class="form-control input-number-children childrenValue" style="text-align: center;" readonly>
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number2" data-type="plus2" data-field2="quantity2">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalChildren">0</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;">Trẻ em</td>
+                                <td style="padding: 5px;">
+                                    <div class="input-group col-xs-12 col-sm-12 col-md-11" style="margin: 0 auto">
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number3" data-type="minus3" data-field3="quantity3">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quantity3" value="0" minBaby="0" maxBaby="10" class="form-control input-number-baby babyValue" style="text-align: center;" readonly>
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="btn btn-default btn-number3" data-type="plus3" data-field3="quantity3">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalBaby">0</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;text-align: center;color: #CC0000;padding-top: 5px;padding-bottom: 5px;">Tổng tiền</td>
+                                <td style="color: #CC0000;font-weight: bold;text-align: center;"><span class="totalMonney">0</span><span>&nbsp;VNĐ</span></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <div class="col-xs-12">
+
+                            <div class="col-xs-6">
+                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <input class="form-control" readonly="" type="text" name="calendar"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="btn" style="padding-left: 30px;padding-right: 40px;background-color: #0071BC;color: #FFFFFF;"><span class="glyphicon glyphicon-send" style="margin-right: 20px;"></span>Đặt tour</buton>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <h4 style="color: #0071BC;font-weight: bold;">LỊCH TRÌNH TOUR</h4>
+            <div style="border: 1px dotted #000000;padding: 20px;">
+                <div>
+                    <p style="line-height: 25px;">
+                        Xe và hướng dẫn viên Air Travel Tourism đón Quý khách tại 190 Pasteur, Q.3, TP.HCM, khởi hành đến cửa khẩu Mộc Bài. Ăn sáng trên đường. Đến Mộc Bài, Quý khách làm thủ tục qua cửa khẩu. Xe và hướng dẫn viên địa phương đón đoàn và đưa đi dùng bữa trưa tại nhà hàng địa phương . Sau đó, Quý khách tiếp tục lên đường đi Siem Reap. Đến nơi, Quý khách về nhận phòng tại khách sạn 3 sao. Ăn tối và tự do nghỉ ngơi.
+                    </p>
+                    <div>
+                        <strong>NGÀY 1: TP. HỒ CHÍ MINH - ĐÀ NẴNG - TAM KỲ - HỘI AN (Ăn trưa, chiều)</strong>
+                        <p style="line-height: 25px;">
+                            Buổi sáng, quý khách tập trung tại cổng D3 - Ga đi trong nước, sân bay Tân Sơn Nhất. Khởi hành ra Đà Nẵng (Chuyến bay VJ 624 lúc 08:30) Đến Đà Nẵng, đoàn khởi hành đến Tam Kỳ, ghé thăm Làng bích họa Tam Thanh - dưới bàn tay tài hoa của đội ngũ tình nguyện viên Hàn Quốc, những bức tường cũ kĩ của hơn 100 ngôi nhà trong làng chài đã trở thành các tác phẩm hội họa đặc sắc. Viếng tượng đài Mẹ Việt Nam anh hùng. Đoàn tiếp tục đến khu du lịch hồ Phú Ninh, thư giãn với các hoạt động chèo kayak, lướt ván, đi thuyền thăm lòng hồ thủy lợi,... (chi phí tự túc). Buổi chiều, đoàn về Hội An, dạo bộ Phố cổ, tham quan các công trình tiêu biểu: Chùa Cầu Nhật Bản, chùa Ông, hội quán Phúc Kiến, khu phố đèn lồng. Nghỉ đêm tại Hội An.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="col-xs-12">
+                            <img src="hoian1.jpg" class="img-thumbnail" style="margin-top: 10px;margin-bottom: 20px;">
+                        </div>
+                    </div>
+                    <div>
+                        <strong>NGÀY 2: HỘI AN - CẨM THANH - ĐÀ NẴNG (Ăn sáng, trưa, chiều)</strong>
+                        <p style="line-height: 25px;">
+                            Xe đưa đoàn đến ngắm cầu Cửa Đại - dài 1500m, bắc qua sông Thu Bồn, vừa được khánh thành năm 2016. Đoàn xuống bến thuyền, đến rừng dừa Bảy Mẫu. Quý khách trải nghiệm cảm giác ngồi trên chiếc thuyền thúng tham quan rừng dừa nước, xem người dân địa phương biểu diễn “lắc thúng, chém nước”, tham gia các trò chơi dân gian,.... Trở về Đà Nẵng. Buổi chiều, tham quan bán đảo Sơn Trà, ngắm cảng Tiên Sa, viếng chùa Linh Ứng Bãi Bụt - ngôi chùa lớn nhất ở thành phố Đà Nẵng, chiêm bái tượng Phật Quan Thế Âm cao nhất Việt Nam. Buổi tối, quý khách tự do dạo phố, ngắm Cầu Rồng - một trong những con rồng thép lớn nhất thế giới, Cầu Trần Thị Lý - với kiến trúc tựa con thuyền căng buồm vươn ra biển lớn, trải nghiệm “Vòng quay Mặt trời - Sun Wheel” thưởng ngoạn cảnh đẹp Đà Nẵng với góc nhìn từ độ cao 115m (tự túc chi phí). Nghỉ đêm tại Đà Nẵng.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="col-xs-12">
+                            <img src="chualinhung.jpg" class="img-thumbnail" style="margin-top: 10px;margin-bottom: 20px;">
+                        </div>
+                    </div>
+                    <div>
+                        <strong>NGÀY 3: ĐÀ NẴNG - BÀ NÀ - HUẾ (Ăn sáng, trưa, chiều)</strong>
+                        <p style="line-height: 25px;">
+                            Buổi sáng, quý khách khởi hành đến KDL Bà Nà Hills. Lên Bà Nà bằng hệ thống cáp treo đạt 2 kỷ lục Guinness, ngắm toàn cảnh núi non hùng vỹ và tận hưởng khí hậu trong lành. Viếng chùa Linh Ứng, khám phá Fantasy Park - khu vui chơi giải trí trong nhà đẳng cấp quốc tế (miễn phí 105 trò chơi) và trò chơi Hiệp sĩ Thần thoại (Máng trượt). Dạo bộ giữa Khu làng Pháp một không gian kiến trúc tái hiện sinh động nước Pháp thời cận đại đầy lãng mạn, sang trọng và lịch lãm. Trải nghiệm Tàu hỏa leo núi, tham quan 9 vườn hoa, Hầm rượu cổ Debay.Tự túc chi phí khám phá Khu trưng bày tượng sáp - duy nhất tại Việt Nam. Khởi hành ra Huế. Di chuyển qua đường hầm Hải Vân - hầm đường bộ hiện đại nhất Đông Nam Á. Trên đường, ngắm biển Lăng Cô - một trong những vịnh biển đẹp nhất thế giới. Đến Huế, nhận phòng. Tự do khám phá đất Cố đô. Nghỉ đêm tại Huế.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="col-xs-12">
+                            <img src="langco.jpg" class="img-thumbnail" style="margin-top: 10px;margin-bottom: 20px;">
+                        </div>
+                    </div>
+                    <div>
+                        <strong>NGÀY 4: HUẾ - TP. HỒ CHÍ MINH (Ăn sáng, trưa)</strong>
+                        <p style="line-height: 25px;">
+                            Buổi sáng, tham quan Di sản Văn hóa Thế giới Kinh Thành Huế - Hoàng cung của 13 vị Vua triều Nguyễn với các công trình tiêu biểu: Ngọ Môn, điện Thái Hoà, Tử Cấm Thành, Thế Miếu, Hiển Lâm Các, Cửu Đỉnh, Bảo tàng Cổ vật Cung đình Huế. Viếng chùa Thiên Mụ - ngôi chùa cổ và nổi tiếng nhất ở đất Cố đô. Trả phòng. Buổi chiều đến viếng lăng vua Khải Định - chiêm ngưỡng một công trình kết hợp hài hòa giữa kiến trúc truyền thống Huế và hiện đại của Tây phương. Ra sân bay Phú Bài để về TP. HCM (Chuyến bay VJ 307 lúc 17:35). Kết thúc chương trình. Quý khách tự túc ăn chiều nếu chuyến bay về TP.HCM cất cánh sau 19:30 và tự túc phương tiện từ sân bay TSN về nhà.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="col-xs-12">
+                            <img src="kinhthanhhue.jpg" class="img-thumbnail" style="margin-top: 10px;margin-bottom: 20px;">
+                        </div>
+                    </div>
+                    <h4 style="color: #0071BC;font-weight: bold;">CHÍNH SÁCH TOUR</h4>
+                    <p>
+                        * Vé trẻ em :
+                        - Trẻ em dưới 2 tuổi: thu 300.000đ/ trẻ.  Gia đình tự lo cho bé ăn ngủ
+                        - Trẻ em từ 2 đến dưới 6 tuổi: mua 100% VMB người lớn. Gia đình tự lo cho bé ăn ngủ và tự trả phí tham quan (nếu có).
+                        - Hai người lớn chỉ được kèm một trẻ em dưới 6 tuổi. Từ trẻ thứ 2 trở lên, mỗi em phải chịu mức giá tương đương trẻ em từ 6 đến 11 tuổi
+                        - Trẻ em từ 6 đến 11 tuổi: tiêu chuẩn gồm VMB, ăn uống và tham quan theo chương trình, ngủ chung giường với phụ huynh
+                        - Trẻ em trên 11 tuổi: áp dụng giá và các tiêu chuẩn dịch vụ như người lớn
+                    </p>
+                    <p>
+                        * Giá tour bao gồm :
+                        - Chi phí xe máy lạnh phục vụ theo chương trình.
+                        - Vé máy bay khứ hồi
+                        - Chi phí khách sạn theo tiêu chuẩn 2 khách/phòng
+                        - Chi phí ăn - uống theo chương trình.
+                        - Chi phí tham quan .
+                        - Chi phí Hướng dẫn viên tiếng Việt.
+                        - Quà tặng: Nón, nước suối, khăn lạnh, viết
+                    </p>
+                    <p>
+                        * Giá tour không bao gồm :
+                        - Chi phí tham quan - ăn uống ngoài chương trình, tắm biển (thuê dù ghế, tắm nước ngọt), giặt ủi, điện thoại và các chi phí cá nhân khác
+                        - Chi phí tham gia các trò chơi gắp thú bông, trò chơi kỹ năng carnival và các trò chơi có thưởng tại khu Fantasy Park, tham quan Khu trưng bày tượng sáp tại Bà Nà Hills; Vé vui chơi tại công viên Châu Á
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div>
+                <h4 style="color: #0071BC;font-weight: bold;">Tour ngoài nước</h4>
+                <div class="row" id="image" style="transition-duration: .4s;padding-bottom: 10px;">
+                    <a href="#"><img src="vanlytruongthanh.jpg" class="img-thumbnail"></a>
+                    <a href="#" style="text-decoration: none;"><h5 style="color: #FF0000;font-weight: bold;">Trung Quốc - Vạn lý trường thành</h5></a>
+                    <span style="color: #0071BC;font-weight: bold;">8.990.000 VNĐ</span>
+                </div>
+                <div class="row" id="image" style="transition-duration: .4s;padding-bottom: 10px;">
+                    <a href="#"><img src="thailand.jpg" class="img-thumbnail"></a>
+                    <a href="#" style="text-decoration: none;"><h5 style="color: #FF0000;font-weight: bold;">Wat Arun - Ngôi chùa bình minh</h5></a>
+                    <span style="color: #0071BC;font-weight: bold;">8.990.000 VNĐ</span>
+                </div>
+                <div class="row" id="image" style="transition-duration: .4s;padding-bottom: 10px;">
+                    <a href="#"><img src="malaysia.jpg" class="img-thumbnail"></a>
+                    <a href="#" style="text-decoration: none;"><h5 style="color: #FF0000;font-weight: bold;">Malaysia - Khu đô thị sầm uất Kuala Lumpur</h5></a>
+                    <span style="color: #0071BC;font-weight: bold;">8.990.000 VNĐ</span>
+                </div>
+                <div class="row" id="image" style="transition-duration: .4s;padding-bottom: 10px;">
+                    <a href="#"><img src="singapore.jpg" class="img-thumbnail"></a>
+                    <a href="#" style="text-decoration: none;"><h5 style="color: #FF0000;font-weight: bold;">Singapore - Quốc đảo "sư tử biển"</h5></a>
+                    <span style="color: #0071BC;font-weight: bold;">8.990.000 VNĐ</span>
+                </div>
+                <div class="row" id="image" style="transition-duration: .4s;padding-bottom: 10px;">
+                    <a href="#"><img src="austrailia.jpg" class="img-thumbnail"></a>
+                    <a href="#" style="text-decoration: none;"><h5 style="color: #FF0000;font-weight: bold;">Autrailia - Vi vu Meibourne - Sydney</h5></a>
+                    <span style="color: #0071BC;font-weight: bold;">8.990.000 VNĐ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.btn-number1').click(function (event) {
+            event.preventDefault();
+            var fieldName = $(this).attr('data-field1');
+            var adults = $('#adultsMonney').text();
+            var promotionAdults = $('#promotionAdults').text();
+            var type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentInput = parseInt(input.val());
+            var childrenInput = parseInt($('.totalChildren').html()); console.log(childrenInput);
+            var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
+            //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+            if (!isNaN(currentInput)) {
+                if (type == 'minus1') {
+                    var minVal = parseInt(input.attr('min1'));
+                    if (!minVal) minVal = 0;
+                    if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subAdults = (currentInput - 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').text(subAdults); totalMonney = parseInt($('.totalMonney').text(subAdults + childrenInput + babyInput)); }
+                    if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                } else if (type == 'plus1') {
+                    var maxVal = parseInt(input.attr('max1'));
+                    if (!maxVal) maxVal = 10;
+                    if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumAdults = (currentInput + 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').html(sumAdults); totalMonney = parseInt($('.totalMonney').text(sumAdults + childrenInput + babyInput)); }
+                    if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                }
+            } else { input.val(0); }
+        });
+        $('.input-number-adults').focusin(function () { $(this).data('rootVal', $(this).val()); });
+        $('.input-number-adults').change(function () {
+            var minValAdults = parseInt($(this).attr('minAdults'));
+            var maxValAdults = parseInt($(this).attr('maxAdults'));
+            if (!minValAdults) { minValAdults == 1 } if (!maxValAdults) { maxValAdults == 1 }
+            var curVal = parseInt($(this).val());
+            var nameVal = $(this).attr('name');
+            if (curVal >= minValAdults) { $(".btn-number1[data-type='minus1']").removeAttr('disabled'); }
+            else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+            if (curVal <= maxValAdults) { $(".btn-number1[data-type='plus1']").removeAttr('disabled'); }
+            else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+        });
+        $('.btn-number2').click(function (event) {
+            event.preventDefault();
+            var fieldName = $(this).attr('data-field2');
+            var children = $('#childrenMonney').text();
+            var promotionChildren = $('#promotionChildren').text();
+            var type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentInput = parseInt(input.val());
+            var adultsInput = parseInt($('.totalAdult').html()); console.log(adultsInput);
+            var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
+            //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+            if (!isNaN(currentInput)) {
+                if (type == 'minus2') {
+                    var minVal = parseInt(input.attr('minChildren'));
+                    if (!minVal) minVal = 0;
+                    if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subChildren = (currentInput - 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(subChildren); totalMonney = parseInt($('.totalMonney').text(subChildren + adultsInput + babyInput)); }
+                    if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                } else if (type == 'plus2') {
+                    var maxVal = parseInt(input.attr('maxChildren'));
+                    if (!maxVal) maxVal = 10;
+                    if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumChildren = (currentInput + 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(sumChildren); totalMonney = parseInt($('.totalMonney').text(sumChildren + adultsInput + babyInput)); }
+                    if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                }
+            } else { input.val(0); }
+        });
+        $('.input-number-children').focusin(function () { $(this).data('rootVal', $(this).val()); });
+        $('.input-number-children').change(function () {
+            var minValChildren = parseInt($(this).attr('minChildren'));
+            var maxValChildren = parseInt($(this).attr('maxChildren'));
+            if (!minValChildren) { minValChildren == 1 } if (!maxValChildren) { maxValChildren == 1 }
+            var curVal = parseInt($(this).val());
+            var nameVal = $(this).attr('name');
+            if (curVal >= minValChildren) { $(".btn-number2[data-type='minus2']").removeAttr('disabled'); }
+            else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+            if (curVal <= maxValChildren) { $(".btn-number2[data-type='plus2']").removeAttr('disabled'); }
+            else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+        });
+        $('.btn-number3').click(function (event) {
+            event.preventDefault();
+            var fieldName = $(this).attr('data-field3');
+            var baby = $('#babyMonney').text();
+            var promotionBaby = $('#promotionBaby').text();
+            var type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentInput = parseInt(input.val());
+            var adultsInput = parseInt($('.totalAdult').html());
+            var childrenInput = parseInt($('.totalChildren').html());
+            //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+            if (!isNaN(currentInput)) {
+                if (type == 'minus3') {
+                    var minVal = parseInt(input.attr('minBaby'));
+                    if (!minVal) minVal = 0;
+                    if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subBaby = (currentInput - 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(subBaby); totalMonney = parseInt($('.totalMonney').text(childrenInput + adultsInput + subBaby)); }
+                    if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                } else if (type == 'plus3') {
+                    var maxVal = parseInt(input.attr('maxBaby'));
+                    if (!maxVal) maxVal = 10;
+                    if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumBaby = (currentInput + 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(sumBaby); totalMonney = parseInt($('.totalMonney').text(sumBaby + adultsInput + childrenInput)); }
+                    if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                }
+            } else { input.val(0); }
+        });
+        $('.input-number-baby').focusin(function () { $(this).data('rootVal', $(this).val()); });
+        $('.input-number-baby').change(function () {
+            var minValBaby = parseInt($(this).attr('minBaby'));
+            var maxValBaby = parseInt($(this).attr('maxBaby'));
+            if (!minValBaby) { minValBaby == 1 } if (!maxValBaby) { maxValBaby == 1 }
+            var curVal = parseInt($(this).val());
+            var nameVal = $(this).attr('name');
+            if (curVal >= minValBaby) { $(".btn-number3[data-type='minus3']").removeAttr('disabled'); }
+            else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+            if (curVal <= maxValBaby) { $(".btn-number3[data-type='plus3']").removeAttr('disabled'); }
+            else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+        });
+    });
+    $(function () {
+        $("#datepicker").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('update', new Date());
+    });
+    $(".adultsValue").keydown(function (e) {
+        var key = e.charCode || e.keyCode || 0;
+        // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+        // home, end, period, and numpad decimal
+        return (
+            key == 8 ||
+            key == 9 ||
+            key == 13 ||
+            key == 46 ||
+            key == 110 ||
+            key == 190 ||
+            (key >= 35 && key <= 40) ||
+            (key >= 48 && key <= 57) ||
+            (key >= 96 && key <= 105));
+    });
+</script>
+
+<!--<div class="title">
+    <a href="/trang-chu">Trang chủ</a>
+    <span>/</span>
+    <a class="tintuc">@Model.TourName</a>
+</div>
+<div class="content clearfix">-->
+<!-- add -->
+<!--<div class="contentleft">
+        <img src="@Model.Image">
+        <div class="contentleftson">
+            <h3>CHƯƠNG TRÌNH TOUR</h3>
+            @Html.Raw(Model.Description)
+            <h3>CHÍNH SÁCH TOUR</h3>
+            <p>
+                @Model.policy
+            </p>
+        </div>
+        <div class="contentleftson">
+            <h3>ĐIỀU KHOẢN & QUY ĐỊNH</h3>
+            <p>
+                @Model.termsProvisions
+            </p>
+        </div>
+    </div>
+    <div class="contentright">
+        <h3>@Model.TourName</h3>
+        <p class="tien">Giá mới : @(Model.Price.HasValue ? Model.Price.Value.ToString("N0") + "VND" : "Liên hệ")</p>
+        <ul>
+            <li>Hành trình : @Model.LocationStart - @Model.TourName</li>
+            <li>
+                <img src="/Assets/Client/images/lich.svg"> Khởi hành : <span>@Model.DateStart</span>
+            </li>
+            <li>
+                <img src="/Assets/Client/images/thoigian.svg"> Di chuyển : <span> @Model.Time</span>
+            </li>
+        </ul>
+        <button>ĐẶT TOUR</button>
+    </div>
+    <div class="clr"></div>
+</div>
+<br />
+<br />-->

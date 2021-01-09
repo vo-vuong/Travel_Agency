@@ -1,0 +1,19 @@
+﻿@model List<Model.EF.CONTENT>
+
+<div class="favourite">
+    <h2>XEM NHIỀU TRONG THÁNG</h2>
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>
+            <a href="/tin-tuc/chi-tiet/@item.IDContent">
+                <img src="@item.Image">
+                <p>@item.ContentName</p>
+            </a>
+            <p>Lượt xem: @item.views</p>
+            <div class="clr"></div>
+        </li>
+        }
+    </ul>
+</div>
+

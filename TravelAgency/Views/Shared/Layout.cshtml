@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi tiết tour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/Assets/Client/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/Client/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="~/Assets/Client/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Assets/Client/js/bootstrap.min.js"></script>
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+    <style>
+        #image:hover {
+            -ms-transform: scale(1.05); /* IE 9 */
+            -webkit-transform: scale(1.05); /* Safari 3-8 */
+            transform: scale(1.05);
+        }
+
+        table {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        table, th, tr, td {
+            border: 2px solid #0071BC;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        @RenderPage("Header.cshtml")
+        @{ Html.RenderAction("MainMenu", "Home");}
+        @RenderBody()
+        @* Script of page Tour detail *@
+        <script>
+            $(document).ready(function () {
+                $('.btn-number1').click(function (event) {
+                    event.preventDefault();
+                    var fieldName = $(this).attr('data-field1');
+                    var adults = $('#adultsMonney').text();
+                    var promotionAdults = $('#promotionAdults').text();
+                    var type = $(this).attr('data-type');
+                    var input = $("input[name='" + fieldName + "']");
+                    var currentInput = parseInt(input.val());
+                    var childrenInput = parseInt($('.totalChildren').html()); console.log(childrenInput);
+                    var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
+                    //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+                    if (!isNaN(currentInput)) {
+                        if (type == 'minus1') {
+                            var minVal = parseInt(input.attr('min1'));
+                            if (!minVal) minVal = 0;
+                            if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subAdults = (currentInput - 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').text(subAdults); totalMonney = parseInt($('.totalMonney').text(subAdults + childrenInput + babyInput)); }
+                            if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                        } else if (type == 'plus1') {
+                            var maxVal = parseInt(input.attr('max1'));
+                            if (!maxVal) maxVal = 10;
+                            if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumAdults = (currentInput + 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').html(sumAdults); totalMonney = parseInt($('.totalMonney').text(sumAdults + childrenInput + babyInput)); }
+                            if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                        }
+                    } else { input.val(0); }
+                });
+                $('.input-number-adults').focusin(function () { $(this).data('rootVal', $(this).val()); });
+                $('.input-number-adults').change(function () {
+                    var minValAdults = parseInt($(this).attr('minAdults'));
+                    var maxValAdults = parseInt($(this).attr('maxAdults'));
+                    if (!minValAdults) { minValAdults == 1 } if (!maxValAdults) { maxValAdults == 1 }
+                    var curVal = parseInt($(this).val());
+                    var nameVal = $(this).attr('name');
+                    if (curVal >= minValAdults) { $(".btn-number1[data-type='minus1']").removeAttr('disabled'); }
+                    else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+                    if (curVal <= maxValAdults) { $(".btn-number1[data-type='plus1']").removeAttr('disabled'); }
+                    else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+                });
+                $('.btn-number2').click(function (event) {
+                    event.preventDefault();
+                    var fieldName = $(this).attr('data-field2');
+                    var children = $('#childrenMonney').text();
+                    var promotionChildren = $('#promotionChildren').text();
+                    var type = $(this).attr('data-type');
+                    var input = $("input[name='" + fieldName + "']");
+                    var currentInput = parseInt(input.val());
+                    var adultsInput = parseInt($('.totalAdult').html()); console.log(adultsInput);
+                    var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
+                    //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+                    if (!isNaN(currentInput)) {
+                        if (type == 'minus2') {
+                            var minVal = parseInt(input.attr('minChildren'));
+                            if (!minVal) minVal = 0;
+                            if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subChildren = (currentInput - 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(subChildren); totalMonney = parseInt($('.totalMonney').text(subChildren + adultsInput + babyInput)); }
+                            if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                        } else if (type == 'plus2') {
+                            var maxVal = parseInt(input.attr('maxChildren'));
+                            if (!maxVal) maxVal = 10;
+                            if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumChildren = (currentInput + 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(sumChildren); totalMonney = parseInt($('.totalMonney').text(sumChildren + adultsInput + babyInput)); }
+                            if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                        }
+                    } else { input.val(0); }
+                });
+                $('.input-number-children').focusin(function () { $(this).data('rootVal', $(this).val()); });
+                $('.input-number-children').change(function () {
+                    var minValChildren = parseInt($(this).attr('minChildren'));
+                    var maxValChildren = parseInt($(this).attr('maxChildren'));
+                    if (!minValChildren) { minValChildren == 1 } if (!maxValChildren) { maxValChildren == 1 }
+                    var curVal = parseInt($(this).val());
+                    var nameVal = $(this).attr('name');
+                    if (curVal >= minValChildren) { $(".btn-number2[data-type='minus2']").removeAttr('disabled'); }
+                    else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+                    if (curVal <= maxValChildren) { $(".btn-number2[data-type='plus2']").removeAttr('disabled'); }
+                    else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+                });
+                $('.btn-number3').click(function (event) {
+                    event.preventDefault();
+                    var fieldName = $(this).attr('data-field3');
+                    var baby = $('#babyMonney').text();
+                    var promotionBaby = $('#promotionBaby').text();
+                    var type = $(this).attr('data-type');
+                    var input = $("input[name='" + fieldName + "']");
+                    var currentInput = parseInt(input.val());
+                    var adultsInput = parseInt($('.totalAdult').html());
+                    var childrenInput = parseInt($('.totalChildren').html());
+                    //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
+                    if (!isNaN(currentInput)) {
+                        if (type == 'minus3') {
+                            var minVal = parseInt(input.attr('minBaby'));
+                            if (!minVal) minVal = 0;
+                            if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subBaby = (currentInput - 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(subBaby); totalMonney = parseInt($('.totalMonney').text(childrenInput + adultsInput + subBaby)); }
+                            if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
+                        } else if (type == 'plus3') {
+                            var maxVal = parseInt(input.attr('maxBaby'));
+                            if (!maxVal) maxVal = 10;
+                            if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumBaby = (currentInput + 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(sumBaby); totalMonney = parseInt($('.totalMonney').text(sumBaby + adultsInput + childrenInput)); }
+                            if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
+                        }
+                    } else { input.val(0); }
+                });
+                $('.input-number-baby').focusin(function () { $(this).data('rootVal', $(this).val()); });
+                $('.input-number-baby').change(function () {
+                    var minValBaby = parseInt($(this).attr('minBaby'));
+                    var maxValBaby = parseInt($(this).attr('maxBaby'));
+                    if (!minValBaby) { minValBaby == 1 } if (!maxValBaby) { maxValBaby == 1 }
+                    var curVal = parseInt($(this).val());
+                    var nameVal = $(this).attr('name');
+                    if (curVal >= minValBaby) { $(".btn-number3[data-type='minus3']").removeAttr('disabled'); }
+                    else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
+                    if (curVal <= maxValBaby) { $(".btn-number3[data-type='plus3']").removeAttr('disabled'); }
+                    else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
+                });
+            });
+            $(function () {
+                $("#datepicker").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
+            });
+            $(".adultsValue").keydown(function (e) {
+                var key = e.charCode || e.keyCode || 0;
+                // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+                // home, end, period, and numpad decimal
+                return (
+                    key == 8 ||
+                    key == 9 ||
+                    key == 13 ||
+                    key == 46 ||
+                    key == 110 ||
+                    key == 190 ||
+                    (key >= 35 && key <= 40) ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+            });
+        </script>
+        @* Background Footer *@
+        <div class="row" style="background: url(/Assets/Client/images/h.jpg);margin: 20px -15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <h3 align="center" style="margin: 60px 0px 0px 0px;color: #FFFFFF;">Đăng ký nhận tin</h3>
+                        <hr style="width: 60%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <h4 align="center" style="margin: 0px 0px 20px 0px;color: #FFFFFF;line-height: 30px;">Tổng hợp những chương trình tour theo tháng, du lịch vòng quanh thế giới với mức chi phí cực rẻ. Để nhận ngay những thông tin chương trình tour hot, Sale. Quý khách hàng vui lòng nhập thông tin email tại đây.</h4>
+                        <div class="col-xs-12">
+                            <div class="input-group" style="width: 50%;margin-left: 26%;padding-bottom: 70px;">
+                                <input type="text" name="" class="form-control" placeholder="Email nhận tin ...">
+                                <span class="input-group-btn">
+                                    <button class="btn" style="background-color: #0071BC;color: #FFFFFF;" type="button">Đăng ký</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderPage("Footer.cshtml")
+    @RenderSection("jsFooter", false)
+</body>
+</html>

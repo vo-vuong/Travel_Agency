@@ -1,0 +1,193 @@
+﻿@model TravelAgency.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="container">
+    <div class="row" style="padding-top: 15px;">
+        <div class="col-xs-12 col-sm-4"></div>
+        <div class="col-xs-12 col-sm-4">
+            <form class="login" method="">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <label>Họ tên</label>&nbsp;
+                            <div class="glyphicon glyphicon-asterisk" style="font-size: 0.8em;"></div>
+                            <input type="text" name="name" placeholder="Họ tên" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <label>Ngày tháng năm sinh</label>&nbsp;
+                            <div class="glyphicon glyphicon-asterisk" style="font-size: 0.8em;"></div>
+                            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                <input class="form-control" readonly="" type="text" name="calendar"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <label>Email</label>&nbsp;
+                            <div class="glyphicon glyphicon-asterisk" style="font-size: 0.8em;"></div>
+                            <input type="text" name="email" placeholder="Email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <label>Mật khẩu</label>&nbsp;
+                            <div class="glyphicon glyphicon-asterisk" style="font-size: 0.8em;"></div>
+                            <input type="text" name="pass" placeholder="Password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10">
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn" style="background-color: #0071BC;color: #FFFFFF;float: right;width: 100%;" value="Đăng ký">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+            $('.login').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 255
+                    },
+                    calendar: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 255,
+                        email: true
+                    },
+                    pass: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 255
+                    },
+                },
+                messages: {
+                    name: {
+                        required: "Không được để trống",
+                        minlength: "Không được nhỏ hơn 8 kí tự",
+                        maxlength: "Không được lớn hơn 255 kí tự"
+                    },
+                    calendar: {
+                        required: "Không được để trống"
+                    },
+                    email: {
+                        required: "Không được để trống",
+                        minlength: "Không được nhỏ hơn 8 kí tự",
+                        maxlength: "Không được lớn hơn 255 kí tự",
+                        email: "Email phải đúng định dạng"
+                    },
+                    pass: {
+                        required: "Không được để trống",
+                        minlength: "Không được nhỏ hơn 8 kí tự",
+                        maxlength: "Không được lớn hơn 255 kí tự",
+                    }
+                }
+            });
+        });
+        $(function () {
+            $("#datepicker").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker('update', new Date());
+        });
+    </script>
+}
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Đăng kí tài khoản</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/Assets/Client/css/signupsty.css">
+        <script type="text/javascript" src="/Assets/Client/jquery/jqueryminjs.js"></script>
+        <script type="text/javascript" src="/Assets/Client/jquery/jqueryvalidatemin.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
+                <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
+                <button>Tìm kiếm</button>
+            </div>
+            <div class="title">
+                <a href="/trang-chu">Trang chủ</a>
+                <span>/</span>
+                <a class="dangky">Đăng ký tài khoản</a>
+            </div>
+            <div class="content">
+                <div class="banner">
+                    <h2>ĐĂNG KÝ</h2>
+                    <img src="/Assets/Client/images/bannervungtau.jpg">
+                    <div class="quangcao">
+                        <h3>QUYỀN LỢI THÀNH VIÊN</h3>
+                        <p>Tour chọn lọc chất lượng cao</p>
+                        <p>Đội ngũ tư vấn chi tiết và tận tình 24/7</p>
+                        <p>Nhận nhiều chương trình ưu đãi hấp dẫn</p>
+                        <p>Luôn cập nhật các tour du lịch mới nhất</p>
+                        <p>Giá cả phải chăng</p>
+                    </div>
+                </div>
+                <div class="dangky">
+                    @using (Html.BeginForm("Index", "Signup", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <br><br>
+                        <label>Họ và tên*</label><br>
+                        @Html.TextBoxFor(model => model.name)<br>
+                        @Html.ValidationMessageFor(model => model.name, "")<br>
+                        <label>Tên đăng nhập*</label><br>
+                        @Html.TextBoxFor(model => model.userName)<br />
+                        @Html.ValidationMessageFor(model => model.userName, "")<br />
+                        <label>Mật khẩu*</label><br>
+                        @Html.PasswordFor(model => model.passWord)<br>
+                        @Html.ValidationMessageFor(model => model.passWord, "")<br />
+                        <label>Nhập lại mật khẩu*</label><br>
+                        @Html.PasswordFor(model => model.confirmPassWord)<br>
+                        @Html.ValidationMessageFor(model => model.confirmPassWord, "")<br />
+                        <label>Email*</label><br>
+                        @Html.TextBoxFor(model => model.email)<br>
+                        @Html.ValidationMessageFor(model => model.email, "")<br />
+                        <label>Số điện thoại*</label><br>
+                        @Html.TextBoxFor(model => model.phoneNumber)<br>
+                        @Html.ValidationMessageFor(model => model.phoneNumber, "")<br />
+                        <label>Ngày sinh*</label><br>
+                        @Html.TextBoxFor(model => model.birthDay, new { @type = "date" })<br>
+                        @Html.ValidationMessageFor(model => model.birthDay, "")<br />
+                        <label>Giới tính</label><br><br>
+                        <div class="panel-form">
+                            <p>Nam</p>
+                            @Html.RadioButton("gender", "True",true,new { @class = "radio"})
+                            <p>Nữ</p>
+                            @Html.RadioButton("gender", "False",new { @class = "radio" })
+                        </div><br><br>
+                        <p><input type="submit" name="submit" value="TẠO TÀI KHOẢN" class="button"></p>
+                    }
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>*@

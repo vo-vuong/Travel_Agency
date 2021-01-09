@@ -1,0 +1,61 @@
+﻿@{
+    var userSession = (TravelAgency.Common.UserLogin)Session[TravelAgency.Common.CommonConstant.USER_SESSION];
+}
+
+<div class="row bg bg-default">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <img src="~/Assets/Client/images/logo.png" style="width: 200px;height: auto;">
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+        <div class="input-group" style="margin-top: 25px;">
+            <input type="text" name="" class="form-control" placeholder="Bạn tìm kiếm gì hôm nay ...">
+            <span class="input-group-btn">
+                <button class="btn" style="background-color: #0071BC;color: #FFFFFF;" type="button">Tìm kiếm</button>
+            </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="input-group" style="margin: 25px 0px 25px 4rem">
+            <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng nhập</button>&nbsp;
+            <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng ký</button>
+        </div>
+    </div>
+</div>
+
+@*<div class="header">
+    <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
+    <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
+    <button>Tìm kiếm</button>
+    @if (userSession == null)
+    {
+        <a href="/dang-ki">
+            <h3 class="signup">Đăng ký</h3>
+        </a>
+        <a href="/dang-nhap">
+            <h3 class="login">Đăng nhập</h3>
+        </a>
+    }
+    @if (userSession != null)
+    {
+        <div class="avatar-user">
+
+            <h4 class="avatar-drop">@userSession.userName</h4><br><br>
+            <ul class="drop">
+                <li class="dropson">
+                    <img class="avatar" src="@userSession.Image">
+                    <ul class="subbtn">
+                        <li><button>Xem thông tin tài khoản</button></li>
+                        <li><button>Lịch sử giao dịch</button></li>
+                        @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                        {
+                            <li><button>Đăng xuất</button></li>
+                        }
+                        <br>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    }
+</div>*@
+
