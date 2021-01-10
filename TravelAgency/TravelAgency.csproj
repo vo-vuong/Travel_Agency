@@ -1295,7 +1295,6 @@
     <Content Include="Assets\Client\images\trip.png" />
     <Content Include="Assets\Client\images\trungquoc.jpg" />
     <Content Include="Assets\Client\images\tw.JPG" />
-    <Content Include="Assets\Client\images\utweb_installer.exe" />
     <Content Include="Assets\Client\images\xebuyt.svg" />
     <Content Include="Assets\Client\jquery\jquery-3.2.1.min.js" />
     <Content Include="Assets\Client\jquery\jqueryminjs.js" />
