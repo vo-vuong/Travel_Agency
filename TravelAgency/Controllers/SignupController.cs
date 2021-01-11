@@ -21,7 +21,7 @@ namespace TravelAgency.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(RegisterModel model)
+        public ActionResult Index(SignupModel model)
         {
             if (ModelState.IsValid)
             {

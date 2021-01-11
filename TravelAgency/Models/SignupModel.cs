@@ -7,7 +7,7 @@ using System.Web;
 
 namespace TravelAgency.Models
 {
-    public class RegisterModel
+    public class SignupModel
     {
         [Key]
         public int ID { get; set; }
@@ -35,7 +35,7 @@ namespace TravelAgency.Models
         public string email { get; set; }
 
         [DisplayName("Số điện thoại *")]
-        [Required(ErrorMessage ="Bạn phải nhập số điện thoại")]
+        [Required(ErrorMessage = "Bạn phải nhập số điện thoại")]
         public string phoneNumber { get; set; }
 
         [DisplayName("Ngày sinh")]

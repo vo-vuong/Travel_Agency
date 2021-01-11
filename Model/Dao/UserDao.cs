@@ -60,7 +60,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return result.IDAccount;
             }
-            catch
+            catch(Exception ex)
             {
                 return 0;
             }
