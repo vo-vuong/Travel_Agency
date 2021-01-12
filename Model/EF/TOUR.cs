@@ -29,6 +29,10 @@ namespace Model.EF
         [Required]
         public string Description { get; set; }
 
+        [StringLength(500)]
+        [Required]
+        public string Shortbody { get; set; }
+
         [StringLength(255)]
         public string Image { get; set; }
 

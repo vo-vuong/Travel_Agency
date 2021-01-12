@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202101080628478_TravelAgency_V1.designer.cs">
       <DependentUpon>202101080628478_TravelAgency_V1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101121716477_update_shortBodyTour.cs" />
+    <Compile Include="Migrations\202101121716477_update_shortBodyTour.designer.cs">
+      <DependentUpon>202101121716477_update_shortBodyTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ContentViewModel.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101080628478_TravelAgency_V1.resx">
       <DependentUpon>202101080628478_TravelAgency_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101121716477_update_shortBodyTour.resx">
+      <DependentUpon>202101121716477_update_shortBodyTour.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
