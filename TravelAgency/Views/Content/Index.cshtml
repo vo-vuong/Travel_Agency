@@ -9,104 +9,60 @@
     var listContentWeek = (List<Model.EF.CONTENT>)ViewBag.ListContentHotWeek;
 }
 
-@*@section css {
-    <link rel="stylesheet" type="text/css" href="/Assets/Client/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="~/Assets/Client/css/tintucstyle.css">
-}*@
-
-<div class="title">
-    <a href="/trang-chu">Trang chủ</a>
-    <span>/</span>
-    <a class="subtitle">Tin tức</a>
-</div>
-<div class="content">
-    @foreach (var item in Model.Take(1))
-    {
-        <div class="left">
-            <img src="@item.Image">
-            <a href="/tin-tuc/chi-tiet/@item.IDContent"><h2>@item.ContentName</h2></a>
-            <p>@item.shortBody</p>
-            <br />
-            <p>Lượt xem: @item.views</p>
+<div class="container">
+    <div class="row">
+        @* List content main *@
+        <div class="col-xs-12 col-sm-7">
+            <h3 style="font-weight: bold;">Tin tức</h3>
+            @foreach (var item in Model)
+            {
+                <div class="row" style="margin-bottom: 20px;transition-duration: .4s;" id="image">
+                    <div class="col-xs-12 col-sm-4">
+                        <a href="/tin-tuc/chi-tiet/@item.IDContent"><img src="@item.Image" class="img-thumbnail"></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+                        <a href="/tin-tuc/chi-tiet/@item.IDContent" style="text-decoration: none;color: #0071BC;">
+                            <h4 style="font-weight: bold;">@item.ContentName</h4>
+                        </a>
+                        <a href="/tin-tuc/chi-tiet/@item.IDContent" style="text-decoration: none;color: #000000;">
+                            <p>@item.shortBody</p>
+                        </a>
+                        <span class="glyphicon glyphicon-time"></span>&nbsp;<span style="font-size: 0.95em;">@item.dateShow.DayOfWeek</span>
+                        <span class="glyphicon glyphicon-calendar"></span>&nbsp;<span style="font-size: 0.95em;">@item.dateShow</span>
+                    </div>
+                </div>
+            }
         </div>
-    }
-    <div class="centertop">
-        <ul>
-            @{
-                var count = 1;
-                foreach (var item in listContentWeek)
-                {
-                    <li>
-                        @if (count == 1)
-                        {
-                            <a href="/tin-tuc/chi-tiet/@item.IDContent">
-                                <img src="@item.Image">
-                                <p>@item.ContentName</p>
+        @* List content week *@
+        <div class="col-xs-12 col-sm-5">
+            <h3 style="font-weight: bold;margin-left: 15px;">Tin tức nổi bật</h3>
+            @foreach (var item in listContentWeek)
+            {
+                <div class="row" style="margin-bottom: 20px;transition-duration: .4s;" id="image">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-5">
+                            <a href="/tin-tuc/chi-tiet/@item.IDContent" style="text-decoration: none;">
+                                <img src="@item.Image" class="img-thumbnail">
                             </a>
-                            count++;
-                        }
-                        else
-                        {
-                            <a href="/tin-tuc/chi-tiet/@item.IDContent">
-                                <p>@item.ContentName</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-7">
+                            <a href="/tin-tuc/chi-tiet/@item.IDContent" style="text-decoration: none;">
+                                <h5 style="color: #0071BC;">@item.ContentName</h5>
                             </a>
-                        }
-                    </li>
-                }
+                            <span class="glyphicon glyphicon-time"></span>&nbsp;<span style="font-size: 0.95em;">@item.dateShow.DayOfWeek</span>
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;<span style="font-size: 0.95em;">@item.dateShow</span>
+                        </div>
+                    </div>
+                </div>
             }
-        </ul>
+        </div>
+        @* Page list *@
+        <div class="row">
+            <div class="col-xs-12" style="display: flex;justify-content: center;">
+                <ul class="pagination" class="col-xs-12">
+                    @Html.PagedListPager(Model, pageStart => Url.Action("Index", new { pageStart }))
+                </ul>
+            </div>
+        </div>
     </div>
-
-    @{
-        Html.RenderAction("ContentHot", "Content");
-    }
-
-    <div class="clr"></div>
-    <div class="grid">
-        <ul class="top">
-            @foreach (var item in Model.Skip(1).Take(3))
-            {
-                <li>
-                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
-                        <img src="@item.Image">
-                        <h3>@item.ContentName</h3>
-                    </a>
-                    <p>@item.shortBody</p>
-                    <br />
-                    <p>Lượt xem: @item.views</p>
-                </li>
-            }
-        </ul>
-        <ul class="mid">
-            @foreach (var item in Model.Skip(4).Take(3))
-            {
-                <li>
-                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
-                        <img src="@item.Image">
-                        <h3>@item.ContentName</h3>
-                    </a>
-                    <p>@item.shortBody</p>
-                    <br />
-                    <p>Lượt xem: @item.views</p>
-                </li>
-            }
-        </ul>
-        <ul class="bottom">
-            @foreach (var item in Model.Skip(7).Take(3))
-            {
-                <li>
-                    <a href="/tin-tuc/chi-tiet/@item.IDContent">
-                        <img src="@item.Image">
-                        <h3>@item.ContentName</h3>
-                    </a>
-                    <p>@item.shortBody</p>
-                    <br />
-                    <p>Lượt xem: @item.views</p>
-                </li>
-            }
-        </ul>
-        @Html.PagedListPager(Model, pageStart => Url.Action("Index", new { pageStart }))
-    </div>
-
 </div>
-

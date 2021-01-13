@@ -17,7 +17,7 @@ namespace TravelAgency.Controllers
         {
             var dao = new ContentDao();
             var model = dao.ListAll(pageStart, pageSize);
-            ViewBag.ListContentHotWeek = dao.ListContentHotWeek(4);
+            ViewBag.ListContentHotWeek = dao.ListContentHotWeek(3);
 
             return View(model);
         }
