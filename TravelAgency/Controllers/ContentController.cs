@@ -13,7 +13,7 @@ namespace TravelAgency.Controllers
     public class ContentController : Controller
     {
         // GET: Content
-        public ActionResult Index(int pageStart = 1, int pageSize = 10)
+        public ActionResult Index(int pageStart = 1, int pageSize = 5)
         {
             var dao = new ContentDao();
             var model = dao.ListAll(pageStart, pageSize);
