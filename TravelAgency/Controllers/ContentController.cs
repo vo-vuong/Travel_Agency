@@ -26,6 +26,7 @@ namespace TravelAgency.Controllers
         {
             var dao = new ContentDao();
             var model = dao.ViewDetailClient(id);
+            ViewBag.ListContentHotWeek = dao.ListContentHotWeek(3);
             return View(model);
         }
         [ChildActionOnly]
