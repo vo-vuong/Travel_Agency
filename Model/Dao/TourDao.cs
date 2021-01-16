@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Model.EF;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.EF;
-using PagedList;
-
 
 namespace Model.Dao
 {
+    /// <summary>
+    ///The main <c>Tour</c> class.
+    ///Contains all methods for performing Tour query functions
+    /// </summary>
     public class TourDao
     {
         private TravelAgencyDbContext db = null;
@@ -89,7 +90,6 @@ namespace Model.Dao
             }
         }
 
-
         //Section Client
         #region
 
@@ -142,7 +142,7 @@ namespace Model.Dao
         {
             return db.TOURs.Where(x => x.Status == true && x.IDCategory == 1).OrderByDescending(x => x.Price).ToPagedList(pageNumber, pageSize);
         }
-        #endregion
 
+        #endregion
     }
 }

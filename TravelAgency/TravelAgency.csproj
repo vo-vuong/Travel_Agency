@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryTourController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -1369,6 +1370,7 @@
     <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\Client\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\CategoryTour\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1411,6 +1413,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Default\" />
     <Folder Include="Assets\Client\images\" />
     <Folder Include="Data\files\" />
     <Folder Include="Data\flash\" />
