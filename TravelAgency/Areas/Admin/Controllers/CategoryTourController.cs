@@ -7,11 +7,12 @@ namespace TravelAgency.Areas.Admin.Controllers
     public class CategoryTourController : BaseController
     {
         // GET: Admin/CategoryTour
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int pageNumber = 1, int pageSize = 5)
         {
             var dao = new CategoryTourDao();
-
-            return View();
+            var model = dao.ListPading(searchString, pageNumber, pageSize);
+            ViewBag.SeachString = searchString;
+            return View(model);
         }
 
         // GET: Admin/CategoryTour/Create

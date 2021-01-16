@@ -54,7 +54,7 @@ namespace Model.Dao
         /// <param name="searchString">A string searchString keyword</param>
         /// <param name="pageNumber">A int page Start</param>
         /// <param name="pageSize">A int Size pageList</param>
-        /// <returns>A IEnumerable<CATEGORY_TOUR> with DESC</returns>
+        /// <returns>A IEnumerable<CATEGORY_TOUR> with ASC</returns>
         public IEnumerable<CATEGORY_TOUR> ListPading(string searchString, int pageNumber, int pageSize)
         {
             IQueryable<CATEGORY_TOUR> model = db.CATEGORY_TOUR;
@@ -62,7 +62,7 @@ namespace Model.Dao
             {
                 model = SearchString(searchString);
             }
-            return model.OrderByDescending(x => x.CategoryName).ToPagedList(pageNumber, pageSize);
+            return model.OrderBy(x => x.CategoryName).ToPagedList(pageNumber, pageSize);
         }
 
         /// <summary>
