@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<Model.EF.CONTENTCATEGORY>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Quản lý danh mục bài viết
+}
+
+@using (Html.BeginForm("Index", "CategoryContent", FormMethod.Get))
+{
+    <div class="col-md-2">
+        Tìm theo tên danh mục bài viết
+    </div>
+    <div class="input-group custom-search-form col-md-3">
+        <input type="text" class="form-control" placeholder="Search..." value="@ViewBag.SearchString" name="searchString">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Tạo mới danh mục bài viết", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên danh mục Tour
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContentCategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDContentCategory })
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber, @searchString = ViewBag.SearchString }))
