@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Model.EF.CATEGORY_TOUR>
+﻿@model PagedList.IPagedList<Model.EF.CONTENTCATEGORY>
 @using PagedList.Mvc;
 
 @{
@@ -7,17 +7,17 @@
 }
 
 @section header{
-    Quản lý danh mục tour
+    Quản lý danh mục bài viết
 }
 
 @section jsFooter{
-    <script src="~/Assets/Admin/js/controller/CategoryTourController.js"></script>
+    <script src="~/Assets/Admin/js/controller/CategoryContentController.js"></script>
 }
 
-@using (Html.BeginForm("Index", "CategoryTour", FormMethod.Get))
+@using (Html.BeginForm("Index", "CategoryContent", FormMethod.Get))
 {
     <div class="col-md-2">
-        Tìm theo tên danh mục tour
+        Tìm theo tên danh mục bài viết
     </div>
     <div class="input-group custom-search-form col-md-3">
         <input type="text" class="form-control" placeholder="Search..." value="@ViewBag.SearchString" name="searchString">
@@ -30,7 +30,7 @@
 }
 
 <p>
-    @Html.ActionLink("Tạo mới danh mục tour", "Create")
+    @Html.ActionLink("Tạo mới danh mục bài viết", "Create")
 </p>
 <table class="table">
     <tr>
@@ -42,12 +42,12 @@
 
     @foreach (var item in Model)
     {
-        <tr id="row_@item.IDCategory">
+        <tr id="row_@item.IDContentCategory">
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
+                @Html.DisplayFor(modelItem => item.ContentCategoryName)
             </td>
             <td>
-                <a href="#" class="btn btn-danger btn-dlCategory" data-id="@item.IDCategory">Xóa</a>
+                <a href="#" class="btn btn-danger btn-dlCategory" data-id="@item.IDContentCategory">Xóa</a>
             </td>
         </tr>
     }

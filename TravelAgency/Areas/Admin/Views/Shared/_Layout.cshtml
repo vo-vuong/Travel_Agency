@@ -42,20 +42,24 @@
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid"
-                 <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">@RenderSection("header",true)</h1>
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                @if (TempData["AlertMessage"] != null)
-                {
-                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
-                        @TempData["AlertMessage"]
-                    </div>
-                }
-
-                 @RenderBody()
+            <div class="row">
+            <div class="col-lg-12">
+            <h1 class="page-header">@RenderSection("header", true)</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+            </div>
+            @if (TempData["AlertMessage"] != null)
+            {
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                @TempData["AlertMessage"]
+                </div>
+            }
+            else
+            {
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                </div>
+            }
+            @RenderBody()
             </div>
             <!-- /.row -->
             <!-- /.container-fluid -->
