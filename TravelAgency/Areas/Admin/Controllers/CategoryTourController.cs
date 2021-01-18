@@ -4,6 +4,8 @@ using System.Web.Mvc;
 
 namespace TravelAgency.Areas.Admin.Controllers
 {
+    // Author: VoXuanQuocVuong
+    // Email: vovuong1025@gmail.com
     public class CategoryTourController : BaseController
     {
         // GET: Admin/CategoryTour
@@ -42,6 +44,18 @@ namespace TravelAgency.Areas.Admin.Controllers
                 }
             }
             return View();
+        }
+
+        // Ajax HttPost
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var dao = new CategoryTourDao();
+            bool flag = dao.Delete(id);
+            return Json(new
+            {
+                status = flag
+            });
         }
     }
 }

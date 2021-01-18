@@ -1,5 +1,6 @@
 ﻿using Model.EF;
 using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +9,8 @@ namespace Model.Dao
     /// <summary>
     /// The main <c>CategoryTourDao</c> class.
     /// Contains all methods for performing Category Tour query functions
+    /// Author: VoXuanQuocVuong
+    /// Email: vovuong1025@gmail.com
     /// </summary>
     public class CategoryTourDao
     {
@@ -75,6 +78,26 @@ namespace Model.Dao
             db.CATEGORY_TOUR.Add(entity);
             db.SaveChanges();
             return entity.IDCategory;
+        }
+
+        /// <summary>
+        /// Delete a entity of CATEGORY_TOUR in database and return bool
+        /// </summary>
+        /// <param name="ID">A id of enity CATEGORY_TOUR</param>
+        /// <returns>if true is successful or false is fail</returns>
+        public bool Delete(int ID)
+        {
+            try
+            {
+                var entity = db.CATEGORY_TOUR.Find(ID);
+                db.CATEGORY_TOUR.Remove(entity);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

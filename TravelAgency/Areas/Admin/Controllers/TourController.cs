@@ -55,7 +55,7 @@ namespace TravelAgency.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(TOUR model)
         {
-            SetViewBag();
+            //SetViewBag();
             TourDao dao = new TourDao();
             if (ModelState.IsValid)
             {

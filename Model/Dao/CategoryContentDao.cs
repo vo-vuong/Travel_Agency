@@ -78,5 +78,25 @@ namespace Model.Dao
             db.SaveChanges();
             return entity.IDContentCategory;
         }
+
+        /// <summary>
+        /// Delete a entity of CONTENTCATEGORies in database and return bool
+        /// </summary>
+        /// <param name="ID">A id of enity ContentCategory</param>
+        /// <returns>if true is successful or false is fail</returns>
+        public bool Delete(int ID)
+        {
+            try
+            {
+                var entity = db.CONTENTCATEGORies.Find(ID);
+                db.CONTENTCATEGORies.Remove(entity);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -45,5 +45,17 @@ namespace TravelAgency.Areas.Admin.Controllers
             }
             return View();
         }
+
+        // Ajax HttPost
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var dao = new CategoryContentDao();
+            bool flag = dao.Delete(id);
+            return Json(new
+            {
+                status = flag
+            });
+        }
     }
 }

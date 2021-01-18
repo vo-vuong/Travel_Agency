@@ -10,6 +10,10 @@
     Quản lý danh mục bài viết
 }
 
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/CategoryContentController.js"></script>
+}
+
 @using (Html.BeginForm("Index", "CategoryContent", FormMethod.Get))
 {
     <div class="col-md-2">
@@ -38,12 +42,12 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="row_@item.IDContentCategory">
             <td>
                 @Html.DisplayFor(modelItem => item.ContentCategoryName)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDContentCategory })
+                <a href="#" class="btn btn-danger btn-dlCategory" data-id="@item.IDContentCategory">Xóa</a>
             </td>
         </tr>
     }

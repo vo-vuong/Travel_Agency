@@ -10,6 +10,10 @@
     Quản lý danh mục tour
 }
 
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/CategoryTourController.js"></script>
+}
+
 @using (Html.BeginForm("Index", "CategoryTour", FormMethod.Get))
 {
     <div class="col-md-2">
@@ -38,12 +42,12 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="row_@item.IDCategory">
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.IDCategory })
+                <a href="#" class="btn btn-danger btn-dlCategory" data-id="@item.IDCategory">Xóa</a>
             </td>
         </tr>
     }
