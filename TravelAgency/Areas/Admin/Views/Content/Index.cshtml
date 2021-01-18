@@ -11,6 +11,10 @@
     Danh sách bài viết
 }
 
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/ContentController.js"></script>
+}
+
 @using (Html.BeginForm("Index", "Content", FormMethod.Get))
 {
     <div class="col-md-2">
@@ -56,14 +60,9 @@
                                     <td class="center">@item.ACCOUNT.UserName</td>
                                     <td class="center">@((bool)item.status ? "Hoạt động" : "Khóa")</td>
                                     <td>
-                                        <a href="/Admin/Content/Edit/@item.IDContent">Sửa |</a>
-                                        @Ajax.ActionLink("Xóa","Delete",new { @id=item.IDContent},
-                                        new AjaxOptions {
-                                            Confirm="Bạn có muốn xóa bài viết này?",
-                                            OnComplete = "$('row_" + item.IDContent + "').remove()",
-                                            HttpMethod = "Delete"
-                                        })
-                                        <a href="/Admin/Content/Detail/@item.IDContent"> | Chi tiết</a>
+                                        <a href="/Admin/Content/Edit/@item.IDContent" class="btn btn-warning btn-sm">Sửa</a>
+                                        <a href="#" class="btn btn-dlContent btn-danger btn-sm" data-id="@item.IDContent">Xóa</a>
+                                        <a href="/Admin/Content/Detail/@item.IDContent" class="btn btn-default btn-sm">Chi tiết</a>
                                     </td>
                                 </tr>
                             }

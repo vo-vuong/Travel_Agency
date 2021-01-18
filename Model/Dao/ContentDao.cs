@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Model.EF;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model.EF;
-using PagedList;
 
 namespace Model.Dao
 {
+    /// <summary>
+    ///The main <c>Content</c> class.
+    ///Contains all methods for performing Content query functions
+    ///Author: VoXuanQuocVuong
+    ///Email: vovuong1025@gmail.com
+    ///Date Modified: 19/01/2021
+    /// </summary>
     public class ContentDao
     {
         private TravelAgencyDbContext db = null;
@@ -30,7 +35,7 @@ namespace Model.Dao
             {
                 model = SearchContentName(contentName);
             }
-            return model.OrderByDescending(x => x.DateCreated).ToPagedList(pageNumber,pageSize);
+            return model.OrderByDescending(x => x.DateCreated).ToPagedList(pageNumber, pageSize);
         }
 
         public IEnumerable<CONTENT> ListAll(int pageNumber, int pageSize)
@@ -42,7 +47,6 @@ namespace Model.Dao
         {
             return db.CONTENTs.Find(id);
         }
-
 
         public bool Create(CONTENT entity)
         {
@@ -73,7 +77,6 @@ namespace Model.Dao
                 content.dateShow = entity.dateShow;
                 db.SaveChanges();
                 return true;
-
             }
             catch
             {
@@ -81,6 +84,11 @@ namespace Model.Dao
             }
         }
 
+        /// <summary>
+        /// Delete a entity of CONTENTs in database and return bool
+        /// </summary>
+        /// <param name="id">A id of enity CONTENTs</param>
+        /// <returns>if true is successful or false is fail</returns>
         public bool Delete(int id)
         {
             try
@@ -95,7 +103,6 @@ namespace Model.Dao
                 return false;
             }
         }
-
 
         //Section Client
         #region
@@ -115,20 +122,14 @@ namespace Model.Dao
 
         public List<CONTENT> ListContentHot(int top)
         {
-            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow, DateTime.Now) <= 30 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x =>x.views).Take(top).ToList();
+            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow, DateTime.Now) <= 30 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.views).Take(top).ToList();
         }
 
         public List<CONTENT> ListContentHotWeek(int top)
         {
-            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow,DateTime.Now) <= 7 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.views).Take(top).ToList();
+            return db.CONTENTs.Where(x => DbFunctions.DiffDays(x.dateShow, DateTime.Now) <= 7 && x.status == true && x.dateShow <= DateTime.Now).OrderByDescending(x => x.views).Take(top).ToList();
         }
 
         #endregion
-
-
-
-
-
-
     }
 }
