@@ -10,6 +10,10 @@
     Quản lý tour
 }
 
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/TourController.js"></script>
+}
+
 
 @using (Html.BeginForm("Index", "Tour", FormMethod.Get))
 {
@@ -30,7 +34,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Danh sách người dùng
+                Danh sách Tour
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -58,14 +62,9 @@
                                     <td class="center">@item.LocationStart</td>
                                     <td class="center">@((bool)item.Status ? "Hoạt động" : "Đóng")</td>
                                     <td>
-                                        <a href="/Admin/Tour/Edit/@item.IDTour">Sửa |</a>
-                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.IDTour },
-                                        new AjaxOptions{
-                                            Confirm="Bạn có muốn xóa Tour này?",
-                                            OnComplete="#('row_"+item.IDTour+"').remove()",
-                                            HttpMethod="Delete"
-                                        })
-                                        <a href="/Admin/Tour/Detail/@item.IDTour"> | Chi tiết</a>
+                                        <a href="/Admin/Tour/Edit/@item.IDTour" class="btn btn-warning btn-sm">Sửa</a>
+                                        <a href="#" class="btn btn-dlTour btn-danger btn-sm" data-id="@item.IDTour">Xóa</a>
+                                        <a href="/Admin/Tour/Detail/@item.IDTour" class="btn btn-default btn-sm">Chi tiết</a>
                                     </td>
                                 </tr>
                             }

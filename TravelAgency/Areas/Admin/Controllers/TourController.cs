@@ -6,6 +6,8 @@ namespace TravelAgency.Areas.Admin.Controllers
 {
     public class TourController : BaseController
     {
+        // Author: VoXuanQuocVuong
+        // Email:  vovuong1025@gmail.com
         private void SetViewBag()
         {
             var dao = new CategoryTourDao().ListAll();
@@ -21,6 +23,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // GET: Admin/Tour/Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -28,6 +31,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View();
         }
 
+        // POST: Admin/Tour/Create
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(TOUR model)
@@ -43,6 +47,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View();
         }
 
+        // GET: Admin/Tour/Edit
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -51,6 +56,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // POST: Admin/Tour/Edit
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(TOUR model)
@@ -74,23 +80,20 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View("Index");
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int id)
+        // POST: Ajax
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             var dao = new TourDao();
-            var result = dao.Delete(id);
-            if (result)
+            bool flag = dao.Delete(id);
+            return Json(new
             {
-                SetAlert("Xóa Tour thành công", "success");
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                SetAlert("Xóa Tour thất bại", "error");
-                return View("Index");
-            }
+                status = flag
+            });
         }
 
+        // GET: Admin/Tour/Detail/id
+        [HttpGet]
         public ActionResult Detail(int id)
         {
             var model = new TourDao().ViewDetail(id);

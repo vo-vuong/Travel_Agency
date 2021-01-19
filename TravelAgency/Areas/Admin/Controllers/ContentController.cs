@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using PagedList;
-using Model.Dao;
+﻿using Model.Dao;
 using Model.EF;
+using System.Web.Mvc;
 
 namespace TravelAgency.Areas.Admin.Controllers
 {
+    // Author: VoXuanQuocVuong
+    // Email:  vovuong1025@gmail.com
+    // Date Modified: 19/01/2021
     public class ContentController : BaseController
     {
         public void SetContentCategory()
@@ -25,6 +23,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // GET: Admin/Content/Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -32,12 +31,13 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View();
         }
 
+        // POST: Admin/Content/Create
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(CONTENT model)
         {
             SetContentCategory();
-            
+
             if (ModelState.IsValid)
             {
                 var userSession = (Common.UserLogin)Session[Common.CommonConstant.USER_SESSION];
@@ -57,6 +57,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View();
         }
 
+        // GET: Admin/Content/Edit/id
         [HttpGet]
         [ValidateInput(false)]
         public ActionResult Edit(int id)
@@ -67,6 +68,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // POST: Admin/Content/id
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(CONTENT model)
@@ -91,32 +93,24 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View("Index");
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int id)
+        // POST: Ajax in contentController.js
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
             var dao = new ContentDao();
-            var result = dao.Delete(id);
-
-            if (result)
+            bool flag = dao.Delete(id);
+            return Json(new
             {
-                SetAlert("Xóa bài viết thành công", "success");
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                SetAlert("Xóa bài viết không thành công", "warning");
-                ModelState.AddModelError("", "Xóa bài viết không thành công");
-            }
-
-            return RedirectToAction("Index");
+                status = flag
+            });
         }
 
+        // GET: Admin/Content/Detail/id
         [HttpGet]
         public ActionResult Detail(int id)
         {
             var model = new ContentDao().ViewDetail(id);
             return View(model);
         }
-
     }
 }

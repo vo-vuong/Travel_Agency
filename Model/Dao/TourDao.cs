@@ -9,6 +9,8 @@ namespace Model.Dao
     /// <summary>
     ///The main <c>Tour</c> class.
     ///Contains all methods for performing Tour query functions
+    ///Author: VoXuanQuocVuong
+    ///Email: vovuong1025@gmail.com
     /// </summary>
     public class TourDao
     {
@@ -75,6 +77,11 @@ namespace Model.Dao
             }
         }
 
+        /// <summary>
+        /// Delete a entity of TOURs in database and return bool
+        /// </summary>
+        /// <param name="id">A id of enity TOURs</param>
+        /// <returns>if true is successful or false is fail</returns>
         public bool Delete(int id)
         {
             try

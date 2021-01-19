@@ -1,23 +1,25 @@
 ﻿using Model.Dao;
 using Model.EF;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using TravelAgency.Common;
 using TravelAgency.Areas.Admin.Models;
+using TravelAgency.Common;
 
 namespace TravelAgency.Areas.Admin.Controllers
 {
+    // Author: VoXuanQuocVuong
+    // Email:  vovuong1025@gmail.com
+    // Date Modified: 19/01/2021
     public class UserController : BaseController
     {
+        // Set viewBag for dropdown list role user
         private void SetViewBag()
         {
             var dao = new UserGroupDao();
             ViewBag.idUserGroup = new SelectList(dao.ListAll(), "IDUserGroup", "GroupName");
         }
 
+        // GET: Admin/user
         [HttpGet]
         public ActionResult Index(string searchString, int pageStart = 1, int pageSize = 10)
         {
@@ -26,6 +28,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // GET: Admin/user/Register
         [HttpGet]
         public ActionResult Register()
         {
@@ -33,6 +36,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View();
         }
 
+        // POST: Admin/user/Register
         [HttpPost]
         public ActionResult Register(RegisterAdminModel model)
         {
@@ -65,9 +69,10 @@ namespace TravelAgency.Areas.Admin.Controllers
                     dao.Create(user);
                 }
             }
-            return View(model);
+            return RedirectToAction("Index");
         }
 
+        // GET: Admin/user/Edit/id
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -76,6 +81,7 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View(model);
         }
 
+        // GET: Admin/user/Edit/
         [HttpPost]
         public ActionResult Edit(ACCOUNT model)
         {
@@ -103,19 +109,24 @@ namespace TravelAgency.Areas.Admin.Controllers
             return View("Index");
         }
 
-        public ActionResult Delete(int id)
+        // Post: Ajax in file UserController.js
+        [HttpPost]
+        public JsonResult Delete(int id)
         {
-            SetAlert("Xóa thành Công", "success");
-            var dao = new UserDao().Delete(id);
-            return RedirectToAction("Index", "User");
+            var dao = new UserDao();
+            bool flag = dao.Delete(id);
+            return Json(new
+            {
+                status = flag
+            });
         }
 
+        // GET: Admin/user/Detail/id
         [HttpGet]
         public ActionResult Detail(int id)
         {
             var model = new UserDao().ViewDetail(id);
             return View(model);
         }
-
     }
 }
