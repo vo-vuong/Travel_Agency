@@ -190,6 +190,7 @@
     <Content Include="Assets\Admin\js\controller\CategoryTourController.js" />
     <Content Include="Assets\Admin\js\controller\ContentController.js" />
     <Content Include="Assets\Admin\js\controller\TourController.js" />
+    <Content Include="Assets\Admin\js\controller\UserControllers.js" />
     <Content Include="Assets\Admin\js\dataTables\dataTables.bootstrap.min.js" />
     <Content Include="Assets\Admin\js\dataTables\jquery.dataTables.min.js" />
     <Content Include="Assets\Admin\js\flot-data.js" />
