@@ -3,11 +3,16 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model.Dao
 {
+    /// <summary>
+    ///The main <c>UserDao</c> class.
+    ///Contains all methods for performing User query functions
+    ///Author: VoXuanQuocVuong
+    ///Email: vovuong1025@gmail.com
+    ///Date Modified: 19/01/2021
+    /// </summary>
     public class UserDao
     {
         private TravelAgencyDbContext db = null;
@@ -60,13 +65,17 @@ namespace Model.Dao
                 db.SaveChanges();
                 return result.IDAccount;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return 0;
             }
-           
         }
 
+        /// <summary>
+        /// Delete a entity of ACCOUNTs in database and return bool
+        /// </summary>
+        /// <param name="ID">A id of enity ACCOUNTs</param>
+        /// <returns>if true is successful or false is fail</returns>
         public bool Delete(int ID)
         {
             try

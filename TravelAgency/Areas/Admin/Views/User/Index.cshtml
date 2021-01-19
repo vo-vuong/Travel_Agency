@@ -10,6 +10,10 @@
     Thông tin người dùng
 }
 
+@section jsFooter{
+    <script src="~/Assets/Admin/js/controller/UserControllers.js"></script>
+}
+
 @using (Html.BeginForm("Index", "User", FormMethod.Get))
 {
     <div class="col-md-2">
@@ -57,15 +61,9 @@
                                     <td class="center">@((bool)item.Grener ? "Nam":"Nữ")</td>
                                     <td class="center">@((bool)item.Status ? "Hoạt động" : "Khóa")</td>
                                     <td>
-                                        <a href="/Admin/User/Edit/@item.IDAccount">Sửa |</a>
-                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.IDAccount },
-                                        new AjaxOptions
-                                        {
-                                            Confirm = "Bạn có muốn xóa bản ghi này?",
-                                            OnComplete = "$('#row_" + item.IDAccount + "').remove()",
-                                            HttpMethod = "Delete"
-                                        })
-                                        <a href="/Admin/User/Detail/@item.IDAccount"> | Chi tiết</a>
+                                        <a href="/Admin/User/Edit/@item.IDAccount" class="btn btn-warning btn-sm">Sửa</a>
+                                        <a href="#" class="btn btn-dlUser btn-danger btn-sm" data-id="@item.IDAccount">Xóa</a>
+                                        <a href="/Admin/User/Detail/@item.IDAccount" class="btn btn-default btn-sm">Chi tiết</a>
                                     </td>
                                 </tr>
                             }
