@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace TravelAgency.Models
 {
+    /// <summary>
+    /// The main <c>LoginViewModel</c> class.
+    /// Contains all properties of Login entity
+    /// Author: VoXuanQuocVuong
+    /// Email: vovuong1025@gmail.com
+    /// Date Modified: 19/01/2021
+    /// </summary>
     public class LoginModel
     {
         [Key]

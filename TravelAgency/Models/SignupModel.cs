@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace TravelAgency.Models
 {
+    /// <summary>
+    /// The main <c>SignupViewModel</c> class.
+    /// Contains all properties for performing create a entity Account
+    /// Author: VoXuanQuocVuong
+    /// Email: vovuong1025@gmail.com
+    /// Date Modified: 19/01/2021
+    /// </summary>
     public class SignupModel
     {
         [Key]
@@ -22,11 +25,11 @@ namespace TravelAgency.Models
 
         [DisplayName("Mật khẩu *")]
         [Required(ErrorMessage = "Bạn phải nhập mật khẩu")]
-        [StringLength(20,ErrorMessage ="Mật khẩu từ 6 đến 20 kí tự",MinimumLength =6)]
+        [StringLength(20, ErrorMessage = "Mật khẩu từ 6 đến 20 kí tự", MinimumLength = 6)]
         public string passWord { get; set; }
 
         [DisplayName("Xác nhận mật khẩu *")]
-        [Compare("passWord",ErrorMessage ="Xác nhận mật khẩu không đúng")]
+        [Compare("passWord", ErrorMessage = "Xác nhận mật khẩu không đúng")]
         public string confirmPassWord { get; set; }
 
         [DisplayName("Email *")]
@@ -45,6 +48,5 @@ namespace TravelAgency.Models
 
         [DisplayName("Giới tính")]
         public bool gender { get; set; }
-
     }
 }

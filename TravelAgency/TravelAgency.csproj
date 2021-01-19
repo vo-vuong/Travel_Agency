@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
       <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
     </Reference>
@@ -168,8 +171,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Extensions\EntityExtencions.cs" />
+    <Compile Include="Mappings\AutomapperConfiguration.cs" />
+    <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\CategoryTourViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\ContentViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\SaleViewModel.cs" />
     <Compile Include="Models\SignupModel.cs" />
+    <Compile Include="Models\TourEvaluationViewModel.cs" />
+    <Compile Include="Models\TourSaleViewModel.cs" />
+    <Compile Include="Models\TourViewModel.cs" />
+    <Compile Include="Models\UserGroupViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
