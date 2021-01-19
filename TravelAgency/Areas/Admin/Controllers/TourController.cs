@@ -1,6 +1,8 @@
 ﻿using Model.Dao;
 using Model.EF;
 using System.Web.Mvc;
+using TravelAgency.Models;
+using TravelAgency.Infrastructure.Extensions;
 
 namespace TravelAgency.Areas.Admin.Controllers
 {
@@ -8,6 +10,7 @@ namespace TravelAgency.Areas.Admin.Controllers
     {
         // Author: VoXuanQuocVuong
         // Email:  vovuong1025@gmail.com
+        // Date Modified: 20/1/2021
         private void SetViewBag()
         {
             var dao = new CategoryTourDao().ListAll();
@@ -34,11 +37,13 @@ namespace TravelAgency.Areas.Admin.Controllers
         // POST: Admin/Tour/Create
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(TOUR model)
+        public ActionResult Create(TourViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var dao = new TourDao().Create(model);
+                TOUR tour = new TOUR();
+                tour.UpdateTour(model);
+                var dao = new TourDao().Create(tour);
 
                 SetAlert("Thêm mới Tour thành công", "success");
                 return RedirectToAction("Index");
@@ -59,13 +64,15 @@ namespace TravelAgency.Areas.Admin.Controllers
         // POST: Admin/Tour/Edit
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(TOUR model)
+        public ActionResult Edit(TourViewModel model)
         {
             //SetViewBag();
             TourDao dao = new TourDao();
             if (ModelState.IsValid)
             {
-                bool result = dao.Edit(model);
+                TOUR tour = new TOUR();
+                tour.UpdateTour(model);
+                bool result = dao.Edit(tour);
                 if (result)
                 {
                     SetAlert("Sửa Tour thành công", "success");
