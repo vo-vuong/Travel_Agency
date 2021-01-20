@@ -16,46 +16,61 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="input-group" style="margin: 25px 0px 25px 4rem">
-            <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng nhập</button>&nbsp;
-            <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng ký</button>
+            @if (userSession == null)
+            {
+                <a href="/dang-nhap">
+                    <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng nhập</button>
+                </a>
+                <a href="/dang-ki">
+                    <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng ký</button>
+                </a>
+            }
+            @if (userSession != null)
+            {
+                <p>@userSession.userName</p>
+                using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                {
+                    <button class="btn" style="background-color: #0071BC;color: #FFFFFF;">Đăng xuất</button>
+                }
+            }
         </div>
     </div>
 </div>
 
 @*<div class="header">
-    <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
-    <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
-    <button>Tìm kiếm</button>
-    @if (userSession == null)
-    {
-        <a href="/dang-ki">
-            <h3 class="signup">Đăng ký</h3>
-        </a>
-        <a href="/dang-nhap">
-            <h3 class="login">Đăng nhập</h3>
-        </a>
-    }
-    @if (userSession != null)
-    {
-        <div class="avatar-user">
+        <img class="logo" src="/Assets/Client/images/logo.png" alt="logo">
+        <input type="text" name="search" placeholder=" Bạn tìm gì hôm nay? ...">
+        <button>Tìm kiếm</button>
+        @if (userSession == null)
+        {
+            <a href="/dang-ki">
+                <h3 class="signup">Đăng ký</h3>
+            </a>
+            <a href="/dang-nhap">
+                <h3 class="login">Đăng nhập</h3>
+            </a>
+        }
+        @if (userSession != null)
+        {
+            <div class="avatar-user">
 
-            <h4 class="avatar-drop">@userSession.userName</h4><br><br>
-            <ul class="drop">
-                <li class="dropson">
-                    <img class="avatar" src="@userSession.Image">
-                    <ul class="subbtn">
-                        <li><button>Xem thông tin tài khoản</button></li>
-                        <li><button>Lịch sử giao dịch</button></li>
-                        @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
-                        {
-                            <li><button>Đăng xuất</button></li>
-                        }
-                        <br>
-                    </ul>
-                </li>
-            </ul>
+                <h4 class="avatar-drop">@userSession.userName</h4><br><br>
+                <ul class="drop">
+                    <li class="dropson">
+                        <img class="avatar" src="@userSession.Image">
+                        <ul class="subbtn">
+                            <li><button>Xem thông tin tài khoản</button></li>
+                            <li><button>Lịch sử giao dịch</button></li>
+                            @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                            {
+                                <li><button>Đăng xuất</button></li>
+                            }
+                            <br>
+                        </ul>
+                    </li>
+                </ul>
 
-        </div>
-    }
-</div>*@
+            </div>
+        }
+    </div>*@
 
