@@ -58,7 +58,7 @@ namespace TravelAgency.Controllers
             return View(model);
         }
 
-        public ActionResult Sale(string sort, int pageNumber = 1, int pageSize = 12)
+        public ActionResult Sale(string sort, int pageNumber = 1, int pageSize = 6)
         {
             ViewBag.sort = sort;
             var dao = new TourSaleDao();

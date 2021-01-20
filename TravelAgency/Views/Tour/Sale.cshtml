@@ -8,30 +8,25 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-@*@section css{
-        <link href="/Assets/Client/css/reset.css" rel="stylesheet" />
-        <link href="/Assets/Client/css/dd.css" rel="stylesheet" />
-    }*@
-
 <div class="container">
     <div class="row" style="margin-top: 20px;">
-        <div class="col-md-2">
-            <div class="sidebar" style="margin-top: 60px;">
-                <h4>KHOẢNG GIÁ</h4>
-                <div class="checkbox">
-                    <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">Dưới 3.000.000 VNĐ</label>
+        @*<div class="col-md-2">
+                <div class="sidebar" style="margin-top: 60px;">
+                    <h4>KHOẢNG GIÁ</h4>
+                    <div class="checkbox">
+                        <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">Dưới 3.000.000 VNĐ</label>
+                    </div>
+                    <div class="checkbox">
+                        <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">3.000.000 VNĐ - 7.000.000 VNĐ</label>
+                    </div>
+                    <div class="checkbox">
+                        <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">7.000.000 VNĐ - 10.000.000 VNĐ</label>
+                    </div>
+                    <div class="checkbox">
+                        <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">Trên 10.000.000 VNĐ</label>
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">3.000.000 VNĐ - 7.000.000 VNĐ</label>
-                </div>
-                <div class="checkbox">
-                    <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">7.000.000 VNĐ - 10.000.000 VNĐ</label>
-                </div>
-                <div class="checkbox">
-                    <label style="font-weight: bold;padding-bottom: 5px;"><input type="checkbox" name="">Trên 10.000.000 VNĐ</label>
-                </div>
-            </div>
-        </div>
+            </div>*@
         <div class="col-xs-12 col-md-10">
             <div class="header-content" style="display: flex;justify-content: space-between;">
                 <div class="row">
@@ -41,280 +36,92 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio" checked><span style="font-size: 1.2em;">Từ thấp đến cao</span>
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio"><span style="font-size: 1.2em;">Từ cao đến thấp</span>
-                        </label>
+                        @using (Html.BeginForm("Sale", "Tour", FormMethod.Get))
+                        {
+                            <label class="radio-inline">
+                                @Html.RadioButton("sort", "", new { @checked = true })<span style="font-size: 1.2em;">Ngày khởi hành</span>
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButton("sort", "tang-dan")<span style="font-size: 1.2em;">Giá tăng dần</span>
+                            </label>
+                            <label class="radio-inline">
+                                @Html.RadioButton("sort", "giam-dan")<span style="font-size: 1.2em;">Giá giảm dần</span>
+                            </label>
+                        }
                     </div>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="" style="margin-bottom: 15px;">
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
+                    @foreach (var item in Model.Take(3))
+                    {
+                        <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
+                            <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
+                                <a href="/chi-tiet-tour/@item.TOUR.IDTour"><img src="@item.TOUR.Image" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
+                                <div class="caption" style="padding: 5px 0px 10px 0px;">
+                                    <a href="#" style="text-decoration: none;margin: 0px;">
+                                        <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">@item.TOUR.TourName</h4>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">@item.TOUR.DateStart</span>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">@item.TOUR.Time</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
             <div class="row">
                 <div class="" style="margin-bottom: 15px;">
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
+                    @foreach (var item in Model.Skip(3).Take(3))
+                    {
+                        <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
+                            <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
+                                <a href="/chi-tiet-tour/@item.TOUR.IDTour"><img src="@item.TOUR.Image" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
+                                <div class="caption" style="padding: 5px 0px 10px 0px;">
+                                    <a href="#" style="text-decoration: none;margin: 0px;">
+                                        <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">@item.TOUR.TourName</h4>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">@item.TOUR.DateStart</span>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">@item.TOUR.Time</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-bottom: 5%;">
-                        <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
-                            <a href="#"><img src="nhatrang.jpg" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
-                            <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                <a href="#" style="text-decoration: none;margin: 0px;">
-                                    <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">Du lịch pháp - Ngắm con đường đầy nắng và gió</h4>
-                                </a>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">&nbsp;2.800.000&nbsp;VNĐ</h4>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-calendar" style="margin-left: 10px;margin-bottom: 10px;"></div>&nbsp;<span style="font-weight: bold;">Khởi hành:Thứ 2-7 hằng tuần</span>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <div class="glyphicon glyphicon-flag" style="margin-left: 10px;"></div>&nbsp;<span style="font-weight: bold;">Thời gian: 4 ngày 3 đêm</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12" style="display: flex;justify-content: center;">
                     <ul class="pagination" class="col-xs-12">
-                        <li class="page-item"><a class="page-link" href="#">Trước</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                        @Html.PagedListPager(Model, pageNumber => Url.Action("Sale", new { pageNumber, @sort = ViewBag.sort }))
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@*<div class="title">
-        <a href="/trang-chu">Trang chủ</a>
-        <span>/</span>
-        <a class="tintuc">Tour khuyến mãi</a>
-    </div>
-    <div class="banner">
-        <img src="/Assets/Client/images/bannertourtrongnuoc.jpg">
-    </div>
-
-    <div class="sapxep">
-
-        @using (Html.BeginForm("Sale", "Tour", FormMethod.Get))
-        {
-            <label>Sắp xếp theo : </label>
-            @Html.RadioButton("sort", "", new { @checked = true }); <p>Ngày đăng mới nhất</p>
-
-            @Html.RadioButton("sort", "tang-dan"); <p>Giá tăng dần</p>
-
-            @Html.RadioButton("sort", "giam-dan"); <p>Giá giảm dần</p>
-
-        }
-    </div>
-    <div class="contentgiatot">
-        <div class="content">
-            @foreach (var item in Model.Take(4))
-            {
-                <div class="content1">
-                    <img src="@item.TOUR.Image">
-                    <h4><a href="/chi-tiet-tour/@item.TOUR.IDTour" target="_blank">@item.TOUR.TourName</a></h4>
-                    <div class="xebuytmaybay">
-                        <span>@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</span>
-                    </div>
-                    <div class="lich">
-                        <img src="/Assets/Client/images/lich.svg">
-                        <p>Lịch khởi hành: <strong>@item.TOUR.DateStart</strong></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="thoigian">
-                        <img src="/Assets/Client/images/thoigian.svg">
-                        <p>Thời gian: <strong>@item.TOUR.Time</strong></p>
-                        <div class="clr"></div>
-                    </div>
-                    <div class="giadattour">
-                        <p><strong>@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
-                        <button>ĐẶT TOUR</button>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="content">
-            @foreach (var item in Model.Skip(4).Take(4))
-            {
-            <div class="content1">
-                <img src="@item.TOUR.Image">
-                <h4><a href="travelitalia.html" target="_blank">@item.TOUR.TourName</a></h4>
-                <div class="xebuytmaybay">
-                    <span>@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</span>
-                </div>
-                <div class="lich">
-                    <img src="/Assets/Client/images/lich.svg">
-                    <p>Lịch khởi hành: <strong>@item.TOUR.DateStart</strong></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="thoigian">
-                    <img src="/Assets/Client/images/thoigian.svg">
-                    <p>Thời gian: <strong>@item.TOUR.Time</strong></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="giadattour">
-                    <p><strong>@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
-                    <button>ĐẶT TOUR</button>
-                </div>
-            </div>
-            }
-        </div>
-        <div class="content">
-            @foreach (var item in Model.Skip(8).Take(4))
-            {
-            <div class="content1">
-                <img src="@item.TOUR.Image">
-                <h4><a href="travelitalia.html" target="_blank">@item.TOUR.TourName</a></h4>
-                <div class="xebuytmaybay">
-                    <span>@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</span>
-                </div>
-                <div class="lich">
-                    <img src="/Assets/Client/images/lich.svg">
-                    <p>Lịch khởi hành: <strong>@item.TOUR.DateStart</strong></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="thoigian">
-                    <img src="/Assets/Client/images/thoigian.svg">
-                    <p>Thời gian: <strong>@item.TOUR.Time</strong></p>
-                    <div class="clr"></div>
-                </div>
-                <div class="giadattour">
-                    <p><strong>@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</strong></p>
-                    <button>ĐẶT TOUR</button>
-                </div>
-            </div>
-            }
-        </div>
-    </div>
-    @Html.PagedListPager(Model, pageNumber => Url.Action("Sale", new { pageNumber, @sort = ViewBag.sort }))*@
 
 @section jsFooter{
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
