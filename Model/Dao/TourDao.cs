@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using Model.ViewModel;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Model.Dao
     ///Contains all methods for performing Tour query functions
     ///Author: VoXuanQuocVuong
     ///Email: vovuong1025@gmail.com
+    ///Date Modified: 25/01/2021
     /// </summary>
     public class TourDao
     {
@@ -148,6 +150,56 @@ namespace Model.Dao
         public IEnumerable<TOUR> ListTourDomesticPriceDESCPadding(int pageNumber, int pageSize)
         {
             return db.TOURs.Where(x => x.Status == true && x.IDCategory == 1).OrderByDescending(x => x.Price).ToPagedList(pageNumber, pageSize);
+        }
+
+        public TourViewModel ViewDetailOrSale(int id)
+        {
+            var model = (from tour in db.TOURs
+                         join tourSale in db.TOURSALEs
+                         on tour.IDTour equals tourSale.IDTour
+                         into tours
+                         from x in tours.DefaultIfEmpty()
+                         where tour.Status == true
+                         select new
+                         {
+                             iDTour = tour.IDTour,
+                             tourName = tour.TourName,
+                             description = tour.Description,
+                             shotbody = tour.Shortbody,
+                             image = tour.Image,
+                             policy = tour.policy,
+                             termsProvisions = tour.termsProvisions,
+                             price = tour.Price,
+                             tourSale = x.SaleRate,
+                             quantity = tour.Quantity,
+                             view = tour.Views,
+                             dateCreated = tour.DateCreated,
+                             dateModified = tour.DateModified,
+                             status = tour.Status,
+                             dateStart = tour.DateStart,
+                             time = tour.Time,
+                             locationStart = tour.LocationStart
+                         }).AsEnumerable().Select(x => new TourViewModel()
+                         {
+                             IDTour = x.iDTour,
+                             TourName = x.tourName,
+                             Description = x.description,
+                             Shortbody = x.shotbody,
+                             Image = x.image,
+                             policy = x.policy,
+                             termsProvisions = x.termsProvisions,
+                             Price = x.price,
+                             PriceSale = x.tourSale,
+                             Quantity = x.quantity,
+                             Views = x.view,
+                             DateCreated = x.dateCreated,
+                             DateModified = x.dateModified,
+                             Status = x.status,
+                             DateStart = x.dateStart,
+                             Time = x.time,
+                             LocationStart = x.locationStart
+                         });
+            return model.Where(x => x.IDTour == id).SingleOrDefault();
         }
 
         #endregion

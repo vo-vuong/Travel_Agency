@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Model.Dao;
 using System.Web.Mvc;
-using Model.Dao;
-using Model.EF;
-using PagedList;
-using PagedList.Mvc;
 
 namespace TravelAgency.Controllers
 {
@@ -21,7 +14,8 @@ namespace TravelAgency.Controllers
         public ActionResult Detail(int id)
         {
             var dao = new TourDao();
-            var model = dao.ViewDetail(id);
+            ViewBag.ListTourHot = dao.ListTourHot(5);
+            var model = dao.ViewDetailOrSale(id);
             return View(model);
         }
 
@@ -34,7 +28,8 @@ namespace TravelAgency.Controllers
             if (sort == "tang-dan")
             {
                 model = dao.ListTourAbroadPriceASCPadding(pageNumber, pageSize);
-            }else if(sort == "giam-dan")
+            }
+            else if (sort == "giam-dan")
             {
                 model = dao.ListTourAbroadPriceDESCPadding(pageNumber, pageSize);
             }
@@ -63,11 +58,12 @@ namespace TravelAgency.Controllers
             ViewBag.sort = sort;
             var dao = new TourSaleDao();
             var model = dao.ListTourSalePadding(pageNumber, pageSize);
-            
-            if(sort == "tang-dan")
+
+            if (sort == "tang-dan")
             {
                 model = dao.ListTSalePriceASCPadding(pageNumber, pageSize);
-            }else if(sort == "giam-dan")
+            }
+            else if (sort == "giam-dan")
             {
                 model = dao.ListTSalePriceDESCPadding(pageNumber, pageSize);
             }

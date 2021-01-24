@@ -60,12 +60,12 @@
                             <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
                                 <a href="/chi-tiet-tour/@item.TOUR.IDTour"><img src="@item.TOUR.Image" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
                                 <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                    <a href="#" style="text-decoration: none;margin: 0px;">
+                                    <a href="/chi-tiet-tour/@item.TOUR.IDTour" style="text-decoration: none;margin: 0px;">
                                         <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">@item.TOUR.TourName</h4>
                                     </a>
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
+                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -90,12 +90,12 @@
                             <div style="margin: 0px;transition-duration: .4s;border: 1px solid #777777;border-radius: 6px;" id="image">
                                 <a href="/chi-tiet-tour/@item.TOUR.IDTour"><img src="@item.TOUR.Image" class="img-thumbnail col-xs-12" style="border-top-right-radius: 6px;border-top-left-radius: 6px;margin-bottom: 10px;"></a>
                                 <div class="caption" style="padding: 5px 0px 10px 0px;">
-                                    <a href="#" style="text-decoration: none;margin: 0px;">
+                                    <a href="/chi-tiet-tour/@item.TOUR.IDTour" style="text-decoration: none;margin: 0px;">
                                         <h4 style="margin: 0px;color: #000000;font-size: 1.2em;margin-left: 10px;line-height: 22px;font-weight: bold;">@item.TOUR.TourName</h4>
                                     </a>
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.TOUR.Price.HasValue ? item.TOUR.Price.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
+                                            <h4 style="color: #0071BC;font-weight: bold;font-size: 1.2em;margin-left: 5px;">@(item.SaleRate.HasValue ? item.SaleRate.Value.ToString("N0") + "VND" : "Liên hệ")</h4>
                                         </div>
                                     </div>
                                     <div class="row">
