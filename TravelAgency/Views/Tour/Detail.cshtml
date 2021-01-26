@@ -16,8 +16,6 @@
                 var type = $(this).attr('data-type');
                 var input = $("input[name='" + fieldName + "']");
                 var currentInput = parseInt(input.val());
-                var childrenInput = parseInt($('.totalChildren').html()); console.log(childrenInput);
-                var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
                 //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
                 if (!isNaN(currentInput)) {
                     if (type == 'minus1') {
@@ -33,7 +31,7 @@
                                 subAdults = (currentInput - 1) * parseInt(promotionAdults.replace(/,/g, ""));
                             }
                             $('.totalAdult').text(subAdults);
-                            totalMonney = parseInt($('.totalMonney').text(subAdults + childrenInput + babyInput));
+                            totalMonney = parseInt($('.totalMonney').text(subAdults));
                         }
                         if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
                     } else if (type == 'plus1') {
@@ -48,7 +46,7 @@
                                 sumAdults = (currentInput + 1) * parseInt(promotionAdults.replace(/,/g, ""));
                             }
                             $('.totalAdult').html(sumAdults);
-                            totalMonney = parseInt($('.totalMonney').text(sumAdults + childrenInput + babyInput));
+                            totalMonney = parseInt($('.totalMonney').text(sumAdults));
                         }
                         if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
                     }
@@ -64,80 +62,6 @@
                 if (curVal >= minValAdults) { $(".btn-number1[data-type='minus1']").removeAttr('disabled'); }
                 else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
                 if (curVal <= maxValAdults) { $(".btn-number1[data-type='plus1']").removeAttr('disabled'); }
-                else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
-            });
-            $('.btn-number2').click(function (event) {
-                event.preventDefault();
-                var fieldName = $(this).attr('data-field2');
-                var children = $('#childrenMonney').text();
-                var promotionChildren = $('#promotionChildren').text();
-                var type = $(this).attr('data-type');
-                var input = $("input[name='" + fieldName + "']");
-                var currentInput = parseInt(input.val());
-                var adultsInput = parseInt($('.totalAdult').html()); console.log(adultsInput);
-                var babyInput = parseInt($('.totalBaby').html()); console.log(babyInput);
-                //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
-                if (!isNaN(currentInput)) {
-                    if (type == 'minus2') {
-                        var minVal = parseInt(input.attr('minChildren'));
-                        if (!minVal) minVal = 0;
-                        if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subChildren = (currentInput - 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(subChildren); totalMonney = parseInt($('.totalMonney').text(subChildren + adultsInput + babyInput)); }
-                        if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
-                    } else if (type == 'plus2') {
-                        var maxVal = parseInt(input.attr('maxChildren'));
-                        if (!maxVal) maxVal = 10;
-                        if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumChildren = (currentInput + 1) * parseInt(children) * (100 - parseInt(promotionChildren)) / 100; $('.totalChildren').html(sumChildren); totalMonney = parseInt($('.totalMonney').text(sumChildren + adultsInput + babyInput)); }
-                        if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
-                    }
-                } else { input.val(0); }
-            });
-            $('.input-number-children').focusin(function () { $(this).data('rootVal', $(this).val()); });
-            $('.input-number-children').change(function () {
-                var minValChildren = parseInt($(this).attr('minChildren'));
-                var maxValChildren = parseInt($(this).attr('maxChildren'));
-                if (!minValChildren) { minValChildren == 1 } if (!maxValChildren) { maxValChildren == 1 }
-                var curVal = parseInt($(this).val());
-                var nameVal = $(this).attr('name');
-                if (curVal >= minValChildren) { $(".btn-number2[data-type='minus2']").removeAttr('disabled'); }
-                else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
-                if (curVal <= maxValChildren) { $(".btn-number2[data-type='plus2']").removeAttr('disabled'); }
-                else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
-            });
-            $('.btn-number3').click(function (event) {
-                event.preventDefault();
-                var fieldName = $(this).attr('data-field3');
-                var baby = $('#babyMonney').text();
-                var promotionBaby = $('#promotionBaby').text();
-                var type = $(this).attr('data-type');
-                var input = $("input[name='" + fieldName + "']");
-                var currentInput = parseInt(input.val());
-                var adultsInput = parseInt($('.totalAdult').html());
-                var childrenInput = parseInt($('.totalChildren').html());
-                //var sum = (currentInput+1)*parseInt(adults);console.log(sum);
-                if (!isNaN(currentInput)) {
-                    if (type == 'minus3') {
-                        var minVal = parseInt(input.attr('minBaby'));
-                        if (!minVal) minVal = 0;
-                        if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subBaby = (currentInput - 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(subBaby); totalMonney = parseInt($('.totalMonney').text(childrenInput + adultsInput + subBaby)); }
-                        if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
-                    } else if (type == 'plus3') {
-                        var maxVal = parseInt(input.attr('maxBaby'));
-                        if (!maxVal) maxVal = 10;
-                        if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumBaby = (currentInput + 1) * parseInt(baby) * (100 - parseInt(promotionBaby)) / 100; $('.totalBaby').html(sumBaby); totalMonney = parseInt($('.totalMonney').text(sumBaby + adultsInput + childrenInput)); }
-                        if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
-                    }
-                } else { input.val(0); }
-            });
-            $('.input-number-baby').focusin(function () { $(this).data('rootVal', $(this).val()); });
-            $('.input-number-baby').change(function () {
-                var minValBaby = parseInt($(this).attr('minBaby'));
-                var maxValBaby = parseInt($(this).attr('maxBaby'));
-                if (!minValBaby) { minValBaby == 1 } if (!maxValBaby) { maxValBaby == 1 }
-                var curVal = parseInt($(this).val());
-                var nameVal = $(this).attr('name');
-                if (curVal >= minValBaby) { $(".btn-number3[data-type='minus3']").removeAttr('disabled'); }
-                else { alert('Không thể nhỏ hơn 0 !!!'); $(this).val($(this).data('rootVal')); }
-                if (curVal <= maxValBaby) { $(".btn-number3[data-type='plus3']").removeAttr('disabled'); }
                 else { alert('Tối đa chỉ được 10 !!!'); $(this).val($(this).data('rootVal')); }
             });
         });
@@ -185,16 +109,6 @@
                             <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" name="adults" id="adultsMonney">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ")</td>
                             <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionAdults">@(Model.PriceSale.HasValue ? Model.PriceSale.Value.ToString("N0") : "Không khuyến mãi")</td>
                         </tr>
-                        <tr>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Người cao tuổi</td>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" class="children" id="childrenMonney">@Model.Price</td>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionChildren">15</td>
-                        </tr>
-                        <tr>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Trẻ em</td>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" class="baby" id="babyMonney">1990000</td>
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionBaby">17</td>
-                        </tr>
                     </table>
                 </div>
                 <div class="col-xs-12 col-sm-6">
@@ -233,44 +147,6 @@
                                     </div>
                                 </td>
                                 <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalAdult">0</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;">Em bé</td>
-                                <td style="padding: 5px;">
-                                    <div class="input-group col-xs-12 col-sm-12 col-md-11" style="margin: 0 auto">
-                                        <span class="input-group-btn ">
-                                            <button type="button" class="btn btn-default btn-number2" data-type="minus2" data-field2="quantity2">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" name="quantity2" value="0" minChildren="0" maxChildren="10" class="form-control input-number-children childrenValue" style="text-align: center;" readonly>
-                                        <span class="input-group-btn ">
-                                            <button type="button" class="btn btn-default btn-number2" data-type="plus2" data-field2="quantity2">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalChildren">0</span></td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;">Trẻ em</td>
-                                <td style="padding: 5px;">
-                                    <div class="input-group col-xs-12 col-sm-12 col-md-11" style="margin: 0 auto">
-                                        <span class="input-group-btn ">
-                                            <button type="button" class="btn btn-default btn-number3" data-type="minus3" data-field3="quantity3">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" name="quantity3" value="0" minBaby="0" maxBaby="10" class="form-control input-number-baby babyValue" style="text-align: center;" readonly>
-                                        <span class="input-group-btn ">
-                                            <button type="button" class="btn btn-default btn-number3" data-type="plus3" data-field3="quantity3">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="col-xs-2" style="color: #0071BC;font-weight: bold;text-align: center;"><span class="totalBaby">0</span></td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;text-align: center;color: #CC0000;padding-top: 5px;padding-bottom: 5px;">Tổng tiền</td>
