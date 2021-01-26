@@ -23,12 +23,33 @@
                     if (type == 'minus1') {
                         var minVal = parseInt(input.attr('min1'));
                         if (!minVal) minVal = 0;
-                        if (currentInput > minVal) { input.val(currentInput - 1).change(); console.log(input.val()); subAdults = (currentInput - 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').text(subAdults); totalMonney = parseInt($('.totalMonney').text(subAdults + childrenInput + babyInput)); }
+                        if (currentInput > minVal) {
+                            input.val(currentInput - 1).change();
+                            // caculartor sum
+                            if (isNaN(promotionAdults) == true) {
+                                subAdults = (currentInput - 1) * parseInt(adults.replace(/,/g, ""));
+                                
+                            } else {
+                                subAdults = (currentInput - 1) * parseInt(promotionAdults.replace(/,/g, ""));
+                            }
+                            $('.totalAdult').text(subAdults);
+                            totalMonney = parseInt($('.totalMonney').text(subAdults + childrenInput + babyInput));
+                        }
                         if (parseInt(input.val()) == minVal) { $(this).attr('disabled', true); }
                     } else if (type == 'plus1') {
                         var maxVal = parseInt(input.attr('max1'));
                         if (!maxVal) maxVal = 10;
-                        if (currentInput < maxVal) { input.val(currentInput + 1).change(); console.log(input.val()); sumAdults = (currentInput + 1) * parseInt(adults) * (100 - parseInt(promotionAdults)) / 100;; $('.totalAdult').html(sumAdults); totalMonney = parseInt($('.totalMonney').text(sumAdults + childrenInput + babyInput)); }
+                        if (currentInput < maxVal) {
+                            input.val(currentInput + 1).change();
+                            // caculator sub
+                            if (isNaN(promotionAdults)) {
+                                sumAdults = (currentInput + 1) * parseInt(adults.replace(/,/g, ""));
+                            } else {
+                                sumAdults = (currentInput + 1) * parseInt(promotionAdults.replace(/,/g, ""));
+                            }
+                            $('.totalAdult').html(sumAdults);
+                            totalMonney = parseInt($('.totalMonney').text(sumAdults + childrenInput + babyInput));
+                        }
                         if (parseInt(input.val()) == maxVal) { $(this).attr('disabled', true); }
                     }
                 } else { input.val(0); }
@@ -158,18 +179,11 @@
                     <table class="col-xs-12">
                         <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Loại vé</th>
                         <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Giá vé</th>
-                        <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Khuyến mãi (%)</th>
+                        <th style="color: #CC0000;font-weight: bold;padding: 10px 20px;text-align: center;">Giá khuyến mãi</th>
                         <tr>
                             <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Người lớn</td>
-                            @if (Model.PriceSale != null)
-                            {
-                                <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" name="adults" id="adultsMonney">@(Model.PriceSale.HasValue ? Model.PriceSale.Value.ToString("N0") + "VND" : "Liên hệ")</td>
-                            }
-                            else
-                            {
-                                <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" name="adults" id="adultsMonney">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") + "VND" : "Liên hệ")</td>
-                            }
-                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionAdults">12</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" name="adults" id="adultsMonney">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ")</td>
+                            <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;" id="promotionAdults">@(Model.PriceSale.HasValue ? Model.PriceSale.Value.ToString("N0") : "Không khuyến mãi")</td>
                         </tr>
                         <tr>
                             <td style="color: #0071BC;font-weight: bold;padding: 10px 20px;text-align: center;">Người cao tuổi</td>
@@ -267,9 +281,7 @@
                         <div class="col-xs-12">
 
                             <div class="col-xs-6">
-                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
-                                    <input class="form-control" readonly="" type="text" name="calendar"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                </div>
+                                @Model.DateStart
                             </div>
                             <div class="col-xs-6">
                                 <button class="btn" style="padding-left: 30px;padding-right: 40px;background-color: #0071BC;color: #FFFFFF;"><span class="glyphicon glyphicon-send" style="margin-right: 20px;"></span>Đặt tour</buton>
