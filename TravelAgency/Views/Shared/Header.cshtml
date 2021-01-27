@@ -8,7 +8,9 @@
     </div>
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
         <div class="input-group" style="margin-top: 25px;">
-            <input type="text" name="" class="form-control" placeholder="Bạn tìm kiếm gì hôm nay ...">
+            <form action="/tim-kiem" method="get">
+                <input type="text" id="txtKeyword" name="keyword" class="form-control" placeholder="Bạn tìm kiếm gì hôm nay ...">
+            </form>
             <span class="input-group-btn">
                 <button class="btn" style="background-color: #0071BC;color: #FFFFFF;" type="button">Tìm kiếm</button>
             </span>
