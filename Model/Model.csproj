@@ -77,6 +77,7 @@
     <Compile Include="EF\CONTENTCATEGORY.cs" />
     <Compile Include="EF\MENU.cs" />
     <Compile Include="EF\MESSAGE.cs" />
+    <Compile Include="EF\Order.cs" />
     <Compile Include="EF\SALE.cs" />
     <Compile Include="EF\SLIDE.cs" />
     <Compile Include="EF\TOUR.cs" />
@@ -95,6 +96,10 @@
     <Compile Include="Migrations\202101121716477_update_shortBodyTour.cs" />
     <Compile Include="Migrations\202101121716477_update_shortBodyTour.designer.cs">
       <DependentUpon>202101121716477_update_shortBodyTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101272339354_addCart.cs" />
+    <Compile Include="Migrations\202101272339354_addCart.designer.cs">
+      <DependentUpon>202101272339354_addCart.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101121716477_update_shortBodyTour.resx">
       <DependentUpon>202101121716477_update_shortBodyTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101272339354_addCart.resx">
+      <DependentUpon>202101272339354_addCart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

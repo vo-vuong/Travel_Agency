@@ -18,6 +18,20 @@ namespace TravelAgency
               new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.MapRoute(
+                name: "Cart",
+                url: "gio-hang",
+                defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
+                name: "Add Cart",
+                url: "them-gio-hang",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+                 namespaces: new[] { "TravelAgency.Controllers" }
+             );
+
+            routes.MapRoute(
                 name: "Search",
                 url: "tim-kiem",
                 defaults: new { controller = "Tour", action = "Search", id = UrlParameter.Optional },

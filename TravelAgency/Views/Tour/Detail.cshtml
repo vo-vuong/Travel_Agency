@@ -26,7 +26,7 @@
                             // caculartor sum
                             if (isNaN(promotionAdults) == true) {
                                 subAdults = (currentInput - 1) * parseInt(adults.replace(/,/g, ""));
-                                
+
                             } else {
                                 subAdults = (currentInput - 1) * parseInt(promotionAdults.replace(/,/g, ""));
                             }
@@ -160,7 +160,9 @@
                                 @Model.DateStart
                             </div>
                             <div class="col-xs-6">
-                                <button class="btn" style="padding-left: 30px;padding-right: 40px;background-color: #0071BC;color: #FFFFFF;"><span class="glyphicon glyphicon-send" style="margin-right: 20px;"></span>Đặt tour</buton>
+                                <a href="/them-gio-hang?idTour=@Model.IDTour&quantity=1">
+                                    <button class="btn" style="padding-left: 30px;padding-right: 40px;background-color: #0071BC;color: #FFFFFF;"><span class="glyphicon glyphicon-send" style="margin-right: 20px;"></span>Đặt tour</buton>
+                                </a>
                             </div>
                         </div>
                     </form>

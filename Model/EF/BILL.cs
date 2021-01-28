@@ -16,16 +16,10 @@ namespace Model.EF
 
         public int? IDTour { get; set; }
 
-        public int? IDAccount { get; set; }
-
-        public DateTime? DateCreated { get; set; }
-
-        public DateTime? DateModified { get; set; }
-
-        public bool? Status { get; set; }
-
-        public virtual ACCOUNT ACCOUNT { get; set; }
+        public long? IDOrder { get; set; }
 
         public virtual TOUR TOUR { get; set; }
+
+        public virtual Order Order { get; set; }
     }
 }

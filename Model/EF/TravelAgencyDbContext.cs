@@ -27,6 +27,7 @@ namespace Model.EF
         public virtual DbSet<USERGROUP> USERGROUPs { get; set; }
         public virtual DbSet<MENU> MENUs { get; set; }
         public virtual DbSet<TOURSALE> TOURSALEs { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
