@@ -18,7 +18,7 @@ namespace Model.Seed
                 {
                     TourName = "Đà nẵng",
                     Description = "Đà nẵng đẹp quá",
-                    Image = "/Data/images/Tour/danang.jpg",
+                    Image = "/Data/images/Seed/Tour/danang.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -32,7 +32,7 @@ namespace Model.Seed
                 {
                     TourName = "Đà Lạt",
                     Description = "Đà Lạt đẹp quá",
-                    Image = "/Data/images/Tour/dalat.jpg",
+                    Image = "/Data/images/Seed/Tour/dalat.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -46,7 +46,7 @@ namespace Model.Seed
                 {
                     TourName = "Hội an",
                     Description = "Hội an đẹp quá",
-                    Image = "/Data/images/Tour/hoian.jpg",
+                    Image = "/Data/images/Seed/Tour/hoian.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -60,7 +60,7 @@ namespace Model.Seed
                 {
                     TourName = "Huế",
                     Description = "Huế đẹp quá",
-                    Image = "/Data/images/Tour/hue.jpg",
+                    Image = "/Data/images/Seed/Tour/hue.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -74,7 +74,7 @@ namespace Model.Seed
                 {
                     TourName = "Nha trang",
                     Description = "Nha trang đẹp quá",
-                    Image = "/Data/images/Tour/nhatrang.jpg",
+                    Image = "/Data/images/Seed/Tour/nhatrang.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -88,7 +88,7 @@ namespace Model.Seed
                 {
                     TourName = "Phú quốc",
                     Description = "Huế đẹp quá",
-                    Image = "/Data/images/Tour/phuquoc.jpg",
+                    Image = "/Data/images/Seed/Tour/phuquoc.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -102,7 +102,7 @@ namespace Model.Seed
                 {
                     TourName = "Hạ long",
                     Description = "Hạ long đẹp quá",
-                    Image = "/Data/images/Tour/halong.jpg",
+                    Image = "/Data/images/Seed/Tour/halong.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -116,7 +116,7 @@ namespace Model.Seed
                 {
                     TourName = "Ninh bình",
                     Description = "Huế đẹp quá",
-                    Image = "/Data/images/Tour/ninhbinh.jpg",
+                    Image = "/Data/images/Seed/Tour/ninhbinh.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -130,7 +130,7 @@ namespace Model.Seed
                 {
                     TourName = "Italia",
                     Description = "Italia đẹp quá",
-                    Image = "/Data/images/Tour/italia.jpg",
+                    Image = "/Data/images/Seed/Tour/italia.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -144,7 +144,7 @@ namespace Model.Seed
                 {
                     TourName = "Singapore",
                     Description = "Singapore đẹp quá",
-                    Image = "/Data/images/Tour/singapore.jpg",
+                    Image = "/Data/images/Seed/Tour/singapore.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -158,7 +158,7 @@ namespace Model.Seed
                 {
                     TourName = "Seoul",
                     Description = "Seoul đẹp quá",
-                    Image = "/Data/images/Tour/seoul.jpg",
+                    Image = "/Data/images/Seed/Tour/seoul.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -172,7 +172,7 @@ namespace Model.Seed
                 {
                     TourName = "Trung Quốc",
                     Description = "Trung Quốc đẹp quá",
-                    Image = "/Data/images/Tour/trungquoc.jpg",
+                    Image = "/Data/images/Seed/Tour/trungquoc.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -186,7 +186,7 @@ namespace Model.Seed
                 {
                     TourName = "Thuỵ Sĩ",
                     Description = "Thuỵ Sĩ đẹp quá",
-                    Image = "/Data/images/Tour/thuysi.jpg",
+                    Image = "/Data/images/Seed/Tour/thuysi.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -200,7 +200,7 @@ namespace Model.Seed
                 {
                     TourName = "Scotland",
                     Description = "Scotland đẹp quá",
-                    Image = "/Data/images/Tour/scotland.jpg",
+                    Image = "/Data/images/Seed/Tour/scotland.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -214,7 +214,7 @@ namespace Model.Seed
                 {
                     TourName = "Nhật bản",
                     Description = "Nhật bản đẹp quá",
-                    Image = "/Data/images/Tour/nhatban.jpg",
+                    Image = "/Data/images/Seed/Tour/nhatban.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,
@@ -228,7 +228,7 @@ namespace Model.Seed
                 {
                     TourName = "Pháp",
                     Description = "Pháp đẹp quá",
-                    Image = "/Data/images/Tour/phap.jpg",
+                    Image = "/Data/images/Seed/Tour/phap.jpg",
                     Price = 123456,
                     Quantity = 10,
                     Status = true,

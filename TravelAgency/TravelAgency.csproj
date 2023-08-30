@@ -1338,8 +1338,6 @@
     <Content Include="Data\images\Tour\trungquoc.jpg" />
     <Content Include="Data\images\Tour\tw.JPG" />
     <Content Include="Data\images\Tour\xebuyt.svg" />
-    <Content Include="Data\_thumbs\Images\Admin\96510472_158050295736026_2859395075975151616_n.jpg" />
-    <Content Include="Data\_thumbs\Images\Admin\ales-krivec-Uszp5Gkg0AI-unsplash.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
