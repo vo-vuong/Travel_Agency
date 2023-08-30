@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TravelAgency</RootNamespace>
     <AssemblyName>TravelAgency</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -163,6 +164,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="Mappings\AutomapperConfiguration.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Models\CategoryTourViewModel.cs" />
     <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\ContentViewModel.cs" />
@@ -1241,9 +1244,8 @@
     <Content Include="Assets\Client\css\bootstrap-theme.min.css" />
     <Content Include="Assets\Client\css\bootstrap.css" />
     <Content Include="Assets\Client\css\bootstrap.min.css" />
-    <Content Include="Assets\Client\css\dd.css" />
-    <Content Include="Assets\Client\css\ccc.css" />
     <Content Include="Assets\Client\css\home.css" />
+    <Content Include="Assets\Client\css\jquery-ui.css" />
     <Content Include="Assets\Client\css\loginstyle.css" />
     <Content Include="Assets\Client\css\reset.css" />
     <Content Include="Assets\Client\css\signupsty.css" />
@@ -1256,6 +1258,8 @@
     <Content Include="Assets\Client\jquery\jqueryvalidatemin.js" />
     <Content Include="Assets\Client\js\bootstrap.js" />
     <Content Include="Assets\Client\js\bootstrap.min.js" />
+    <Content Include="Assets\Client\js\Controller\baseController.js" />
+    <Content Include="Assets\Client\js\Controller\CartController.js" />
     <Content Include="Assets\Client\js\jquery.min.js" />
     <Content Include="Assets\Client\js\jquery.validate.min.js" />
     <Content Include="Assets\Client\js\npm.js" />
@@ -1334,8 +1338,6 @@
     <Content Include="Data\images\Tour\trungquoc.jpg" />
     <Content Include="Data\images\Tour\tw.JPG" />
     <Content Include="Data\images\Tour\xebuyt.svg" />
-    <Content Include="Data\_thumbs\Images\Admin\96510472_158050295736026_2859395075975151616_n.jpg" />
-    <Content Include="Data\_thumbs\Images\Admin\ales-krivec-Uszp5Gkg0AI-unsplash.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1402,6 +1404,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -1434,6 +1437,8 @@
     <Content Include="Views\Tour\Abroad.cshtml" />
     <Content Include="Views\Tour\Domestic.cshtml" />
     <Content Include="Views\Tour\Sale.cshtml" />
+    <Content Include="Views\Tour\Search.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Model.Dao;
+using System;
 using System.Web.Mvc;
-using Model.Dao;
-using Model.EF;
-using PagedList;
-using PagedList.Mvc;
 
 namespace TravelAgency.Controllers
 {
@@ -21,11 +15,12 @@ namespace TravelAgency.Controllers
         public ActionResult Detail(int id)
         {
             var dao = new TourDao();
-            var model = dao.ViewDetail(id);
+            ViewBag.ListTourHot = dao.ListTourHot(5);
+            var model = dao.ViewDetailOrSale(id);
             return View(model);
         }
 
-        public ActionResult Abroad(string sort, int pageNumber = 1, int pageSize = 12)
+        public ActionResult Abroad(string sort, int pageNumber = 1, int pageSize = 6)
         {
             ViewBag.sort = sort;
             var dao = new TourDao();
@@ -34,14 +29,15 @@ namespace TravelAgency.Controllers
             if (sort == "tang-dan")
             {
                 model = dao.ListTourAbroadPriceASCPadding(pageNumber, pageSize);
-            }else if(sort == "giam-dan")
+            }
+            else if (sort == "giam-dan")
             {
                 model = dao.ListTourAbroadPriceDESCPadding(pageNumber, pageSize);
             }
             return View(model);
         }
 
-        public ActionResult Domestic(string sort, int pageNumber = 1, int pageSize = 12)
+        public ActionResult Domestic(string sort, int pageNumber = 1, int pageSize = 6)
         {
             ViewBag.sort = sort;
             var dao = new TourDao();
@@ -58,19 +54,52 @@ namespace TravelAgency.Controllers
             return View(model);
         }
 
-        public ActionResult Sale(string sort, int pageNumber = 1, int pageSize = 12)
+        public ActionResult Sale(string sort, int pageNumber = 1, int pageSize = 6)
         {
             ViewBag.sort = sort;
             var dao = new TourSaleDao();
             var model = dao.ListTourSalePadding(pageNumber, pageSize);
-            
-            if(sort == "tang-dan")
+
+            if (sort == "tang-dan")
             {
                 model = dao.ListTSalePriceASCPadding(pageNumber, pageSize);
-            }else if(sort == "giam-dan")
+            }
+            else if (sort == "giam-dan")
             {
                 model = dao.ListTSalePriceDESCPadding(pageNumber, pageSize);
             }
+            return View(model);
+        }
+
+        public JsonResult ListName(string q)
+        {
+            var data = new TourDao().ListName(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Search(string keyword, int page = 1, int pageSize = 10)
+        {
+            int totalRecord = 0;
+            var model = new TourDao().Search(keyword, ref totalRecord, page, pageSize);
+
+            ViewBag.Total = totalRecord;
+            ViewBag.Page = page;
+            ViewBag.Keyword = keyword;
+            int maxPage = 5;
+            int totalPage = 0;
+
+            totalPage = (int)Math.Ceiling((double)(totalRecord / pageSize));
+            ViewBag.TotalPage = totalPage;
+            ViewBag.MaxPage = maxPage;
+            ViewBag.First = 1;
+            ViewBag.Last = totalPage;
+            ViewBag.Next = page + 1;
+            ViewBag.Prev = page - 1;
+
             return View(model);
         }
     }
