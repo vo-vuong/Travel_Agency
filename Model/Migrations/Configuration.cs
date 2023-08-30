@@ -1,5 +1,8 @@
 ﻿namespace Model.Migrations
 {
+    using CommonModel.Common;
+    using Model.EF;
+    using Model.Seed;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -19,6 +22,13 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
+
+            UserGroupSeeder.Seed(context);
+            AccountSeeder.Seed(context);
+            CategoryTourSeeder.Seed(context);
+            TourSeeder.Seed(context);
+            ContentCategorySeeder.Seed(context);
+            ContentSeeder.Seed(context);
         }
     }
 }
